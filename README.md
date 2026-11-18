@@ -273,11 +273,9 @@ El script manda los 5 `POST /tasks` a la vez con `httpx.AsyncClient`: son 5 viaj
 | `1ec8b191` | Ushuaia, solo clima | DONE | 35,3 | 32,4 | 29.096 | $0,0048 | $0,0048 | 0 | memoria (sin pausa) |
 | `f996b969` | Puerto Madryn, USD | DONE | 70,4 | 62,6 | 71.031 | $0,0117 | $0,0117 | 0 | pausa → aprobada |
 
-**5/5 DONE · tiempo total 92,8 s · latencia por job p50 = 79,3 s · p95 = 91,0 s · costo total US$ 0,0708**
+**5/5 DONE · tiempo total 92,8 s · latencia por job p50 = 79,3 s · p95 = 91,0 s · costo total US$ 0,0708** (≈ 92.000 tokens y US$ 0,014 por job en promedio). La memoria estaba cargada por una carga anterior (la que falló por conexiones, §12): por eso 3 de los 5 no se pausaron. Es justo el comportamiento pedido: *si la memoria responde, no hay pausa*.
 
 > **Sobre la p95:** el dashboard de LangSmith ([`04_latencia_p95.png`](screenshots/04_latencia_p95.png)) solo ofrece P50 y P99, y por traza (cada tramo de un job es una traza). La p95 de arriba la calcula `scripts/carga_concurrente.py` por job completo, de POST a DONE, con interpolación lineal sobre las 5 duraciones (`app/observability.percentil`), y queda guardada en [`resultados_carga.md`](screenshots/resultados_carga.md).
-
- (≈ 92.000 tokens y US$ 0,014 por job en promedio). La memoria estaba cargada por una carga anterior (la que falló por conexiones, §12): por eso 3 de los 5 no se pausaron. Es justo el comportamiento pedido: *si la memoria responde, no hay pausa*.
 
 ### Lectura del dashboard: dónde se concentra la latencia y qué nodo consume más tokens
 
