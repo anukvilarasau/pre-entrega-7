@@ -241,7 +241,7 @@ Al reanudar con `Command(resume={"aprobado": …})`, el nodo vuelve a correr des
 | [`01_traza_completa_job.png`](screenshots/01_traza_completa_job.png) | Traza completa de un job real (tramo 2 del job `3e7a2827`, después de aprobar): el árbol `asesor_de_viajes → aprobacion_web → investigador (agent/tools, buscar_en_memoria, buscar_en_web, tavily_search) → supervisor → analista → supervisor → sintesis`, con latencia, tokens y costo |
 | [`02_traza_pausa_hitl.png`](screenshots/02_traza_pausa_hitl.png) | Tramo 1 del mismo job: `supervisor → aprobacion_web` y el grafo detenido por el `interrupt` (GraphInterrupt), con la metadata `job_id` / `tramo: 1` |
 | [`03_costo_por_ejecucion.png`](screenshots/03_costo_por_ejecucion.png) | Los 5 jobs de la prueba de carga con su costo total, tokens y latencia (vista *Threads*: un thread por `job_id`) |
-| [`04_latencia_p95.png`](screenshots/04_latencia_p95.png) | Latencia de las corridas de la prueba de carga en el dashboard (percentiles) |
+| [`04_latencia_p95.png`](screenshots/04_latencia_p95.png) | LangSmith → Monitoring → *Trace Latency* y *Trace Count* de la hora de las corridas reales. **El gráfico de LangSmith muestra P50 y P99, no P95**, y mide **por traza**: un job pausado son dos trazas (tramo 1 y tramo 2). La **p95 por job** (de POST a DONE) está calculada en [`resultados_carga.md`](screenshots/resultados_carga.md) por `scripts/carga_concurrente.py` (§8). El pico rojo de *Trace Count* son los 2 FAILED de la primera carga (§12). |
 | [`resultados_carga.md`](screenshots/resultados_carga.md) | La tabla de la prueba de carga que genera el script (costo local y de LangSmith por job, p50 y p95) |
 
 ![Traza completa de un job](screenshots/01_traza_completa_job.png)
@@ -273,7 +273,11 @@ El script manda los 5 `POST /tasks` a la vez con `httpx.AsyncClient`: son 5 viaj
 | `1ec8b191` | Ushuaia, solo clima | DONE | 35,3 | 32,4 | 29.096 | $0,0048 | $0,0048 | 0 | memoria (sin pausa) |
 | `f996b969` | Puerto Madryn, USD | DONE | 70,4 | 62,6 | 71.031 | $0,0117 | $0,0117 | 0 | pausa → aprobada |
 
-**5/5 DONE · tiempo total 92,8 s · latencia por job p50 = 79,3 s · p95 = 91,0 s · costo total US$ 0,0708** (≈ 92.000 tokens y US$ 0,014 por job en promedio). La memoria estaba cargada por una carga anterior (la que falló por conexiones, §12): por eso 3 de los 5 no se pausaron. Es justo el comportamiento pedido: *si la memoria responde, no hay pausa*.
+**5/5 DONE · tiempo total 92,8 s · latencia por job p50 = 79,3 s · p95 = 91,0 s · costo total US$ 0,0708**
+
+> **Sobre la p95:** el dashboard de LangSmith ([`04_latencia_p95.png`](screenshots/04_latencia_p95.png)) solo ofrece P50 y P99, y por traza (cada tramo de un job es una traza). La p95 de arriba la calcula `scripts/carga_concurrente.py` por job completo, de POST a DONE, con interpolación lineal sobre las 5 duraciones (`app/observability.percentil`), y queda guardada en [`resultados_carga.md`](screenshots/resultados_carga.md).
+
+ (≈ 92.000 tokens y US$ 0,014 por job en promedio). La memoria estaba cargada por una carga anterior (la que falló por conexiones, §12): por eso 3 de los 5 no se pausaron. Es justo el comportamiento pedido: *si la memoria responde, no hay pausa*.
 
 ### Lectura del dashboard: dónde se concentra la latencia y qué nodo consume más tokens
 
