@@ -1,0 +1,319 @@
+{
+  "pregunta": "¿Qué clima hace en El Calafate en mayo y qué excursiones hay?",
+  "escenario": "api_1dbd949a",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:45:09.280-03:00",
+  "fin": "2026-11-18T14:45:46.578-03:00",
+  "duracion_s": 37.3,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": null,
+    "destino": "El Calafate",
+    "fecha_ida": null,
+    "fecha_vuelta": null,
+    "dias": null,
+    "personas": null,
+    "presupuesto": null,
+    "moneda": null,
+    "supuestos": []
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:45:13.402-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "destino": "El Calafate",
+          "supuestos": []
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá con fuente (URL o mem-...) el clima de El Calafate (Santa Cruz, Argentina) en mayo: temperaturas máximas y mínimas medias, lluvias, viento y recomendaciones de abrigo. Además, buscá excursiones y actividades disponibles en El Calafate y alrededores (por ejemplo Glaciar Perito Moreno, navegación por Lago Argentino, trekking, excursiones a El Chaltén), con precios de referencia (rangos o valores \"desde\") y, si se conocen, horarios o temporada de operación en mayo. Incluí la cotización del dólar oficial, tarjeta y MEP (no el blue) solo si aparecen precios en dólares. No hace falta buscar pasajes, alojamiento ni comida porque la pregunta no los pide.",
+        "temas": [
+          "clima",
+          "actividades"
+        ],
+        "evaluacion": "Todavía no hay aportes. R1 (cobertura): la pregunta pide clima de El Calafate en mayo y excursiones; faltan ambos temas. R2 y R3 no aplican aún (no hay hallazgos). R4 no aplica: no hay presupuesto ni pedido de cuentas, así que no se llama al analista. R5 y R6 no aplican sin aportes. Corresponde mandar al investigador a buscar clima y actividades.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:45:20.947-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [
+          "clima",
+          "actividades"
+        ],
+        "temas_en_memoria": [],
+        "pausa": true,
+        "resultado": "rechazada",
+        "origen": "persona",
+        "comentario": "sin gastar búsquedas"
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:45:27.892-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá con fuente (URL o mem-...) el clima de El Calafate (Santa Cruz, Argentina) en mayo: temperaturas máximas y mínimas medias, lluvias, viento y recomendaciones de abrigo. Además, buscá excursiones y actividades disponibles en El Calafate y alrededores (por ejemplo Glaciar Perito Moreno, navegación por Lago Argentino, trekking, excursiones a El Chaltén), con precios de referencia (rangos o valores \"desde\") y, si se conocen, horarios o temporada de operación en mayo. Incluí la cotización del dólar oficial, tarjeta y MEP (no el blue) solo si aparecen precios en dólares. No hace falta buscar pasajes, alojamiento ni comida porque la pregunta no los pide.",
+        "contenido": "## Hallazgos\n### Clima\n- No se encontraron datos de clima para El Calafate en mayo (temperaturas, lluvias, viento ni recomendaciones de abrigo). La memoria local no tenía nada guardado y la búsqueda web fue rechazada por el revisor del pedido.\n\n### Actividades\n- No se encontraron excursiones, actividades ni precios de referencia en El Calafate o alrededores (Glaciar Perito Moreno, navegación por Lago Argentino, trekking, excursiones a El Chaltén). La memoria local no tenía datos y la búsqueda web fue rechazada por el revisor.\n\n### Cambio\n- No se buscó. Como no aparecieron precios en dólares, no corresponde cotización.\n\n## Datos que faltan\n- Clima de El Calafate en mayo: temperaturas máximas y mínimas medias, lluvias, viento y recomendaciones de abrigo. No hay fuente disponible.\n- Excursiones y actividades en El Calafate y alrededores, con precios de referencia, temporada u horarios de operación en mayo. No hay fuente disponible.\n- Para completar esta información, hace falta que el revisor autorice la búsqueda web o que alguien aporte fuentes para estos temas.",
+        "fuentes": [],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima en mayo: temperaturas máximas y mínimas, lluvia, viento, abrigo",
+              "destino": "El Calafate",
+              "tema": "clima"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'clima en mayo: temperaturas máximas y mínimas, lluvia, viento, abrigo' [destino=El Calafate, tema=clima]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:45:27.890-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "excursiones y actividades: Glaciar Perito Moreno, navegación Lago Argentino, trekking, excursión El Chaltén, precios",
+              "destino": "El Calafate",
+              "tema": "actividades"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'excursiones y actividades: Glaciar Perito Moreno, navegación Lago Argentino, trekking, excursión El Chaltén, precios' [destino=El Calafate, tema=actividades]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:45:27.890-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "El Calafate clima mayo temperatura máxima mínima lluvia viento abrigo",
+              "destino": "El Calafate",
+              "tema": "clima"
+            },
+            "resultado": "WEB NO AUTORIZADA: la persona que revisa el pedido RECHAZÓ la búsqueda web, y la memoria no tiene datos de El Calafate / clima. No inventes datos: informalo en 'Datos que faltan'.",
+            "timestamp": "2026-11-18T14:45:27.890-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "El Calafate excursiones precios Glaciar Perito Moreno navegación Lago Argentino El Chaltén trekking temporada",
+              "destino": "El Calafate",
+              "tema": "actividades"
+            },
+            "resultado": "WEB NO AUTORIZADA: la persona que revisa el pedido RECHAZÓ la búsqueda web, y la memoria no tiene datos de El Calafate / actividades. No inventes datos: informalo en 'Datos que faltan'.",
+            "timestamp": "2026-11-18T14:45:27.890-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "clima",
+            "fuentes": 0,
+            "memoria": 0,
+            "web": 0,
+            "con_precios": false
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 0,
+            "memoria": 0,
+            "web": 0,
+            "con_precios": false
+          }
+        ],
+        "observaciones": [
+          "Las búsquedas no devolvieron ninguna fuente utilizable."
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:45:31.841-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "investigador",
+        "instruccion": "Rehacé la búsqueda de clima y actividades de El Calafate (Santa Cruz, Argentina) porque la ronda anterior no devolvió fuentes utilizables. Usá buscar_en_memoria y luego buscar_en_web con consultas más simples y específicas (por ejemplo: \"clima El Calafate mayo temperatura promedio\" y \"excursiones El Calafate Glaciar Perito Moreno precio\"). Para cada hallazgo incluí la URL o el mem-... de la fuente. Clima: temperaturas máximas y mínimas medias en mayo, lluvias, viento y recomendación de abrigo. Actividades: excursiones en El Calafate y alrededores (Glaciar Perito Moreno, navegación Lago Argentino, trekking, excursiones a El Chaltén) con precios de referencia (rangos o valores \"desde\") y temporada u horarios en mayo. No hace falta buscar pasajes, alojamiento, comida ni cambio.",
+        "temas": [
+          "clima",
+          "actividades"
+        ],
+        "evaluacion": "R1 Cobertura: falla. Clima y actividades tienen 0 fuentes y no traen datos; la pregunta pide clima en mayo y excursiones. R2 Fuentes: falla, el aporte no tiene ninguna URL ni mem-. R3 Precios: no aplica estrictamente porque no hay presupuesto, pero las actividades piden precios de referencia y no los hay. R4: no aplica, no hay presupuesto ni cuentas. R5: falla, el chequeo por código marca que las búsquedas no devolvieron fuentes utilizables. R6: sin contradicciones, pero no hay datos. Es el primer intento de investigación y la búsqueda web fue rechazada por el revisor, no por caída confirmada, así que corresponde un único reintento al investigador con instrucción concreta.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:45:32.339-03:00",
+      "detalle": {
+        "ronda": 2,
+        "temas_sin_memoria": [
+          "clima",
+          "actividades"
+        ],
+        "temas_en_memoria": [],
+        "pausa": false,
+        "resultado": "rechazada",
+        "origen": "decision_previa",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:45:38.695-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Rehacé la búsqueda de clima y actividades de El Calafate (Santa Cruz, Argentina) porque la ronda anterior no devolvió fuentes utilizables. Usá buscar_en_memoria y luego buscar_en_web con consultas más simples y específicas (por ejemplo: \"clima El Calafate mayo temperatura promedio\" y \"excursiones El Calafate Glaciar Perito Moreno precio\"). Para cada hallazgo incluí la URL o el mem-... de la fuente. Clima: temperaturas máximas y mínimas medias en mayo, lluvias, viento y recomendación de abrigo. Actividades: excursiones en El Calafate y alrededores (Glaciar Perito Moreno, navegación Lago Argentino, trekking, excursiones a El Chaltén) con precios de referencia (rangos o valores \"desde\") y temporada u horarios en mayo. No hace falta buscar pasajes, alojamiento, comida ni cambio.",
+        "contenido": "## Hallazgos\n### Clima\n- Sin datos. La memoria local no tiene información de El Calafate sobre clima, y la búsqueda web fue rechazada por la persona que revisa el pedido. No se encontraron temperaturas, lluvias, viento ni recomendaciones de abrigo con fuente.\n\n### Actividades\n- Sin datos. La memoria local no tiene información de El Calafate sobre actividades, y la búsqueda web fue rechazada por la persona que revisa el pedido. No se encontraron precios ni horarios de excursiones con fuente.\n\n## Datos que faltan\n- Clima de El Calafate en mayo: temperaturas medias máximas y mínimas, lluvias, viento y recomendación de abrigo. Motivo: búsqueda web rechazada y sin datos en memoria.\n- Actividades en El Calafate y alrededores (Glaciar Perito Moreno, navegación Lago Argentino, trekking, excursiones a El Chaltén): precios de referencia y temporada u horarios en mayo. Motivo: búsqueda web rechazada y sin datos en memoria.\n- Para completar esta búsqueda hace falta que el revisor autorice la búsqueda web para estos temas, o que se cargue manualmente información en la memoria.",
+        "fuentes": [],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima El Calafate mayo temperatura promedio, lluvias, viento, abrigo",
+              "destino": "El Calafate",
+              "tema": "clima"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'clima El Calafate mayo temperatura promedio, lluvias, viento, abrigo' [destino=El Calafate, tema=clima]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:45:38.692-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "excursiones El Calafate Glaciar Perito Moreno precio, navegación Lago Argentino, trekking, El Chaltén",
+              "destino": "El Calafate",
+              "tema": "actividades"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'excursiones El Calafate Glaciar Perito Moreno precio, navegación Lago Argentino, trekking, El Chaltén' [destino=El Calafate, tema=actividades]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:45:38.692-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "clima El Calafate mayo temperatura promedio",
+              "destino": "El Calafate",
+              "tema": "clima"
+            },
+            "resultado": "WEB NO AUTORIZADA: la persona que revisa el pedido RECHAZÓ la búsqueda web, y la memoria no tiene datos de El Calafate / clima. No inventes datos: informalo en 'Datos que faltan'.",
+            "timestamp": "2026-11-18T14:45:38.692-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "excursiones El Calafate Glaciar Perito Moreno precio",
+              "destino": "El Calafate",
+              "tema": "actividades"
+            },
+            "resultado": "WEB NO AUTORIZADA: la persona que revisa el pedido RECHAZÓ la búsqueda web, y la memoria no tiene datos de El Calafate / actividades. No inventes datos: informalo en 'Datos que faltan'.",
+            "timestamp": "2026-11-18T14:45:38.692-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "clima",
+            "fuentes": 0,
+            "memoria": 0,
+            "web": 0,
+            "con_precios": false
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 0,
+            "memoria": 0,
+            "web": 0,
+            "con_precios": false
+          }
+        ],
+        "observaciones": [
+          "Las búsquedas no devolvieron ninguna fuente utilizable."
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:45:41.133-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: falla. Clima y actividades no tienen ninguna fuente ni dato. R2 Fuentes: no hay aportes con URL ni mem-. R3 Precios: no hay precios de excursiones. R4: no aplica, no hay presupuesto. R5: hay observaciones sin resolver, pero el investigador ya reintentó una vez (ronda 2) y la búsqueda web fue rechazada por el revisor; no se puede resolver desde acá. R6: sin contradicciones, pero no hay datos. Como ya se agotó la única ronda de corrección y el problema (búsqueda web caída/rechazada) no se resuelve con más pedidos, conviene finalizar para que la síntesis avise al usuario qué faltó.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 8,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:45:44.284-03:00",
+      "detalle": {
+        "respuesta": "> ⚠️ La búsqueda web no fue autorizada: esta respuesta usa solo los datos que ya estaban en la memoria local de búsquedas, así que puede estar incompleta.\n\n## Lo que no pudimos averiguar\n\nNo pudimos conseguir datos sobre El Calafate en mayo. La búsqueda web no fue autorizada por la persona que revisa el pedido, y la memoria local no tiene información sobre el tema, así que no hay fuentes disponibles para responder.\n\n**Clima en mayo:** no tenemos temperaturas medias, lluvias, viento ni recomendaciones de abrigo.\n\n**Excursiones y actividades:** no tenemos información sobre el Glaciar Perito Moreno, la navegación por el Lago Argentino, el trekking ni las excursiones a El Chaltén. Tampoco tenemos precios de referencia ni horarios de operación en mayo.\n\n## Cómo seguir\n\nPara responder tu consulta hace falta que el revisor autorice la búsqueda web sobre clima y actividades en El Calafate, o que se cargue en la memoria información confiable sobre estos temas.\n\nSi nos decís el origen, las fechas y la cantidad de días, también podemos armar un presupuesto de viaje una vez que tengamos esos datos.\n\n## Fuentes\n- No se usaron fuentes externas."
+      }
+    }
+  ],
+  "respuesta_final": "> ⚠️ La búsqueda web no fue autorizada: esta respuesta usa solo los datos que ya estaban en la memoria local de búsquedas, así que puede estar incompleta.\n\n## Lo que no pudimos averiguar\n\nNo pudimos conseguir datos sobre El Calafate en mayo. La búsqueda web no fue autorizada por la persona que revisa el pedido, y la memoria local no tiene información sobre el tema, así que no hay fuentes disponibles para responder.\n\n**Clima en mayo:** no tenemos temperaturas medias, lluvias, viento ni recomendaciones de abrigo.\n\n**Excursiones y actividades:** no tenemos información sobre el Glaciar Perito Moreno, la navegación por el Lago Argentino, el trekking ni las excursiones a El Chaltén. Tampoco tenemos precios de referencia ni horarios de operación en mayo.\n\n## Cómo seguir\n\nPara responder tu consulta hace falta que el revisor autorice la búsqueda web sobre clima y actividades en El Calafate, o que se cargue en la memoria información confiable sobre estos temas.\n\nSi nos decís el origen, las fechas y la cantidad de días, también podemos armar un presupuesto de viaje una vez que tengamos esos datos.\n\n## Fuentes\n- No se usaron fuentes externas.",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → sintesis",
+    "pasos_supervisor": 3,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 2
+    },
+    "refinamientos": 1,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 4,
+      "buscar_en_web": 4
+    },
+    "busquedas_web": 0,
+    "fuentes_memoria": 0,
+    "fuentes_web": 0,
+    "observaciones": [
+      "Las búsquedas no devolvieron ninguna fuente utilizable.",
+      "Las búsquedas no devolvieron ninguna fuente utilizable."
+    ],
+    "validacion": "no se validó",
+    "presupuesto_entra": null,
+    "alternativa_calculada": false
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "output_token_details": {
+        "reasoning": 89
+      },
+      "output_tokens": 4089,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "total_tokens": 36952,
+      "input_tokens": 32863
+    }
+  },
+  "archivo": "traces\\api\\api_1dbd949a_real_20261118-144509.json"
+}

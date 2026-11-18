@@ -1,0 +1,682 @@
+{
+  "pregunta": "Quiero ir 7 días a Bariloche en enero, somos 2 personas, salimos desde Mendoza y tenemos 800.000 pesos. ¿Me armás el viaje y me decís si nos alcanza?",
+  "escenario": "api_87b36ac6",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:32:23.327-03:00",
+  "fin": "2026-11-18T14:33:55.389-03:00",
+  "duracion_s": 92.06,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "analista",
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": "Mendoza",
+    "destino": "Bariloche",
+    "fecha_ida": "2027-01-10",
+    "fecha_vuelta": "2027-01-16",
+    "dias": 7,
+    "personas": 2,
+    "presupuesto": 800000.0,
+    "moneda": "ARS",
+    "supuestos": [
+      "Enero sin día exacto: ida el 10/01/2027 (próximo enero, ya que enero 2026 ya pasó), vuelta el 16/01/2027 (7 días)."
+    ]
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:32:28.247-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "origen": "Mendoza",
+          "destino": "Bariloche",
+          "fecha_ida": "2027-01-10",
+          "fecha_vuelta": "2027-01-16",
+          "dias": 7,
+          "personas": 2,
+          "presupuesto": 800000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Enero sin día exacto: ida el 10/01/2027 (próximo enero, ya que enero 2026 ya pasó), vuelta el 16/01/2027 (7 días)."
+          ]
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos de referencia para un viaje de Mendoza a Bariloche, ida el 2027-01-10 y vuelta el 2027-01-16 (7 días, 2 personas). Necesito: pasajes aéreos o terrestres Mendoza-Bariloche con al menos un monto por persona (precios de referencia, rangos o valores \"desde\" están bien, no hace falta el precio exacto de esas fechas); alojamiento en Bariloche para 7 días (6 noches) para 2 personas con al menos un monto por noche; comida y actividades con precios aproximados; y la cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente (URL o mem-...) de cada dato y aclará la moneda de cada precio.",
+        "temas": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "cambio"
+        ],
+        "evaluacion": "No hay aportes todavía. La pregunta pide armar el viaje y saber si alcanza el presupuesto, así que hacen falta pasajes, alojamiento, comida/actividades y cotización del dólar (oficial, tarjeta y MEP), con fuentes y precios de referencia. Luego el analista debe validar el viaje y calcular el presupuesto. Ninguno de los puntos R1 a R6 se cumple aún.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:32:28.744-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "cambio"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:32:46.737-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos de referencia para un viaje de Mendoza a Bariloche, ida el 2027-01-10 y vuelta el 2027-01-16 (7 días, 2 personas). Necesito: pasajes aéreos o terrestres Mendoza-Bariloche con al menos un monto por persona (precios de referencia, rangos o valores \"desde\" están bien, no hace falta el precio exacto de esas fechas); alojamiento en Bariloche para 7 días (6 noches) para 2 personas con al menos un monto por noche; comida y actividades con precios aproximados; y la cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente (URL o mem-...) de cada dato y aclará la moneda de cada precio.",
+        "contenido": "## Hallazgos\n\n### Pasajes Mendoza-Bariloche\n- Ida y vuelta promedio de la ruta: $ 294.083 (moneda no especificada, presumiblemente ARS; unidad no especificada, probablemente ida y vuelta) — [https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ] (memoria) [mem-0f05625e7bb7]\n- Enero es uno de los meses más caros para volar: $ 377.011 promedio ida y vuelta (moneda no especificada; unidad no especificada) — [https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ] (memoria) [mem-0f05625e7bb7]\n- Vuelo más barato de referencia en la ruta: $ 63.337 (moneda y unidad no especificadas) — [https://www.kayak.com.ar/vuelos/Mendoza-El-Plumerillo-MDZ/Bariloche-Teniente-Luis-Candelaria-BRC] (memoria) [mem-a2293a0a5065]\n- Micro: \"Desde $72.000 según categoría y fecha\" (moneda no especificada, presumiblemente ARS; unidad no especificada). Operan Andesmar, CATA Internacional y Flecha Bus, en categorías Semicama, Cama y Cama Premium — [https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes] (memoria) [mem-033ff1f16aa7]\n\n### Alojamiento en Bariloche\n- Hotel 4 estrellas: \"unos $158/noche\" (moneda no especificada; unidad no especificada, probablemente por habitación) — [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp] (memoria) [mem-62a4a54dac46]\n- Hotel 5 estrellas: \"$213/noche\" (moneda no especificada; unidad no especificada) — [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp] (memoria) [mem-62a4a54dac46]\n- Hotel desde $28 por noche para 3 estrellas y $77 por noche para 4 estrellas (moneda no especificada; unidad no especificada; precios de fechas cercanas, no de enero) — [https://www.es.kayak.com/Hoteles-en-Bariloche.54322.hotel.ksp] (memoria) [mem-374bc333ef93]\n- Opciones para 2 personas en 1 habitación (posadas, hostels, hoteles, apart hoteles), sin precio visible en el extracto — [https://www.alojamiento.ar/bariloche-department-argentina] (memoria) [mem-f0c458476353]\n\n### Comida (precios aproximados, ARS)\n- Café cortado mediano con medialuna: $9.000 (unidad: por consumición) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Hamburguesa completa con papas fritas: entre $22.000 y $30.000 (por plato) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Pastas con salsa a elección: $25.000 (por plato) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Parrillada para 2 personas: entre $80.000 y $90.000 (por parrillada, para 2) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Fondue de queso para 2 personas: $70.000 (por fondue, para 2) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Pinta de cerveza artesanal: $5.500 (por pinta) — [https://bariloche.org/cuanto_me_cuesta] (memoria) [mem-0019ce230e02]\n- Referencia de otro local (moneda no especificada, precios probablemente desactualizados): Chorizo steak 27.000, trucha 22.500, pollo supremo 16.000, flan 3.500 — [https://www.youtube.com/watch?v=ToGoxtksMS4] (memoria) [mem-73e248a58a4e]\n\n### Actividades (ARS)\n- Excursión lacustre San Martín de los Andes por 7 lagos: Adulto (4 años o más) ARS $90.000 (por persona) — [https://www.turisur.com.ar?c=inicio&v=tarifas] (memoria) [mem-8caa35501769]\n- Excursión de navegación por el brazo Blest (9 hs, desde Puerto Pañuelo): $120.000 para adultos de 13 a 99 años (por persona) — [https://bariloche.org/tarifas-excursiones-bariloche] (memoria) [mem-f2962de0fd34]\n- Mismo tour, niños de 5 a 12 años: $60.000 (por niño) — [https://bariloche.org/tarifas-excursiones-bariloche] (memoria) [mem-f2962de0fd34]\n- Otras opciones de aventura (kayak, cabalgatas, canopy, mountain bike, parapente, etc.), sin precio en el extracto — [https://barilocheturismo.gob.ar/es/verano-en-bariloche] (memoria) [mem-3ff4517c899f]\n\n### Cotización del dólar (ARS por USD)\n- Oficial: venta $1.579,00 (compra $1.515,00) — [https://www.lanacion.com.ar/dolar-hoy] (memoria) [mem-cd4486c8ba76]\n- Oficial: venta $1.570 (compra $1.520) — [https://pagliaccio.com.ar/dolarhoy] (memoria) [mem-6a10ac52826e]\n- Tarjeta: venta $2.052,70 — [https://www.lanacion.com.ar/dolar-hoy] (memoria) [mem-cd4486c8ba76]\n- Tarjeta: venta $2.041 (compra $1.976) — [https://pagliaccio.com.ar/dolarhoy] (memoria) [mem-6a10ac52826e]\n- MEP: venta $1.572,90 — [https://www.lanacion.com.ar/dolar-hoy] (memoria) [mem-cd4486c8ba76]\n- MEP: venta $1.581,10 (compra $1.575,30) — [https://pagliaccio.com.ar/dolarhoy] (memoria) [mem-6a10ac52826e]\n- Nota: la fuente dolarito.ar (mem-13d552ddd1f0) no trae valores legibles y no se usa.\n\n## Datos que faltan\n- Las cotizaciones de la memoria son del 2026-11-18. Son referencia actual, no del viaje en enero de 2027.\n- Pasajes: no hay precio por persona confirmado con moneda y unidad explícitas. Los montos de Kayak y Unibus no aclaran si son por persona, ida o ida y vuelta, ni la moneda.\n- Pasajes: no se buscó en la web porque la memoria trajo resultados. Si el supervisor necesita precio por persona confirmado, corresponde una búsqueda con forzar=true.\n- Alojamiento: los montos de Kayak no aclaran moneda ni si son por habitación o por persona. No hay precio confirmado para 6 noches en enero para 2 personas.\n- Comida y actividades: los precios son de referencia y de fuentes de fechas no definidas; no hay un presupuesto diario confirmado.\n- Presupuesto de 800.000 ARS: con los precios de referencia encontrados, no se puede verificar que alcance (esa cuenta la hace otro agente).",
+        "fuentes": [
+          {
+            "ref": "mem-0f05625e7bb7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-033ff1f16aa7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-a2293a0a5065",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Mendoza-El-Plumerillo-MDZ/Bariloche-Teniente-Luis-Candelaria-BRC",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f0c458476353",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.alojamiento.ar/bariloche-department-argentina",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-62a4a54dac46",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-374bc333ef93",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.es.kayak.com/Hoteles-en-Bariloche.54322.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-647d1f53acd6",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.tiktok.com/@miruugonzalezz/video/7372630094637976837",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-0019ce230e02",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://bariloche.org/cuanto_me_cuesta",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-73e248a58a4e",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.youtube.com/watch?v=ToGoxtksMS4",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-8caa35501769",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.turisur.com.ar?c=inicio&v=tarifas",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-3ff4517c899f",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://barilocheturismo.gob.ar/es/verano-en-bariloche",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f2962de0fd34",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://bariloche.org/tarifas-excursiones-bariloche",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-cd4486c8ba76",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-13d552ddd1f0",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.dolarito.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-6a10ac52826e",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://pagliaccio.com.ar/dolarhoy",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes Mendoza Bariloche precio por persona",
+              "destino": "Bariloche",
+              "tema": "pasajes"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'pasajes Mendoza Bariloche precio por persona':\n\n[mem-0f05625e7bb7] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ\nEl mes más barato para volar desde Bariloche a Mendoza es agosto, con tarifas promedio de $ 0 para un pasaje de ida y vuelta. Por otro lado, los meses más caros son noviembre y enero, con tarifas promedio de $ 389.962 y $ 377.011, respectivamente para un pasaje de ida y vuelta.\n\n### ¿Puedo ahorrar si viajo desde Bariloche a Mend...",
+            "timestamp": "2026-11-18T14:32:46.734-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento precio por noche para 2 personas enero",
+              "destino": "Bariloche",
+              "tema": "alojamiento"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'alojamiento precio por noche para 2 personas enero':\n\n[mem-f0c458476353] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.alojamiento.ar/bariloche-department-argentina\n* Guías de Viajes y Preguntas Frecuentes ### Ahorrá hasta un 93% Las Mejores Ofertas de Alojamiento Económicas en Alquiler Temporario cerca de Bariloche Posada · 2 Personas · 1 Habitación HOPA-Home Patagonia Hostel & Bar Hostel · 2 Personas · 1 Habitación Hostel · 2 Personas · 1 Habitación Hostel · 2 Personas · 1 Habitación Hotel · 2 Personas · 1 Habitación...",
+            "timestamp": "2026-11-18T14:32:46.734-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "precios comida restaurantes promedio",
+              "destino": "Bariloche",
+              "tema": "comida"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'precios comida restaurantes promedio':\n\n[mem-647d1f53acd6] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://www.tiktok.com/@miruugonzalezz/video/7372630094637976837\n🍝 Pastas  \n📍Noquis $7000  \n📍Tallarines $7900  \n📍Ravioles de Verdura y Pollo $9300  \n📍Ravioles de Calabaza $9300  \n📍Sorrentinos de Jamon y Queso $10000  \n📍Agnolotis de Espinaca y Ricota $10000  \n  \n🍨 Postres   \n📍Flan Casero $2000  \n📍Budin de Pan Casero $2500  \n📍Queso y dulce $3500  \n📍Duraznos en Almíbar $2000  \n📍Ensalada de Frutas $3800  \n📍Frutillas $4000  \n📍Frambuesas ...",
+            "timestamp": "2026-11-18T14:32:46.734-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "actividades precios excursiones entradas",
+              "destino": "Bariloche",
+              "tema": "actividades"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'actividades precios excursiones entradas':\n\n[mem-8caa35501769] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.turisur.com.ar?c=inicio&v=tarifas\n# \n\nExcursiones lacustres en la Patagonia Argentina   \nEVT Leg. 944 - Bariloche - Río Negro\n\n[](  [](\n\n### ¿Dónde estamos?\n\n+54 9294 433-9000\n\nOf. Comerciales: Mitre 219 / Mitre 150   \n+54 0294 442-6109   \n+54 0294 442-6110   \n+54 0294 442-6112\n\nOf. Administrativa: Villegas 310   \n+54 0294 442-6154   \n+54 0294 442-6145\n\nEn Puerto Pañuelo: Frente al Hotel Llao Llao   \n+54 0294 44...",
+            "timestamp": "2026-11-18T14:32:46.734-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP",
+              "destino": "Bariloche",
+              "tema": "cambio"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'cotización dólar oficial tarjeta MEP':\n\n[mem-cd4486c8ba76] origen=memoria | tema=cambio | buscado hace 0.0 días (2026-11-18) | url=https://www.lanacion.com.ar/dolar-hoy\n# Cotización del dólar hoy\n\n Banco Central\n Banco Nación\n Servicios Dólar\n Dólar blue\n Mercados\n Dólares\n Argentina\n Dólar Mep\n Inflación y precios\n Dólar CCL\n\n ## Dólar oficial\n\n  Compra$1515,00Venta$1579,00\n ## Dólar blue\n\n  Compra$1522,90Venta$1570,00\n ## Dólar tarjeta\n\n  Venta$2052,70\n ## Dólar CCL\n\n  Venta$1676,01\n ## Dólar MEP\n\n  Venta$1572,90\n ## Dólar mayorista\n\n  Venta$1543,50\n ## Euro\n...",
+            "timestamp": "2026-11-18T14:32:46.734-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "cambio",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:32:51.920-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "analista",
+        "instruccion": "Validá el viaje con los DATOS DEL PEDIDO (Mendoza a Bariloche, ida 2027-01-10, vuelta 2027-01-16, 7 días, 6 noches, 2 personas, presupuesto 800.000 ARS) usando validar_viaje, y después calculá el presupuesto con calcular_presupuesto usando los precios del APORTE #1 del investigador: pasajes (ida y vuelta promedio $294.083 o vuelo más barato de referencia $63.337, indicá cuál usás y si es por persona o total), alojamiento por noche (6 noches, 2 personas; aclará si el precio $158 o $213 es por habitación o por persona y si la moneda es ARS o otra; descartá o marcá como dudosos los $28 y $77 por ser fechas cercanas y posiblemente no comparables), comida diaria estimada para 2 personas y actividades si hay datos, y el cambio si hace falta. Decí explícitamente si el presupuesto de 800.000 ARS alcanza, con los supuestos que usaste, y aclará las unidades dudosas.",
+        "temas": [],
+        "evaluacion": "R1: pasajes, alojamiento, comida, actividades y cambio tienen fuentes y precios (memoria), pero el aporte #1 es solo de memoria; el cambio (dólar oficial, tarjeta, MEP) aparece como tema cubierto, aunque no sé si incluye las tres cotizaciones; no hay búsqueda web. R2: todas las fuentes son URLs o mem-... R3: pasajes y alojamiento traen montos de referencia, aunque algunos sin moneda o unidad clara (ej. hotel \"$158/noche\" de un sitio .sv, posiblemente en otra moneda; pasaje ida y vuelta sin unidad). R4: no hay analista todavía; el presupuesto exige validar_viaje y calcular_presupuesto. R5: sin observaciones por código. R6: hay dudas de unidades (alojamiento $28 y $77 por noche parecen implausibles frente a $158/$213; pasajes ida y vuelta vs por persona), que el analista debe aclarar. Corresponde pasar al analista con los datos existentes para validar y calcular; las unidades dudosas las resuelve el analista aclarándolas.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "analista",
+      "timestamp": "2026-11-18T14:33:17.679-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Validá el viaje con los DATOS DEL PEDIDO (Mendoza a Bariloche, ida 2027-01-10, vuelta 2027-01-16, 7 días, 6 noches, 2 personas, presupuesto 800.000 ARS) usando validar_viaje, y después calculá el presupuesto con calcular_presupuesto usando los precios del APORTE #1 del investigador: pasajes (ida y vuelta promedio $294.083 o vuelo más barato de referencia $63.337, indicá cuál usás y si es por persona o total), alojamiento por noche (6 noches, 2 personas; aclará si el precio $158 o $213 es por habitación o por persona y si la moneda es ARS o otra; descartá o marcá como dudosos los $28 y $77 por ser fechas cercanas y posiblemente no comparables), comida diaria estimada para 2 personas y actividades si hay datos, y el cambio si hace falta. Decí explícitamente si el presupuesto de 800.000 ARS alcanza, con los supuestos que usaste, y aclará las unidades dudosas.",
+        "contenido": "## Validación\n**VÁLIDO:** Mendoza → Bariloche, del 2027-01-10 al 2027-01-16 (7 días, 6 noches), 2 personas, presupuesto $800.000 ARS.\n\n## Presupuesto\n\n**Opción \"económica\" (avión, hotel 4 estrellas en USD, 7 días, 6 noches, 2 personas)**\n- Pasajes avión ida y vuelta: $588.166 ($294.083 por persona × 2). Usé el promedio de Kayak (mem-0f05625e7bb7) como ida y vuelta por persona. La unidad no está confirmada.\n- Alojamiento: $1.945.960. Usé US$158 por noche por habitación × 6 noches, con 2 personas en una habitación. Asumí que el precio está en USD y es por habitación (mem-62a4a54dac46). Ver \"Unidades dudosas\".\n- Comida: $784.000 ($56.000 por persona por día × 7 días × 2 personas). El $56.000 es la suma de café con medialuna ($9.000), hamburguesa ($22.000, mínimo del rango) y pastas ($25.000) (mem-0019ce230e02).\n- Actividades: no incluidas.\n- **TOTAL: $3.318.126. NO ENTRA.** Faltan $2.518.126.\n- Costo por día: $474.018 ($237.009 por persona por día).\n- Conversión: US$158 → $324.327 con dólar tarjeta de $2.053 (mem-cd4486c8ba76).\n\n**Alternativa \"micro\" (misma estructura, pasaje en micro)**\n- Pasajes micro: $288.000 ($72.000 por persona por tramo × 2 tramos × 2 personas). Es un precio \"desde\" y optimista, y su unidad no está confirmada (mem-033ff1f16aa7).\n- Alojamiento: $1.945.960 (igual que arriba).\n- Comida: $784.000 (igual que arriba).\n- **TOTAL: $3.017.960. NO ENTRA.** Faltan $2.217.960.\n- Costo por día: $431.137 ($215.569 por persona por día).\n\n## Conclusión\nCon los precios del investigador, el presupuesto de $800.000 **no alcanza** en ninguna de las dos variantes. El alojamiento en USD es lo que más pesa, y incluso con micro el total supera al presupuesto en más de tres veces. Si los $158 y $213 están en ARS, el resultado cambia por completo y habría que volver a calcular. Antes de decidir, conviene confirmar la moneda y la unidad del alojamiento.\n\n## Unidades dudosas\n- **Alojamiento ($158 y $213):** la fuente no indica moneda ni unidad. Asumí USD por habitación porque el monto parece razonable para un 4 estrellas en esa moneda. Si fueran ARS por persona, el alojamiento bajaría muchísimo, pero el monto sería poco creíble para un hotel real.\n- **$28 y $77:** descartados porque son de fechas cercanas y no de enero, y tampoco tienen moneda ni unidad.\n- **Pasajes:** $294.083 se usó como ida y vuelta por persona. Si fuera el total de las dos personas, el costo de avión bajaría a $294.083. El $63.337 de referencia no lo usé porque no tiene unidad ni tramo.\n- **Dólar:** se usó el tarjeta de La Nación, $2.052,70 (noviembre de 2026, no es el de enero de 2027).\n\n## Datos que faltan\n- Moneda y unidad (por habitación o por persona) del precio de alojamiento. Es el dato más determinante.\n- Precio por persona confirmado de pasajes (avión y micro), con tramo explícito.\n- Precio de alojamiento para enero de 2027 con 6 noches.\n- Actividades: no se usaron. Hay precios de excursiones en ARS (lacustre $90.000, Blest $120.000 por persona), pero no entraban en la opción económica.",
+        "fuentes": [
+          {
+            "ref": "mem-0f05625e7bb7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-62a4a54dac46",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-0019ce230e02",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-cd4486c8ba76",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-033ff1f16aa7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "validar_viaje",
+          "calcular_presupuesto"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "validar_viaje",
+            "argumentos": {
+              "origen": "Mendoza",
+              "destino": "Bariloche",
+              "fecha_ida": "2027-01-10",
+              "fecha_vuelta": "2027-01-16",
+              "personas": 2,
+              "presupuesto": 800000,
+              "moneda": "ARS",
+              "dias_pedidos": 7
+            },
+            "resultado": "VÁLIDO: Mendoza → Bariloche, del 2027-01-10 al 2027-01-16 (7 días, 6 noches), 2 personas, presupuesto $ 800.000.",
+            "timestamp": "2026-11-18T14:33:17.676-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "económica",
+              "personas": 2,
+              "noches": 6,
+              "presupuesto": 800000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 294083,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión ida y vuelta (promedio Kayak, asumido por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-0f05625e7bb7"
+              },
+              "alojamiento": {
+                "monto": 158,
+                "moneda": "USD",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "hotel 4 estrellas (asumido USD, por habitación)",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-62a4a54dac46"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 56000,
+                "moneda": "ARS",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-0019ce230e02"
+              },
+              "tipos_de_cambio": [
+                {
+                  "tipo": "tarjeta",
+                  "valor_ars": 2052.7,
+                  "fuente": "mem-cd4486c8ba76"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'económica' (7 días, 6 noches, 2 personas):\n- Pasajes avión ida y vuelta (promedio Kayak, asumido por persona): $ 588.166  [$ 294.083 por persona (ida y vuelta) × 2 personas]\n- Alojamiento hotel 4 estrellas (asumido USD, por habitación): $ 1.945.960  [$ 324.327 por noche por habitación × 6 noches × 1 habitación (de 2 personas)]\n- Comida: $ 784.000  [$ 56.000 por persona por día × 7 días × 2 personas]\nTOTAL: $ 3.318.126 | PRESUPUESTO: $ 800.000\nRESULTADO: NO ENTRA en el presupuesto. Faltan $ 2.518.126.\nCosto por día: $ 474.018 | por persona por día: $ 237.009\nConversiones d...",
+            "timestamp": "2026-11-18T14:33:17.676-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "alternativa micro",
+              "personas": 2,
+              "noches": 6,
+              "presupuesto": 800000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 72000,
+                "moneda": "ARS",
+                "tramo": "por_tramo",
+                "medio": "micro semicama (desde, optimista; unidad asumida por tramo y por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-033ff1f16aa7"
+              },
+              "alojamiento": {
+                "monto": 158,
+                "moneda": "USD",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "hotel 4 estrellas (asumido USD, por habitación)",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-62a4a54dac46"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 56000,
+                "moneda": "ARS",
+                "medio_pago": "tarjeta",
+                "fuente": "mem-0019ce230e02"
+              },
+              "tipos_de_cambio": [
+                {
+                  "tipo": "tarjeta",
+                  "valor_ars": 2052.7,
+                  "fuente": "mem-cd4486c8ba76"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'alternativa micro' (7 días, 6 noches, 2 personas):\n- Pasajes micro semicama (desde, optimista; unidad asumida por tramo y por persona): $ 288.000  [$ 72.000 por persona por tramo × 2 tramos × 2 personas]\n- Alojamiento hotel 4 estrellas (asumido USD, por habitación): $ 1.945.960  [$ 324.327 por noche por habitación × 6 noches × 1 habitación (de 2 personas)]\n- Comida: $ 784.000  [$ 56.000 por persona por día × 7 días × 2 personas]\nTOTAL: $ 3.017.960 | PRESUPUESTO: $ 800.000\nRESULTADO: NO ENTRA en el presupuesto. Faltan $ 2.217.960.\nCosto por día: $ 431.137 | por persona por...",
+            "timestamp": "2026-11-18T14:33:17.676-03:00"
+          }
+        ],
+        "cobertura": [],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:33:21.866-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "investigador",
+        "instruccion": "Buscá en la web (no solo memoria) precios de referencia con moneda y unidad explícitas para: (1) alojamiento en Bariloche para 2 personas por noche en enero 2027 (o temporada alta cercana), indicando si el precio es en ARS o USD, y si es por habitación o por persona; (2) pasajes Mendoza-Bariloche (avión y micro) indicando si el monto es por persona, por tramo o ida y vuelta, y la moneda. Indicá la URL de cada dato y marcá explícitamente moneda y unidad de cada precio. Si la búsqueda web no devuelve nada, decilo.",
+        "temas": [
+          "alojamiento",
+          "pasajes"
+        ],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes y precios por memoria. OK. R2 Fuentes: todos los aportes tienen URL o mem-. OK. R3 Precios: pasajes y alojamiento tienen montos de referencia, pero la moneda y unidad del alojamiento ($158/$213) no están confirmadas por la fuente; el analista asumió USD por habitación sin verificar. Es una incoherencia de unidades que condiciona todo el cálculo. R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) y calcular_presupuesto, y dijo que no entra en ninguna variante. OK. R5 Observaciones: ninguna pendiente por código. R6 Coherencia: el analista mismo marca dudas de moneda/unidad en alojamiento y pasajes (ida y vuelta por persona vs. total), y el resultado depende de esas suposiciones. Hay que resolverlo antes de finalizar, pero el investigador ya tuvo una ronda de búsqueda y los temas tienen fuentes; lo que falta es confirmar moneda y unidad. Como el investigador usó solo memoria, conviene una búsqueda web para confirmar moneda/unidad de alojamiento y pasajes, pero es el último intento razonable.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:33:22.366-03:00",
+      "detalle": {
+        "ronda": 3,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "alojamiento",
+          "pasajes"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 8,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:33:37.405-03:00",
+      "detalle": {
+        "ronda": 3,
+        "instruccion": "Buscá en la web (no solo memoria) precios de referencia con moneda y unidad explícitas para: (1) alojamiento en Bariloche para 2 personas por noche en enero 2027 (o temporada alta cercana), indicando si el precio es en ARS o USD, y si es por habitación o por persona; (2) pasajes Mendoza-Bariloche (avión y micro) indicando si el monto es por persona, por tramo o ida y vuelta, y la moneda. Indicá la URL de cada dato y marcá explícitamente moneda y unidad de cada precio. Si la búsqueda web no devuelve nada, decilo.",
+        "contenido": "## Hallazgos\n\nNota: el pedido era buscar en la web, pero la herramienta de búsqueda web no se ejecutó. Respondió que la memoria ya tenía datos vigentes (de hoy, 2026-11-18) y no permitió forzar la búsqueda. Por eso los hallazgos son de memoria, con su URL original. Varios datos no indican moneda ni unidad, y lo marco en cada caso.\n\n### Alojamiento (Bariloche)\n- Hoteles de 4 estrellas: \"lo normal es pagar unos $158/noche\"; de 5 estrellas: \"$213/noche\". Moneda no especificada. Unidad: por noche, sin aclarar si es por habitación o por persona ni para cuántas personas. Los precios \"cambian según la fecha\" y no corresponden a enero 2027 — [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp] (memoria, mem-62a4a54dac46)\n- Habitación más barata en la última búsqueda (fin de semana próximo, últimos 3 días): $28/noche; 3 estrellas desde $28/noche y 4 estrellas desde $77/noche. Moneda no especificada. Unidad: por noche (habitación; no aclara cantidad de personas). Fecha de referencia distinta a enero 2027 — [https://www.es.kayak.com/Hoteles-en-Bariloche.54322.hotel.ksp] (memoria, mem-374bc333ef93)\n- Listado de alojamientos \"2 Personas · 1 Habitación\" sin precio visible — [https://www.alojamiento.ar/bariloche-department-argentina] (memoria, mem-f0c458476353)\n\n### Pasajes (Mendoza–Bariloche)\n- Micro: \"Desde $72.000 según categoría y fecha\". Moneda no especificada (probablemente ARS, sin confirmar). Unidad no especificada (ni por persona ni por tramo, ni ida ni ida y vuelta). Operan Andesmar, CATA Internacional y Flecha Bus — [https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes] (memoria, mem-033ff1f16aa7)\n- Avión Mendoza (MDZ) → Bariloche (BRC): \"Volá más barato $63.337\". Moneda no especificada. Unidad: vuelo de solo ida según el propio dato; no aclara si es por persona. Temporada alta indicada: enero — [https://www.kayak.com.ar/vuelos/Mendoza-El-Plumerillo-MDZ/Bariloche-Teniente-Luis-Candelaria-BRC] (memoria, mem-a2293a0a5065)\n- Avión en sentido inverso (Bariloche → Mendoza), promedio ida y vuelta: enero $377.011; noviembre $389.962; ruta con escala promedio $294.083. Moneda presumiblemente pesos (sitio .ar), pero no lo indica; unidad: ida y vuelta, sin aclarar si es por persona — [https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ] (memoria, mem-0f05625e7bb7)\n\n## Datos que faltan\n- Búsqueda web no ejecutada para alojamiento y pasajes: la herramienta devolvió datos de memoria y no permitió forzar. Hace falta una nueva búsqueda web si se requiere confirmar.\n- Alojamiento: ningún precio confirmado en ARS o USD, ni por habitación para 2 personas, ni para enero 2027 (las fechas de referencia no coinciden).\n- Pasajes: ningún monto con moneda y unidad explícitas (por persona, por tramo o ida y vuelta) para la ruta Mendoza → Bariloche en micro ni en avión.\n- Pasajes en micro: no hay precio de micro para la fecha de ida del 10/01/2027 ni para la vuelta del 16/01/2027.",
+        "fuentes": [
+          {
+            "ref": "mem-f0c458476353",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.alojamiento.ar/bariloche-department-argentina",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-62a4a54dac46",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-374bc333ef93",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.es.kayak.com/Hoteles-en-Bariloche.54322.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-0f05625e7bb7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-033ff1f16aa7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-a2293a0a5065",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Mendoza-El-Plumerillo-MDZ/Bariloche-Teniente-Luis-Candelaria-BRC",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento para 2 personas por noche en enero, precio por noche",
+              "destino": "Bariloche",
+              "tema": "alojamiento"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'alojamiento para 2 personas por noche en enero, precio por noche':\n\n[mem-f0c458476353] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.alojamiento.ar/bariloche-department-argentina\n* Guías de Viajes y Preguntas Frecuentes ### Ahorrá hasta un 93% Las Mejores Ofertas de Alojamiento Económicas en Alquiler Temporario cerca de Bariloche Posada · 2 Personas · 1 Habitación HOPA-Home Patagonia Hostel & Bar Hostel · 2 Personas · 1 Habitación Hostel · 2 Personas · 1 Habitación Hostel · 2 Personas · 1 Habitación Hotel · 2 Personas ...",
+            "timestamp": "2026-11-18T14:33:37.401-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes Mendoza Bariloche avión y micro, precio por persona o tramo",
+              "destino": "Bariloche",
+              "tema": "pasajes"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'pasajes Mendoza Bariloche avión y micro, precio por persona o tramo':\n\n[mem-0f05625e7bb7] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ\nEl mes más barato para volar desde Bariloche a Mendoza es agosto, con tarifas promedio de $ 0 para un pasaje de ida y vuelta. Por otro lado, los meses más caros son noviembre y enero, con tarifas promedio de $ 389.962 y $ 377.011, respectivamente para un pasaje de ida y vuelta.\n\n### ¿Puedo ahorrar si viajo...",
+            "timestamp": "2026-11-18T14:33:37.401-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio hotel por noche Bariloche enero 2027 2 personas habitación doble ARS USD",
+              "destino": "Bariloche",
+              "tema": "alojamiento",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'precio hotel por noche Bariloche enero 2027 2 personas habitación doble ARS USD':\n\n[mem-f0c458476353] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.alojamiento.ar/bariloche-department-argentina\n* Guías de Viajes y Preguntas Frecuentes ### Ahorrá hasta un 93% Las Mejores Ofertas de Alojamiento Económicas en Alquiler Temporario cerca de Bariloche Posada · 2 Personas · 1 Habitación HOPA-Home Patagonia Hoste...",
+            "timestamp": "2026-11-18T14:33:37.401-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio pasaje micro y avión Mendoza Bariloche por persona tramo o ida y vuelta ARS",
+              "destino": "Bariloche",
+              "tema": "pasajes",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'precio pasaje micro y avión Mendoza Bariloche por persona tramo o ida y vuelta ARS':\n\n[mem-0f05625e7bb7] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ\nEl mes más barato para volar desde Bariloche a Mendoza es agosto, con tarifas promedio de $ 0 para un pasaje de ida y vuelta. Por otro lado, los meses más caros son noviembre ...",
+            "timestamp": "2026-11-18T14:33:37.401-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 9,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:33:40.629-03:00",
+      "detalle": {
+        "paso": 4,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes y precios. R2 Fuentes: todos los aportes citan URL o mem-. R3 Precios: pasajes y alojamiento tienen montos de referencia. R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) y calcular_presupuesto; dijo que no alcanza ($3.318.126 y $3.017.960 frente a $800.000). R5 Observaciones: ninguna pendiente. R6 Coherencia: el analista asumió que el alojamiento ($158/$213) es USD por habitación, pero la fuente no indica moneda; el aporte #3 confirma que la moneda y la unidad no están aclaradas. Esta duda afecta el resultado, aunque el analista ya lo marcó como dudoso. El investigador ya tuvo una ronda de corrección y la web no devolvió datos nuevos, así que no conviene repetir la búsqueda. La conclusión de que no alcanza se sostiene en ambos supuestos razonables (por ejemplo, con alojamiento en ARS el total baja, pero los pasajes y la comida por sí solos ya suman cerca de $1.000.000). Se puede finalizar informando las unidades dudosas.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 10,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:33:52.761-03:00",
+      "detalle": {
+        "respuesta": "## Respuesta corta\n\n**No les alcanza.** Con los precios de referencia que encontramos, el viaje cuesta entre **$3.017.960 y $3.318.126** para 2 personas, contra un presupuesto de **$800.000**. Faltan entre $2.217.960 y $2.518.126.\n\n## Itinerario (10/01/2027 al 16/01/2027, 7 días, 6 noches)\n\n- **Día 1 (10/01): Llegada.** Viaje desde Mendoza y check-in. Clima: no relevado.\n- **Día 2 (11/01): Navegación por el brazo Blest.** Excursión de 9 hs desde Puerto Pañuelo, $120.000 por adulto [https://bariloche.org/tarifas-excursiones-bariloche] [mem-f2962de0fd34]. Clima: no relevado.\n- **Día 3 (12/01): Excursión lacustre por 7 lagos.** $90.000 por persona [https://www.turisur.com.ar?c=inicio&v=tarifas] [mem-8caa35501769]. Clima: no relevado.\n- **Día 4 (13/01): Aventura a elección** (kayak, cabalgatas, canopy, mountain bike o parapente). Hay opciones, pero no encontramos precios [https://barilocheturismo.gob.ar/es/verano-en-bariloche] [mem-3ff4517c899f]. Clima: no relevado.\n- **Días 5 y 6 (14 y 15/01): Libres.** No hay más actividades con datos, así que quedan para descanso, paseo por la ciudad o las actividades de los días anteriores si quieren repetir alguna.\n- **Día 7 (16/01): Regreso a Mendoza.**\n\n## Presupuesto\n\nCálculo del analista para 2 personas, 7 días, con el dólar tarjeta de $2.052,70 (noviembre de 2026, no es el de enero de 2027) [https://www.lanacion.com.ar/dolar-hoy] [mem-cd4486c8ba76].\n\n**Opción avión, hotel 4 estrellas**\n- Pasajes ida y vuelta: $588.166 ($294.083 por persona) [https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ] [mem-0f05625e7bb7]\n- Alojamiento: $1.945.960 (US$158 por noche × 6 noches, en una habitación) [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp] [mem-62a4a54dac46]\n- Comida: $784.000 ($56.000 por persona por día) [https://bariloche.org/cuanto_me_cuesta] [mem-0019ce230e02]\n- Actividades: no incluidas\n- **Total: $3.318.126.** No alcanza. Costo por día: $474.018.\n\n**Opción micro, misma estructura**\n- Pasajes en micro: $288.000 (desde $72.000 por persona por tramo) [https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes] [mem-033ff1f16aa7]\n- Alojamiento y comida: igual que arriba ($1.945.960 y $784.000)\n- **Total: $3.017.960.** No alcanza. Costo por día: $431.137.\n\n## Alternativas\n\nCon estos precios, ninguna variante entra en $800.000. Lo que más pesa es el alojamiento. Algunas ideas para acercarse al presupuesto (no las calculamos):\n- Reducir los días: cada noche de hotel cuesta lo mismo, así que un viaje más corto baja el total.\n- Viajar en micro en lugar de avión: el ahorro en pasajes es de $300.000 aprox., pero no alcanza para cubrir la diferencia.\n- Buscar alojamiento más económico (hostel, posada o apart) para 2 personas.\n- Cocinar en el alojamiento para reducir la comida, que hoy suma $784.000.\n- Priorizar actividades gratuitas y dejar las excursiones pagas para una sola.\n\nAntes de decidir, conviene confirmar si el precio del alojamiento está en dólares o en pesos y si es por habitación o por persona. Si fuera en pesos, el cálculo cambia por completo.\n\n## Lo que no pudimos averiguar\n\n- **Moneda y unidad del alojamiento:** las fuentes no lo indican. Asumimos dólares por habitación, pero es el dato que más pesa en el resultado.\n- **Pasajes:** no hay precio por persona confirmado para enero de 2027. Los montos de referencia no aclaran si son por persona, por tramo o ida y vuelta.\n- **Alojamiento para enero de 2027:** no encontramos precios para esas fechas.\n- **Clima:** no tenemos datos del clima esperado para las fechas del viaje.\n- **Actividades de aventura:** hay opciones, pero no sus precios.\n\n## Fuentes\n- [memoria] mem-0f05625e7bb7 → https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ — pasajes, buscado el 2026-11-18\n- [memoria] mem-033ff1f16aa7 → https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes — pasajes, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 → https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 → https://bariloche.org/cuanto_me_cuesta — comida, buscado el 2026-11-18\n- [memoria] mem-8caa35501769 → https://www.turisur.com.ar?c=inicio&v=tarifas — actividades, buscado el 2026-11-18\n- [memoria] mem-3ff4517c899f → https://barilocheturismo.gob.ar/es/verano-en-bariloche — actividades, buscado el 2026-11-18\n- [memoria] mem-f2962de0fd34 → https://bariloche.org/tarifas-excursiones-bariloche — actividades, buscado el 2026-11-18\n- [memoria] mem-cd4486c8ba76 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [memoria] mem-0f05625e7bb7 — pasajes, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 — comida, buscado el 2026-11-18\n- [memoria] mem-cd4486c8ba76 — cambio, buscado el 2026-11-18\n- [memoria] mem-033ff1f16aa7 — pasajes, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Respuesta corta\n\n**No les alcanza.** Con los precios de referencia que encontramos, el viaje cuesta entre **$3.017.960 y $3.318.126** para 2 personas, contra un presupuesto de **$800.000**. Faltan entre $2.217.960 y $2.518.126.\n\n## Itinerario (10/01/2027 al 16/01/2027, 7 días, 6 noches)\n\n- **Día 1 (10/01): Llegada.** Viaje desde Mendoza y check-in. Clima: no relevado.\n- **Día 2 (11/01): Navegación por el brazo Blest.** Excursión de 9 hs desde Puerto Pañuelo, $120.000 por adulto [https://bariloche.org/tarifas-excursiones-bariloche] [mem-f2962de0fd34]. Clima: no relevado.\n- **Día 3 (12/01): Excursión lacustre por 7 lagos.** $90.000 por persona [https://www.turisur.com.ar?c=inicio&v=tarifas] [mem-8caa35501769]. Clima: no relevado.\n- **Día 4 (13/01): Aventura a elección** (kayak, cabalgatas, canopy, mountain bike o parapente). Hay opciones, pero no encontramos precios [https://barilocheturismo.gob.ar/es/verano-en-bariloche] [mem-3ff4517c899f]. Clima: no relevado.\n- **Días 5 y 6 (14 y 15/01): Libres.** No hay más actividades con datos, así que quedan para descanso, paseo por la ciudad o las actividades de los días anteriores si quieren repetir alguna.\n- **Día 7 (16/01): Regreso a Mendoza.**\n\n## Presupuesto\n\nCálculo del analista para 2 personas, 7 días, con el dólar tarjeta de $2.052,70 (noviembre de 2026, no es el de enero de 2027) [https://www.lanacion.com.ar/dolar-hoy] [mem-cd4486c8ba76].\n\n**Opción avión, hotel 4 estrellas**\n- Pasajes ida y vuelta: $588.166 ($294.083 por persona) [https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ] [mem-0f05625e7bb7]\n- Alojamiento: $1.945.960 (US$158 por noche × 6 noches, en una habitación) [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp] [mem-62a4a54dac46]\n- Comida: $784.000 ($56.000 por persona por día) [https://bariloche.org/cuanto_me_cuesta] [mem-0019ce230e02]\n- Actividades: no incluidas\n- **Total: $3.318.126.** No alcanza. Costo por día: $474.018.\n\n**Opción micro, misma estructura**\n- Pasajes en micro: $288.000 (desde $72.000 por persona por tramo) [https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes] [mem-033ff1f16aa7]\n- Alojamiento y comida: igual que arriba ($1.945.960 y $784.000)\n- **Total: $3.017.960.** No alcanza. Costo por día: $431.137.\n\n## Alternativas\n\nCon estos precios, ninguna variante entra en $800.000. Lo que más pesa es el alojamiento. Algunas ideas para acercarse al presupuesto (no las calculamos):\n- Reducir los días: cada noche de hotel cuesta lo mismo, así que un viaje más corto baja el total.\n- Viajar en micro en lugar de avión: el ahorro en pasajes es de $300.000 aprox., pero no alcanza para cubrir la diferencia.\n- Buscar alojamiento más económico (hostel, posada o apart) para 2 personas.\n- Cocinar en el alojamiento para reducir la comida, que hoy suma $784.000.\n- Priorizar actividades gratuitas y dejar las excursiones pagas para una sola.\n\nAntes de decidir, conviene confirmar si el precio del alojamiento está en dólares o en pesos y si es por habitación o por persona. Si fuera en pesos, el cálculo cambia por completo.\n\n## Lo que no pudimos averiguar\n\n- **Moneda y unidad del alojamiento:** las fuentes no lo indican. Asumimos dólares por habitación, pero es el dato que más pesa en el resultado.\n- **Pasajes:** no hay precio por persona confirmado para enero de 2027. Los montos de referencia no aclaran si son por persona, por tramo o ida y vuelta.\n- **Alojamiento para enero de 2027:** no encontramos precios para esas fechas.\n- **Clima:** no tenemos datos del clima esperado para las fechas del viaje.\n- **Actividades de aventura:** hay opciones, pero no sus precios.\n\n## Fuentes\n- [memoria] mem-0f05625e7bb7 → https://www.kayak.com.ar/vuelos/Bariloche-Teniente-Luis-Candelaria-BRC/Mendoza-El-Plumerillo-MDZ — pasajes, buscado el 2026-11-18\n- [memoria] mem-033ff1f16aa7 → https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes — pasajes, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 → https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 → https://bariloche.org/cuanto_me_cuesta — comida, buscado el 2026-11-18\n- [memoria] mem-8caa35501769 → https://www.turisur.com.ar?c=inicio&v=tarifas — actividades, buscado el 2026-11-18\n- [memoria] mem-3ff4517c899f → https://barilocheturismo.gob.ar/es/verano-en-bariloche — actividades, buscado el 2026-11-18\n- [memoria] mem-f2962de0fd34 → https://bariloche.org/tarifas-excursiones-bariloche — actividades, buscado el 2026-11-18\n- [memoria] mem-cd4486c8ba76 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [memoria] mem-0f05625e7bb7 — pasajes, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 — comida, buscado el 2026-11-18\n- [memoria] mem-cd4486c8ba76 — cambio, buscado el 2026-11-18\n- [memoria] mem-033ff1f16aa7 — pasajes, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → aprobacion_web → investigador → supervisor → sintesis",
+    "pasos_supervisor": 4,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 2,
+      "analista": 1
+    },
+    "refinamientos": 1,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 7,
+      "validar_viaje": 1,
+      "calcular_presupuesto": 2,
+      "buscar_en_web": 2
+    },
+    "busquedas_web": 0,
+    "fuentes_memoria": 15,
+    "fuentes_web": 0,
+    "observaciones": [],
+    "validacion": "aprobada",
+    "presupuesto_entra": false,
+    "alternativa_calculada": true
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "input_token_details": {
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_read": 0
+      },
+      "input_tokens": 98791,
+      "total_tokens": 116144,
+      "output_tokens": 17353,
+      "output_token_details": {
+        "reasoning": 4386
+      }
+    }
+  },
+  "archivo": "traces\\api\\api_87b36ac6_real_20261118-143223.json"
+}

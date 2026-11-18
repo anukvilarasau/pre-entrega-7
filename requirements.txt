@@ -1,0 +1,33 @@
+# Python 3.12 · instalar con: python -m pip install -r requirements.txt
+# --- Grafo multi-agente (PE6) ---
+langgraph==1.2.18
+langgraph-checkpoint==4.3.2
+# LLM: Claude vía LangChain
+langchain-core==1.7.3
+langchain-anthropic==1.7.7
+anthropic==2.3.0
+# Búsqueda web (reemplaza a TavilySearchResults, deprecado)
+langchain-tavily==0.2.18
+langchain==1.4.7          # dependencia de langchain-tavily (fijada para que la instalación sea reproducible)
+# Memoria local de búsquedas (embeddings ONNX por defecto, sin torch)
+chromadb==1.5.9
+# Validación y configuración
+pydantic==2.14.2
+python-dotenv==1.2.4
+# --- API de producción (PE7) ---
+fastapi==0.164.0
+uvicorn==0.54.0
+httpx==0.28.1             # cliente async de la prueba de carga y de los tests
+# Estado de los jobs (redis.asyncio) + checkpoints de LangGraph en Redis (necesita Redis 8+ o Redis Stack)
+redis==8.1.0
+langgraph-checkpoint-redis==0.6.0
+redisvl==0.32.1           # dependencia de langgraph-checkpoint-redis (fijada)
+fakeredis==2.40.0         # modo mock y tests: Redis en memoria, sin servidor
+# Observabilidad
+langsmith==0.15.0
+# --- Tests (sin API key) ---
+pytest==9.2.0
+pytest-asyncio==1.4.1.post1
+# --- Notebook de demo (ejecutarlo y guardar sus salidas) ---
+ipykernel==7.4.0
+nbconvert==7.17.2

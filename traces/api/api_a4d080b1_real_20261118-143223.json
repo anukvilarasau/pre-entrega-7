@@ -1,0 +1,772 @@
+{
+  "pregunta": "Quiero ir 6 días a Puerto Madryn en octubre, somos 2 personas, salimos desde Buenos Aires y tenemos 1.500 dólares. ¿Me armás el viaje y me decís si alcanza?",
+  "escenario": "api_a4d080b1",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:32:23.593-03:00",
+  "fin": "2026-11-18T14:34:06.895-03:00",
+  "duracion_s": 103.3,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "analista",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": "Buenos Aires",
+    "destino": "Puerto Madryn",
+    "fecha_ida": "2027-10-10",
+    "fecha_vuelta": "2027-10-15",
+    "dias": 6,
+    "personas": 2,
+    "presupuesto": 1500.0,
+    "moneda": "USD",
+    "supuestos": [
+      "Octubre sin día exacto: ida el 10/10/2027 (octubre de 2026 ya pasó)",
+      "Vuelta calculada como ida + 5 días (6 días de viaje): 15/10/2027"
+    ]
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:32:29.723-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "origen": "Buenos Aires",
+          "destino": "Puerto Madryn",
+          "fecha_ida": "2027-10-10",
+          "fecha_vuelta": "2027-10-15",
+          "dias": 6,
+          "personas": 2,
+          "presupuesto": 1500.0,
+          "moneda": "USD",
+          "supuestos": [
+            "Octubre sin día exacto: ida el 10/10/2027 (octubre de 2026 ya pasó)",
+            "Vuelta calculada como ida + 5 días (6 días de viaje): 15/10/2027"
+          ]
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-...) para un viaje de Buenos Aires a Puerto Madryn, ida 2027-10-10, vuelta 2027-10-15, 2 personas, 6 días. Necesitamos precios de REFERENCIA (rangos, valores \"desde\" o promedios de fechas cercanas), no precios exactos para esas fechas. Indicá si cada precio es por persona o total. Temas: pasajes (aéreos o terrestres Buenos Aires-Puerto Madryn ida y vuelta), alojamiento (hoteles/alojamientos en Puerto Madryn para 5 noches, con precio por noche), comida (rango de precio por persona por día), actividades (excursiones principales, p. ej. Península Valdés, con precio de referencia), clima (temperatura típica de octubre) y cotización del dólar oficial, tarjeta y MEP (no el blue).",
+        "temas": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "evaluacion": "Pedido con presupuesto (1.500 USD, 2 personas, 6 días a Puerto Madryn). Rúbrica: R1 cobertura, R2 fuentes, R3 precios y R4 cálculo están todos pendientes porque no hay aportes todavía. No hay observaciones (R5) ni incoherencias (R6) que revisar aún. Hace falta primero que el investigador traiga pasajes y alojamiento con precios de referencia, más comida/actividades y cotización del dólar, y después el analista valide y calcule.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:32:36.698-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "temas_en_memoria": [],
+        "pausa": true,
+        "resultado": "aprobada",
+        "origen": "persona",
+        "comentario": "prueba de carga"
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:33:13.010-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-...) para un viaje de Buenos Aires a Puerto Madryn, ida 2027-10-10, vuelta 2027-10-15, 2 personas, 6 días. Necesitamos precios de REFERENCIA (rangos, valores \"desde\" o promedios de fechas cercanas), no precios exactos para esas fechas. Indicá si cada precio es por persona o total. Temas: pasajes (aéreos o terrestres Buenos Aires-Puerto Madryn ida y vuelta), alojamiento (hoteles/alojamientos en Puerto Madryn para 5 noches, con precio por noche), comida (rango de precio por persona por día), actividades (excursiones principales, p. ej. Península Valdés, con precio de referencia), clima (temperatura típica de octubre) y cotización del dólar oficial, tarjeta y MEP (no el blue).",
+        "contenido": "## Hallazgos\n\n### Pasajes (Buenos Aires – Puerto Madryn, ida y vuelta)\n- Flybondi, ida y vuelta, la mejor oferta encontrada para la ruta: $114.162 ARS. Unidad no especificada (no dice si es por persona o total) y sin fecha de referencia. [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE] (web)\n- Otras ofertas de ida y vuelta de la misma fuente, en los últimos 5 días: Flybondi $128.005 ARS y Aerolíneas Argentinas $190.519 ARS. Unidad no especificada. Ruta PMY–BUE, es decir, sentido inverso. [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE] (web)\n- Promedio mensual más barato según la misma fuente: febrero, $49.118 ARS de ida y vuelta. Unidad no especificada. [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE] (web)\n- Momondo muestra \"vuelos desde $45\" BUE–PMY ida y vuelta, 1 adulto, sin moneda ni fecha claras. Se toma solo como referencia dudosa. [https://www.es.momondo.com/vuelos/buenos-aires/puerto-madryn] (web)\n- Micro: Central de Pasajes vende micros a Puerto Madryn online, pero la página no informa precio. [https://www.centraldepasajes.com.ar] (web)\n\n### Alojamiento (Puerto Madryn)\n- Hoteles desde $60.261 ARS por noche. Unidad no especificada. [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] (web)\n- Habitación de 3 estrellas: $81.321 ARS por noche (mejor oferta en 3 días). Unidad no especificada, probablemente por habitación. [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] (web)\n- Habitación de 4 estrellas: desde $128.494 ARS por noche. Unidad no especificada. [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] (web)\n- Otra página de KAYAK: hoteles de 2 estrellas desde $152.222, 3 estrellas desde $126.312 y 4 estrellas o más desde $288.250 ARS. Unidad no especificada, y los valores no coinciden con la página anterior. [https://www.kayak.com.co/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] (web)\n- Booking.com lista hoteles y hostels económicos en la ciudad, pero no da precios. [https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html] (web)\n\n### Comida (rango por persona por día, en USD)\n- Comida callejera o supermercado: USD 5–15 por comida. [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn] (web)\n- Restaurante económico (minutas, parrillas, menú del día): USD 15–30 por comida. [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn] (web)\n- Restaurante de gama media (mariscos, especialidades): USD 30–60 por comida. [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn] (web)\n- Reseña de Wanderlog: \"aprox 2300 por persona\" en un restaurante familiar, sin fecha ni moneda claras. [https://wanderlog.com/es/list/geoCategory/34574/los-mejores-restaurantes-familiares-en-puerto-madryn] (web)\n\n### Actividades\n- Paseo en barco por Puerto Pirámides con avistamiento de ballenas (excursión a Península Valdés desde Puerto Madryn): $150.000 ARS por adulto. Al no incluir el almuerzo, el precio no es el total de la jornada. [https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes] (web)\n- Entrada a la Reserva Península Valdés (no incluida en la excursión): $50.000 ARS por adulto extranjero (dato 2026), $20.000 ARS por nacional. Vale 2 ingresos en 7 días. [https://www.puertomadrynturismo.com.ar/peninsula-valdes.html] (web)\n- Entrada a la Reserva en Civitatis: $45.000 ARS por adulto extranjero y $15.000 ARS por adulto argentino. Los montos difieren de la fuente anterior. [https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes] (web)\n- Tour de día completo a Península Valdés con Howlanders: el precio no aparece en el texto consultado. La entrada se paga aparte, en efectivo o con tarjeta. [https://www.howlanders.com/en/tours-argentina/puerto-madryn/peninsula-valdes] (web)\n\n### Clima (octubre)\n- Máxima media de 20,9 °C y mínima de 7,5 °C, con unos 7 días de precipitación. [https://www.puertomadrynturismo.com.ar/clima.html] (web)\n- Promedio de 19 °C (máx.) / 11 °C (mín.). [https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October] (web)\n- Máximas que suben de 19 °C a 23 °C a lo largo del mes, con mínimas que rara vez bajan de 13 °C ni superan 29 °C. [https://es.weatherspark.com/m/27871/10/Tiempo-promedio-en-octubre-en-Puerto-Madryn-Argentina] (web)\n\n### Cotización del dólar (ARS por USD)\n- Oficial: venta $1.579,00 (compra $1.515,00). [https://www.lanacion.com.ar/dolar-hoy] (web)\n- Tarjeta: $2.052,70 (La Nación). [https://www.lanacion.com.ar/dolar-hoy] (web)\n- Tarjeta: $2.047,50 (Cronista). [https://www.cronista.com/MercadosOnline/dolar.html] (web)\n- MEP: $1.572,90 (La Nación). [https://www.lanacion.com.ar/dolar-hoy] (web)\n- MEP: $1.595,91 (Cronista). [https://www.cronista.com/MercadosOnline/dolar.html] (web)\n- Oficial (Banco Nación) según Cronista: venta $1.575,00. [https://www.cronista.com/MercadosOnline/dolar.html] (web)\n- Las dos fuentes no tienen la misma fecha de cotización, y La Nación muestra un título con fecha de 15 de noviembre. Conviene verificar la cotización al momento de cotizar.\n\n## Datos que faltan\n- Pasajes: no hay precios por persona de ida y vuelta confirmados ni tarifas para octubre de 2027. Los datos de Kayak no indican si son por persona o total. No hay precios de micro.\n- Alojamiento: no se confirmó si los precios son por habitación o por persona, ni por qué se diferencian las dos páginas de KAYAK. No hay precios para octubre de 2027.\n- Comida: los rangos de USD son por comida, no por persona por día. No hay un total diario por persona confirmado.\n- Actividades: no hay precio del tour completo de Península Valdés con almuerzo incluido. Las entradas de la reserva varían según la fuente.\n- Clima: no hay datos del año 2027, solo promedios históricos.\n- Cambio: las fuentes no tienen la misma fecha, así que la cotización puede no estar actualizada.\n- Memoria local: no había datos previos sobre este destino, así que todo lo anterior viene de búsquedas web nuevas.",
+        "fuentes": [
+          {
+            "ref": "https://www.es.momondo.com/vuelos/buenos-aires/puerto-madryn",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.es.momondo.com/vuelos/buenos-aires/puerto-madryn",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.centraldepasajes.com.ar",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.centraldepasajes.com.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.kayak.com.co/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.co/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://wanderlog.com/es/list/geoCategory/34574/los-mejores-restaurantes-familiares-en-puerto-madryn",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://wanderlog.com/es/list/geoCategory/34574/los-mejores-restaurantes-familiares-en-puerto-madryn",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.tiktok.com/discover/donde-comer-en-año-nuevo-en-puerto-madryn",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.tiktok.com/discover/donde-comer-en-año-nuevo-en-puerto-madryn",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes?aid=11724&cmp=postPatagonia_Widget&cmpint=ES_NOBUTT_NOGREY_MAN_COMF_NOLAT_NOSDW_NORND_NOCOL_MON_NEU&is_widget=true&currency=EUR",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes?aid=11724&cmp=postPatagonia_Widget&cmpint=ES_NOBUTT_NOGREY_MAN_COMF_NOLAT_NOSDW_NORND_NOCOL_MON_NEU&is_widget=true&currency=EUR",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.howlanders.com/en/tours-argentina/puerto-madryn/peninsula-valdes",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.howlanders.com/en/tours-argentina/puerto-madryn/peninsula-valdes",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://es.weatherspark.com/m/27871/10/Tiempo-promedio-en-octubre-en-Puerto-Madryn-Argentina",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://es.weatherspark.com/m/27871/10/Tiempo-promedio-en-octubre-en-Puerto-Madryn-Argentina",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.puertomadrynturismo.com.ar/clima.html",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://www.puertomadrynturismo.com.ar/clima.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.lanacion.com.ar/dolar-hoy",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.dolarito.ar",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.dolarito.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes aéreos o micro Buenos Aires a Puerto Madryn ida y vuelta precio",
+              "destino": "Puerto Madryn",
+              "tema": "pasajes"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'pasajes aéreos o micro Buenos Aires a Puerto Madryn ida y vuelta precio' [destino=Puerto Madryn, tema=pasajes]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.005-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento hoteles precio por noche",
+              "destino": "Puerto Madryn",
+              "tema": "alojamiento"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'alojamiento hoteles precio por noche' [destino=Puerto Madryn, tema=alojamiento]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.005-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "comida restaurantes precio por persona por día",
+              "destino": "Puerto Madryn",
+              "tema": "comida"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'comida restaurantes precio por persona por día' [destino=Puerto Madryn, tema=comida]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.005-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "excursiones Península Valdés precio de referencia",
+              "destino": "Puerto Madryn",
+              "tema": "actividades"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'excursiones Península Valdés precio de referencia' [destino=Puerto Madryn, tema=actividades]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima temperatura típica octubre",
+              "destino": "Puerto Madryn",
+              "tema": "clima"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'clima temperatura típica octubre' [destino=Puerto Madryn, tema=clima]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP",
+              "destino": "Buenos Aires",
+              "tema": "cambio"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'cotización dólar oficial tarjeta MEP' [destino=Buenos Aires, tema=cambio]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "pasajes micro o avión Buenos Aires a Puerto Madryn precio ida y vuelta por persona",
+              "destino": "Puerto Madryn",
+              "tema": "pasajes"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'pasajes micro o avión Buenos Aires a Puerto Madryn precio ida y vuelta por persona' (guardados en memoria):\n\n[https://www.es.momondo.com/vuelos/buenos-aires/puerto-madryn] origen=web | tema=pasajes | guardado como mem-6a7f7f54e4e9\nVuelos baratos por $45 desde Buenos Aires a Puerto Madryn en 2026 | momondo\nUnited States (English)\n Estados Unidos (Español)\n\n  Estados Unidos (Español)\n Uruguay (Español)\n\n  Uruguay (Español)\n Україна (Українська)\n\n  Україна (Українська)\n Украина (Русский)\n\n  Украина (Русский)\n\n# Vuelos baratos desde Buenos Aires a Puerto Madryn de...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "hoteles Puerto Madryn precio por noche por habitación",
+              "destino": "Puerto Madryn",
+              "tema": "alojamiento"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'hoteles Puerto Madryn precio por noche por habitación' (guardados en memoria):\n\n[https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] origen=web | tema=alojamiento | guardado como mem-2264d46ababa\nHoteles en Puerto Madryn desde $ 60.261/noche - Buscar en KAYAK\n### ¿Cuánto cuestan los alojamientos tipo hotel en Puerto Madryn esta noche?\n\nLa mejor oferta de una habitación de 3 estrellas en un alojamiento tipo hotel en Puerto Madryn encontrada por los usuarios de KAYAK en los últimos 3 días fue de $ 81.321, mientras que el precio más bajo para una ha...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio comida restaurantes Puerto Madryn por persona por día",
+              "destino": "Puerto Madryn",
+              "tema": "comida"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'precio comida restaurantes Puerto Madryn por persona por día' (guardados en memoria):\n\n[https://www.patagoniahub.travel/es/budget-guide/puerto-madryn] origen=web | tema=comida | guardado como mem-f1624ce90c27\nPuerto Madryn Económico 2026 — Costos, Consejos y Guía de Ahorro | PatagoniaHub\n| Tipo | Rango de Precios | Consejos |\n --- \n| Comida Callejera/Supermercado | USD 5-15 por comida | Comprar en supermercados y preparar tus propias comidas es la forma más económica. Busca panaderías locales para empanadas y sándwiches. |\n| Restaurante Económico (Minutas, Par...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "excursión Península Valdés precio por persona tour",
+              "destino": "Puerto Madryn",
+              "tema": "actividades"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'excursión Península Valdés precio por persona tour' (guardados en memoria):\n\n[https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes?aid=11724&cmp=postPatagonia_Widget&cmpint=ES_NOBUTT_NOGREY_MAN_COMF_NOLAT_NOSDW_NORND_NOCOL_MON_NEU&is_widget=true&currency=EUR] origen=web | tema=actividades | guardado como mem-a18b9d116f03\nExcursión a la Península Valdés desde Puerto Madryn - Civitatis\nPaseo en barco por Puerto Pirámides con avistamiento de ballenas: 150.000 ARS (92 €) por adulto, 75.000 ARS (46 €) por niño de 4 a 12 años y gratis menores de 4 a...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "clima Puerto Madryn octubre temperatura promedio",
+              "destino": "Puerto Madryn",
+              "tema": "clima"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'clima Puerto Madryn octubre temperatura promedio' (guardados en memoria):\n\n[https://es.weatherspark.com/m/27871/10/Tiempo-promedio-en-octubre-en-Puerto-Madryn-Argentina] origen=web | tema=clima | guardado como mem-6879dd93b1fc\nEl tiempo en Puerto Madryn en octubre, temperatura promedio (Argentina)\nLas temperaturas máximas diarias aumentan 4 °C, de 19 °C a 23 °C y rara vez bajan a menos de 13 °C o exceden 29 °C. Las temperaturas mínimas diarias aumentan 3\n\n[https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October] origen=web...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP hoy Argentina",
+              "destino": "Buenos Aires",
+              "tema": "cambio"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'cotización dólar oficial tarjeta MEP hoy Argentina' (guardados en memoria):\n\n[https://www.lanacion.com.ar/dolar-hoy] origen=web | tema=cambio | guardado como mem-b787c697984c\nÚltimas noticias de Cotización del Dólar Hoy, Precio del Dólar el 15 de noviembre - LA NACION\n# Cotización del dólar hoy\n\n Banco Central\n Banco Nación\n Servicios Dólar\n Dólar blue\n Mercados\n Dólares\n Argentina\n Dólar Mep\n Inflación y precios\n Dólar CCL\n\n ## Dólar oficial\n\n  Compra$1515,00Venta$1579,00\n ## Dólar blue\n\n  Compra$1522,90Venta$1570,00\n ## Dólar tarjeta\n\n  Venta$2052,70\n ## Dól...",
+            "timestamp": "2026-11-18T14:33:13.006-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "clima",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": false
+          },
+          {
+            "tema": "cambio",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:33:17.393-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "analista",
+        "instruccion": "Validá el viaje (Buenos Aires a Puerto Madryn, ida 2027-10-10, vuelta 2027-10-15, 2 personas, 6 días, presupuesto 1.500 USD) y ejecutá validar_viaje y calcular_presupuesto con los precios del investigador. Usá: pasajes ida y vuelta de referencia (Flybondi $114.162 ARS, aclarar si es por persona o total; si no está claro, indicá el supuesto), alojamiento por noche para 5 noches (Hoteles desde $60.261 ARS o 3 estrellas $81.321 ARS por noche, según criterio, aclarando la discrepancia con la otra página de KAYAK), comida USD 15-30 por persona por día para restaurantes económicos y USD 5-15 para comida callejera/supermercado, y actividades (Península Valdés, con precio de referencia de los hallazgos). Convertí ARS a USD con la cotización oficial, tarjeta y MEP del investigador (no el blue). Decí explícitamente si el viaje entra en 1.500 USD y qué unidades asumiste.",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes y precios; falta clima sin precios (el clima no requiere precio, solo temperatura típica; el aporte de clima no trae datos numéricos según la cobertura). Como la pregunta pide armar el viaje, el clima es parte del armado pero sin precio; se puede aceptar si el investigador da temperatura típica. R2 Fuentes: todos los aportes tienen URL. R3 Precios: pasajes y alojamiento traen montos, aunque sin unidad clara (persona/total, noche/habitación); el analista debe aclararlo. R4 Cálculo: no hay aporte del analista todavía; hay presupuesto, así que hace falta validar_viaje y calcular_presupuesto. R5 Observaciones: ninguna pendiente. R6 Coherencia: hay fuentes con monedas mezcladas (ARS y USD) y una página de alojamiento con valores que no coinciden con otra; el analista debe convertir a USD con la cotización y aclarar la discrepancia.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "analista",
+      "timestamp": "2026-11-18T14:33:47.181-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Validá el viaje (Buenos Aires a Puerto Madryn, ida 2027-10-10, vuelta 2027-10-15, 2 personas, 6 días, presupuesto 1.500 USD) y ejecutá validar_viaje y calcular_presupuesto con los precios del investigador. Usá: pasajes ida y vuelta de referencia (Flybondi $114.162 ARS, aclarar si es por persona o total; si no está claro, indicá el supuesto), alojamiento por noche para 5 noches (Hoteles desde $60.261 ARS o 3 estrellas $81.321 ARS por noche, según criterio, aclarando la discrepancia con la otra página de KAYAK), comida USD 15-30 por persona por día para restaurantes económicos y USD 5-15 para comida callejera/supermercado, y actividades (Península Valdés, con precio de referencia de los hallazgos). Convertí ARS a USD con la cotización oficial, tarjeta y MEP del investigador (no el blue). Decí explícitamente si el viaje entra en 1.500 USD y qué unidades asumiste.",
+        "contenido": "## Validación\n**VÁLIDO:** Buenos Aires → Puerto Madryn, del 2027-10-10 al 2027-10-15 (6 días, 5 noches), 2 personas, presupuesto US$ 1.500,00.\n\n## Presupuesto\n\n**Supuestos generales:**\n- Pasaje: se asume que el precio de Flybondi ($114.162) es **por persona**, ida y vuelta. Es el supuesto más caro. Si fuera total, el costo baja a la mitad.\n- Alojamiento económico: se asume **por persona por noche** ($60.261), por ser la unidad más cara y no estar especificada.\n- Conversión: dólar **tarjeta $2.052,70** (La Nación). El oficial ($1.579) y el MEP ($1.572,90) figuran abajo solo como referencia. No se usó el blue.\n- Actividades: el paseo y la entrada son **una sola vez por persona**, no por día.\n\n**Opción 1: económica** (alojamiento por persona, comida USD 15/persona/día)\n\n| Concepto | Cálculo | USD |\n|---|---|---|\n| Pasajes Flybondi ida y vuelta | $114.162 × 2 personas, ≈ $55,62 c/u | 111,23 |\n| Alojamiento \"desde\" (optimista) | $60.261 × 5 noches × 2 personas | 293,57 |\n| Comida | USD 15 × 6 días × 2 personas | 180,00 |\n| Paseo Península Valdés (barco, sin almuerzo) | $150.000 × 2 personas | 146,15 |\n| Entrada Reserva Península Valdés (nacional) | $20.000 × 2 personas | 19,49 |\n| **Total** | | **750,44** |\n\n- **Entra:** sobran US$ 749,56.\n- Costo por día: US$ 125,07 (US$ 62,54 por persona por día).\n\n**Opción 2: conservadora** (habitación 3 estrellas, comida USD 30/persona/día)\n\n| Concepto | Cálculo | USD |\n|---|---|---|\n| Pasajes Flybondi ida y vuelta | $114.162 × 2 personas | 111,23 |\n| Alojamiento 3 estrellas | $81.321 × 5 noches × 1 habitación | 198,08 |\n| Comida | USD 30 × 6 días × 2 personas | 360,00 |\n| Paseo Península Valdés | $150.000 × 2 personas | 146,15 |\n| Entrada Reserva Península Valdés (nacional) | $20.000 × 2 personas | 19,49 |\n| **Total** | | **834,95** |\n\n- **Entra:** sobran US$ 665,05.\n- Costo por día: US$ 139,16 (US$ 69,58 por persona por día).\n\n**Tipos de cambio usados** (fuente: La Nación):\n- Tarjeta: $2.052,70 (usado en todos los cálculos)\n- Oficial: $1.579,00 (referencia)\n- MEP: $1.572,90 (referencia)\n\n**Discrepancias señaladas:**\n- Alojamiento: KAYAK.com.ar da $60.261 (desde) y $81.321 (3 estrellas), mientras que KAYAK.com.co da 2 estrellas desde $152.222 y 3 estrellas desde $126.312. Esta última es bastante más cara, y no la usé.\n- Comida: la fuente da precios **por comida**, no por día. Si se come en restaurantes a USD 15–30 por comida (3 por día), el costo diario por persona sube a USD 45–90. Con ese criterio el viaje podría superar los 1.500 USD. Esta es la mayor incertidumbre del cálculo.\n- Paseo: el precio de Civitatis no incluye almuerzo, y la fuente de Howlanders no muestra precio.\n\n## Conclusión\nEl viaje **entra en US$ 1.500** en ambas opciones, con holgura, siempre que la comida sea a USD 15–30 por persona por día (no por comida). Con la comida calculada por comida (3 por día), el presupuesto podría no alcanzar. Conviene confirmar el precio del pasaje (por persona o total) y el costo real de las comidas antes de reservar.\n\n## Datos que faltan\n- **Pasajes:** no se confirmó si $114.162 es por persona o total, ni hay tarifas para octubre de 2027 (la fecha de referencia no existe).\n- **Alojamiento:** no se confirmó la unidad (por persona o habitación). No hay precios para octubre de 2027.\n- **Comida:** los precios son por comida; no hay un total diario confirmado por persona.\n- **Actividades:** no hay precio del tour completo con almuerzo. Las entradas a la reserva difieren entre fuentes ($20.000 vs. $50.000 extranjero según la fuente).\n- **Cotización:** las fuentes tienen fechas distintas, y La Nación muestra una fecha de noviembre. Hay que verificar la cotización al momento de pagar.\n- **Micro:** Central de Pasajes no informa precio, así que no se pudo comparar.",
+        "fuentes": [
+          {
+            "ref": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.lanacion.com.ar/dolar-hoy",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "validar_viaje",
+          "calcular_presupuesto"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "validar_viaje",
+            "argumentos": {
+              "origen": "Buenos Aires",
+              "destino": "Puerto Madryn",
+              "fecha_ida": "2027-10-10",
+              "fecha_vuelta": "2027-10-15",
+              "personas": 2,
+              "presupuesto": 1500,
+              "moneda": "USD",
+              "dias_pedidos": 6
+            },
+            "resultado": "VÁLIDO: Buenos Aires → Puerto Madryn, del 2027-10-10 al 2027-10-15 (6 días, 5 noches), 2 personas, presupuesto US$ 1.500,00.",
+            "timestamp": "2026-11-18T14:33:47.177-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "económica",
+              "personas": 2,
+              "noches": 5,
+              "dias": 6,
+              "presupuesto": 1500,
+              "moneda_presupuesto": "USD",
+              "pasaje": {
+                "monto": 114162,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión Flybondi ida y vuelta (supuesto: por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE"
+              },
+              "alojamiento": {
+                "monto": 60261,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_persona",
+                "tipo": "hotel desde (unidad no especificada, se asume por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 15,
+                "moneda": "USD",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn"
+              },
+              "actividades_por_persona_por_dia": {
+                "monto": 150000,
+                "moneda": "ARS",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes"
+              },
+              "extras": [
+                {
+                  "descripcion": "Entrada Reserva Península Valdés (nacional)",
+                  "monto": 20000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "medio_pago": "tarjeta",
+                  "fuente": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html"
+                }
+              ],
+              "tipos_de_cambio": [
+                {
+                  "tipo": "tarjeta",
+                  "valor_ars": 2052.7,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "oficial",
+                  "valor_ars": 1579,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "MEP",
+                  "valor_ars": 1572.9,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'económica' (6 días, 5 noches, 2 personas):\n- Pasajes avión Flybondi ida y vuelta (supuesto: por persona): US$ 111,23  [US$ 55,62 por persona (ida y vuelta) × 2 personas]\n- Alojamiento hotel desde (unidad no especificada, se asume por persona): US$ 293,57  [US$ 29,36 por persona por noche × 5 noches × 2 personas]\n- Comida: US$ 180,00  [US$ 15,00 por persona por día × 6 días × 2 personas]\n- Actividades: US$ 876,89  [US$ 73,07 por persona por día × 6 días × 2 personas]\n- Entrada Reserva Península Valdés (nacional): US$ 19,49  [US$ 9,74 × 2 personas]\nTOTAL: US$ 1.481,18 | PRE...",
+            "timestamp": "2026-11-18T14:33:47.177-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "económica (corregida: tour una vez)",
+              "personas": 2,
+              "noches": 5,
+              "dias": 6,
+              "presupuesto": 1500,
+              "moneda_presupuesto": "USD",
+              "pasaje": {
+                "monto": 114162,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión Flybondi ida y vuelta (supuesto: por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE"
+              },
+              "alojamiento": {
+                "monto": 60261,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_persona",
+                "tipo": "hotel desde (unidad no especificada, se asume por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 15,
+                "moneda": "USD",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn"
+              },
+              "actividades_por_persona_por_dia": {
+                "monto": 0,
+                "moneda": "ARS",
+                "medio_pago": "tarjeta"
+              },
+              "extras": [
+                {
+                  "descripcion": "Paseo Península Valdés / Puerto Pirámides (una vez)",
+                  "monto": 150000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "medio_pago": "tarjeta",
+                  "fuente": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes"
+                },
+                {
+                  "descripcion": "Entrada Reserva Península Valdés (nacional, una vez)",
+                  "monto": 20000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "medio_pago": "tarjeta",
+                  "fuente": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html"
+                }
+              ],
+              "tipos_de_cambio": [
+                {
+                  "tipo": "tarjeta",
+                  "valor_ars": 2052.7,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "oficial",
+                  "valor_ars": 1579,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "MEP",
+                  "valor_ars": 1572.9,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'económica (corregida: tour una vez)' (6 días, 5 noches, 2 personas):\n- Pasajes avión Flybondi ida y vuelta (supuesto: por persona): US$ 111,23  [US$ 55,62 por persona (ida y vuelta) × 2 personas]\n- Alojamiento hotel desde (unidad no especificada, se asume por persona): US$ 293,57  [US$ 29,36 por persona por noche × 5 noches × 2 personas]\n- Comida: US$ 180,00  [US$ 15,00 por persona por día × 6 días × 2 personas]\n- Actividades: US$ 0,00  [US$ 0,00 por persona por día × 6 días × 2 personas]\n- Paseo Península Valdés / Puerto Pirámides (una vez): US$ 146,15  [US$ 73,07 × 2 pe...",
+            "timestamp": "2026-11-18T14:33:47.177-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "conservadora (3 estrellas, comida alta)",
+              "personas": 2,
+              "noches": 5,
+              "dias": 6,
+              "presupuesto": 1500,
+              "moneda_presupuesto": "USD",
+              "pasaje": {
+                "monto": 114162,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión Flybondi ida y vuelta (supuesto: por persona)",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE"
+              },
+              "alojamiento": {
+                "monto": 81321,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "habitación 3 estrellas",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 30,
+                "moneda": "USD",
+                "medio_pago": "tarjeta",
+                "fuente": "https://www.patagoniahub.travel/es/budget-guide/puerto-madryn"
+              },
+              "actividades_por_persona_por_dia": {
+                "monto": 0,
+                "moneda": "ARS",
+                "medio_pago": "tarjeta"
+              },
+              "extras": [
+                {
+                  "descripcion": "Paseo Península Valdés / Puerto Pirámides (una vez)",
+                  "monto": 150000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "medio_pago": "tarjeta",
+                  "fuente": "https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes"
+                },
+                {
+                  "descripcion": "Entrada Reserva Península Valdés (nacional, una vez)",
+                  "monto": 20000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "medio_pago": "tarjeta",
+                  "fuente": "https://www.puertomadrynturismo.com.ar/peninsula-valdes.html"
+                }
+              ],
+              "tipos_de_cambio": [
+                {
+                  "tipo": "tarjeta",
+                  "valor_ars": 2052.7,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "oficial",
+                  "valor_ars": 1579,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                },
+                {
+                  "tipo": "MEP",
+                  "valor_ars": 1572.9,
+                  "fuente": "https://www.lanacion.com.ar/dolar-hoy"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'conservadora (3 estrellas, comida alta)' (6 días, 5 noches, 2 personas):\n- Pasajes avión Flybondi ida y vuelta (supuesto: por persona): US$ 111,23  [US$ 55,62 por persona (ida y vuelta) × 2 personas]\n- Alojamiento habitación 3 estrellas: US$ 198,08  [US$ 39,62 por noche por habitación × 5 noches × 1 habitación (de 2 personas)]\n- Comida: US$ 360,00  [US$ 30,00 por persona por día × 6 días × 2 personas]\n- Actividades: US$ 0,00  [US$ 0,00 por persona por día × 6 días × 2 personas]\n- Paseo Península Valdés / Puerto Pirámides (una vez): US$ 146,15  [US$ 73,07 × 2 personas]\n- E...",
+            "timestamp": "2026-11-18T14:33:47.177-03:00"
+          }
+        ],
+        "cobertura": [],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:33:50.164-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes y precios. Clima tiene fuentes pero sin precios (no requiere precio, es dato informativo). OK. R2 Fuentes: todos los aportes tienen URL. OK. R3 Precios: pasajes y alojamiento tienen montos de referencia (aunque unidades no especificadas, el analista las aclaró como supuesto). OK. R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) y calcular_presupuesto, y dijo que entra en 1.500 USD con dos escenarios. OK. R5 Observaciones: ninguna por código. OK. R6 Coherencia: la discrepancia de alojamiento entre dos páginas de KAYAK fue señalada y resuelta con criterio explícito; la advertencia sobre comida por comida (vs por día) quedó planteada como escenario. No hay contradicción de noches ni personas. Los aportes cumplen la rúbrica; conviene que la síntesis aclare los supuestos de unidades y el riesgo en la opción de comida por comida.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:34:04.109-03:00",
+      "detalle": {
+        "respuesta": "## Itinerario (10 al 15 de octubre de 2027)\n\nClima esperado en octubre: máximas de unos 19 a 21 °C y mínimas de 7,5 a 11 °C, con alrededor de 7 días de lluvia en el mes. Conviene llevar abrigo y impermeable [https://www.puertomadrynturismo.com.ar/clima.html] [https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October].\n\n- **Día 1 (domingo 10/10): llegada y descanso.** Llegada desde Buenos Aires, check-in y primer paseo por la costa. No hay actividades relevadas para este día.\n- **Día 2 (lunes 11/10): Península Valdés.** Paseo en barco por Puerto Pirámides con avistamiento de ballenas, $150.000 ARS por adulto. No incluye almuerzo [https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes]. Además, la entrada a la reserva ($20.000 ARS por persona, si son argentinos) se paga aparte [https://www.puertomadrynturismo.com.ar/peninsula-valdes.html].\n- **Días 3, 4 y 5 (12 al 14/10): libres.** El investigador no encontró otras actividades con datos verificados. Podés usarlos para descansar, recorrer la ciudad por tu cuenta o sumar alguna excursión después de confirmar precio.\n- **Día 6 (viernes 15/10): regreso** a Buenos Aires.\n\n## Presupuesto\n\n**Supuestos:**\n- Pasaje Flybondi de $114.162 ARS **por persona**, ida y vuelta. Si el precio fuera total, el costo baja a la mitad [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE].\n- Alojamiento de $60.261 ARS **por persona por noche** en la opción económica [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp].\n- Conversión con dólar tarjeta **$2.052,70** (La Nación). Las actividades se pagan una vez por persona.\n\n**Opción 1: económica** (comida a USD 15 por persona por día)\n\n| Concepto | USD |\n|---|---|\n| Pasajes Flybondi ida y vuelta (2 personas) | 111,23 |\n| Alojamiento, 5 noches × 2 personas | 293,57 |\n| Comida, 6 días × 2 personas | 180,00 |\n| Paseo Península Valdés, barco (2 personas) | 146,15 |\n| Entrada Reserva, nacional (2 personas) | 19,49 |\n| **Total** | **750,44** |\n\nSobran **US$ 749,56**. Costo: US$ 125,07 por día (US$ 62,54 por persona por día).\n\n**Opción 2: conservadora** (habitación de 3 estrellas a $81.321 ARS por noche, comida a USD 30 por persona por día) [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp]\n\n| Concepto | USD |\n|---|---|\n| Pasajes Flybondi ida y vuelta | 111,23 |\n| Alojamiento 3 estrellas, 5 noches × 1 habitación | 198,08 |\n| Comida, 6 días × 2 personas | 360,00 |\n| Paseo Península Valdés (2 personas) | 146,15 |\n| Entrada Reserva, nacional (2 personas) | 19,49 |\n| **Total** | **834,95** |\n\nSobran **US$ 665,05**. Costo: US$ 139,16 por día (US$ 69,58 por persona por día).\n\n**Sí alcanza** en las dos opciones, con margen amplio. Ojo con la comida: las fuentes dan precios **por comida** (USD 15 a 30 en restaurantes económicos, USD 30 a 60 en gama media) [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn]. Si comen en restaurante tres veces por día, el gasto en comida puede superar los 1.500 USD. Esta es la mayor incertidumbre del cálculo.\n\n**Cotización:** las fuentes tienen fechas distintas y el dólar puede haber cambiado. Verificala antes de pagar. Dólar oficial de referencia: $1.579,00 [https://www.lanacion.com.ar/dolar-hoy].\n\n## Cómo ahorrar más (si querés achicar el gasto)\n- Cocinar en el alojamiento o comprar en supermercado (USD 5 a 15 por comida).\n- Reservar hotel o hostel económico, que Booking lista sin precio confirmado [https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html].\n- Consultar micro en lugar de avión. Central de Pasajes vende micros, pero no informa precio [https://www.centraldepasajes.com.ar].\n\n## Lo que no pudimos averiguar\n- Si el precio de Flybondi es por persona o total, y si hay tarifas para octubre de 2027 (la búsqueda no tiene precios para esa fecha).\n- Si los precios de alojamiento son por persona o por habitación. Las dos páginas de KAYAK dan valores distintos.\n- El precio del tour completo de Península Valdés con almuerzo.\n- Las entradas a la reserva difieren según la fuente: $20.000 ARS para nacionales en una y $15.000 en otra, y $50.000 para extranjeros en una fuente y $45.000 en otra.\n- El precio del micro.\n\n## Fuentes\n- [web] https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE — pasajes, buscado el 2026-11-18\n- [web] https://www.centraldepasajes.com.ar — pasajes, buscado el 2026-11-18\n- [web] https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [web] https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html — alojamiento, buscado el 2026-11-18\n- [web] https://www.patagoniahub.travel/es/budget-guide/puerto-madryn — comida, buscado el 2026-11-18\n- [web] https://www.puertomadrynturismo.com.ar/peninsula-valdes.html — actividades, buscado el 2026-11-18\n- [web] https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October — clima, buscado el 2026-11-18\n- [web] https://www.puertomadrynturismo.com.ar/clima.html — clima, buscado el 2026-11-18\n- [web] https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Itinerario (10 al 15 de octubre de 2027)\n\nClima esperado en octubre: máximas de unos 19 a 21 °C y mínimas de 7,5 a 11 °C, con alrededor de 7 días de lluvia en el mes. Conviene llevar abrigo y impermeable [https://www.puertomadrynturismo.com.ar/clima.html] [https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October].\n\n- **Día 1 (domingo 10/10): llegada y descanso.** Llegada desde Buenos Aires, check-in y primer paseo por la costa. No hay actividades relevadas para este día.\n- **Día 2 (lunes 11/10): Península Valdés.** Paseo en barco por Puerto Pirámides con avistamiento de ballenas, $150.000 ARS por adulto. No incluye almuerzo [https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes]. Además, la entrada a la reserva ($20.000 ARS por persona, si son argentinos) se paga aparte [https://www.puertomadrynturismo.com.ar/peninsula-valdes.html].\n- **Días 3, 4 y 5 (12 al 14/10): libres.** El investigador no encontró otras actividades con datos verificados. Podés usarlos para descansar, recorrer la ciudad por tu cuenta o sumar alguna excursión después de confirmar precio.\n- **Día 6 (viernes 15/10): regreso** a Buenos Aires.\n\n## Presupuesto\n\n**Supuestos:**\n- Pasaje Flybondi de $114.162 ARS **por persona**, ida y vuelta. Si el precio fuera total, el costo baja a la mitad [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE].\n- Alojamiento de $60.261 ARS **por persona por noche** en la opción económica [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp].\n- Conversión con dólar tarjeta **$2.052,70** (La Nación). Las actividades se pagan una vez por persona.\n\n**Opción 1: económica** (comida a USD 15 por persona por día)\n\n| Concepto | USD |\n|---|---|\n| Pasajes Flybondi ida y vuelta (2 personas) | 111,23 |\n| Alojamiento, 5 noches × 2 personas | 293,57 |\n| Comida, 6 días × 2 personas | 180,00 |\n| Paseo Península Valdés, barco (2 personas) | 146,15 |\n| Entrada Reserva, nacional (2 personas) | 19,49 |\n| **Total** | **750,44** |\n\nSobran **US$ 749,56**. Costo: US$ 125,07 por día (US$ 62,54 por persona por día).\n\n**Opción 2: conservadora** (habitación de 3 estrellas a $81.321 ARS por noche, comida a USD 30 por persona por día) [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp]\n\n| Concepto | USD |\n|---|---|\n| Pasajes Flybondi ida y vuelta | 111,23 |\n| Alojamiento 3 estrellas, 5 noches × 1 habitación | 198,08 |\n| Comida, 6 días × 2 personas | 360,00 |\n| Paseo Península Valdés (2 personas) | 146,15 |\n| Entrada Reserva, nacional (2 personas) | 19,49 |\n| **Total** | **834,95** |\n\nSobran **US$ 665,05**. Costo: US$ 139,16 por día (US$ 69,58 por persona por día).\n\n**Sí alcanza** en las dos opciones, con margen amplio. Ojo con la comida: las fuentes dan precios **por comida** (USD 15 a 30 en restaurantes económicos, USD 30 a 60 en gama media) [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn]. Si comen en restaurante tres veces por día, el gasto en comida puede superar los 1.500 USD. Esta es la mayor incertidumbre del cálculo.\n\n**Cotización:** las fuentes tienen fechas distintas y el dólar puede haber cambiado. Verificala antes de pagar. Dólar oficial de referencia: $1.579,00 [https://www.lanacion.com.ar/dolar-hoy].\n\n## Cómo ahorrar más (si querés achicar el gasto)\n- Cocinar en el alojamiento o comprar en supermercado (USD 5 a 15 por comida).\n- Reservar hotel o hostel económico, que Booking lista sin precio confirmado [https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html].\n- Consultar micro en lugar de avión. Central de Pasajes vende micros, pero no informa precio [https://www.centraldepasajes.com.ar].\n\n## Lo que no pudimos averiguar\n- Si el precio de Flybondi es por persona o total, y si hay tarifas para octubre de 2027 (la búsqueda no tiene precios para esa fecha).\n- Si los precios de alojamiento son por persona o por habitación. Las dos páginas de KAYAK dan valores distintos.\n- El precio del tour completo de Península Valdés con almuerzo.\n- Las entradas a la reserva difieren según la fuente: $20.000 ARS para nacionales en una y $15.000 en otra, y $50.000 para extranjeros en una fuente y $45.000 en otra.\n- El precio del micro.\n\n## Fuentes\n- [web] https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE — pasajes, buscado el 2026-11-18\n- [web] https://www.centraldepasajes.com.ar — pasajes, buscado el 2026-11-18\n- [web] https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [web] https://www.booking.com/budget/city/ar/puerto-madryn.es-ar.html — alojamiento, buscado el 2026-11-18\n- [web] https://www.patagoniahub.travel/es/budget-guide/puerto-madryn — comida, buscado el 2026-11-18\n- [web] https://www.puertomadrynturismo.com.ar/peninsula-valdes.html — actividades, buscado el 2026-11-18\n- [web] https://www.tiempo3.com/south-america/argentina/chubut/puerto-madryn?page=month&month=October — clima, buscado el 2026-11-18\n- [web] https://www.puertomadrynturismo.com.ar/clima.html — clima, buscado el 2026-11-18\n- [web] https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+    "pasos_supervisor": 3,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 1,
+      "analista": 1
+    },
+    "refinamientos": 0,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 6,
+      "buscar_en_web": 6,
+      "validar_viaje": 1,
+      "calcular_presupuesto": 3
+    },
+    "busquedas_web": 6,
+    "fuentes_memoria": 0,
+    "fuentes_web": 18,
+    "observaciones": [],
+    "validacion": "aprobada",
+    "presupuesto_entra": true,
+    "alternativa_calculada": true
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "input_token_details": {
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_read": 0
+      },
+      "input_tokens": 99267,
+      "total_tokens": 116604,
+      "output_tokens": 17337,
+      "output_token_details": {
+        "reasoning": 3371
+      }
+    }
+  },
+  "archivo": "traces\\api\\api_a4d080b1_real_20261118-143223.json"
+}

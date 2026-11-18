@@ -1,0 +1,9 @@
+.venv/
+.git/
+.env
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+data/memoria_chroma/
+traces/
+screenshots/

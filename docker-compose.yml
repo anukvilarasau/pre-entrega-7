@@ -1,0 +1,33 @@
+# API + Redis.  Levantar:  docker compose up --build
+# Redis 8 trae RedisJSON y RediSearch de fábrica (los necesita langgraph-checkpoint-redis).
+services:
+  redis:
+    image: redis:8.2
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_datos:/data
+    command: ["redis-server", "--appendonly", "yes"]   # los jobs y checkpoints sobreviven a un reinicio
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0        # pisa el REDIS_URL del .env: adentro de compose se usa este Redis
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_datos:/app/data/memoria_chroma   # la memoria de búsquedas (ChromaDB) persiste
+      - ./traces:/app/traces                    # las trazas de los jobs quedan en el repo local
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  redis_datos:
+  chroma_datos:

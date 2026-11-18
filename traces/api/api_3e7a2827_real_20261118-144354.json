@@ -1,0 +1,586 @@
+{
+  "pregunta": "Quiero ir 5 días a Mar del Plata en febrero, somos 2 personas, salimos desde Córdoba y tenemos 700.000 pesos. ¿Me armás el viaje y me decís si nos alcanza?",
+  "escenario": "api_3e7a2827",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:43:54.153-03:00",
+  "fin": "2026-11-18T14:45:08.996-03:00",
+  "duracion_s": 74.84,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "analista",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": "Córdoba",
+    "destino": "Mar del Plata",
+    "fecha_ida": "2027-02-10",
+    "fecha_vuelta": "2027-02-14",
+    "dias": 5,
+    "personas": 2,
+    "presupuesto": 700000.0,
+    "moneda": "ARS",
+    "supuestos": [
+      "Febrero sin día exacto: ida el 10/02/2027 (febrero 2026 ya pasó), vuelta 14/02/2027 por 5 días"
+    ]
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:43:59.370-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "origen": "Córdoba",
+          "destino": "Mar del Plata",
+          "fecha_ida": "2027-02-10",
+          "fecha_vuelta": "2027-02-14",
+          "dias": 5,
+          "personas": 2,
+          "presupuesto": 700000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Febrero sin día exacto: ida el 10/02/2027 (febrero 2026 ya pasó), vuelta 14/02/2027 por 5 días"
+          ]
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos actuales con fuente (URL o memoria mem-...) para un viaje de Córdoba a Mar del Plata, ida 2027-02-10 y vuelta 2027-02-14 (5 días, 4 noches), 2 personas. Necesitamos: (1) pasajes Córdoba-Mar del Plata en ómnibus y/o avión, con precios de referencia por persona (rangos, valores \"desde\" o promedios de fechas cercanas, no hace falta el precio exacto de esas fechas); (2) alojamiento en Mar del Plata para 2 personas por 4 noches en febrero, con precio de referencia por noche; (3) comida y actividades en Mar del Plata con precios de referencia; (4) clima esperado para febrero en Mar del Plata; (5) cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente de cada dato y aclará la unidad de cada precio (por persona, por noche, por total).",
+        "temas": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "evaluacion": "Aún no hay aportes. La pregunta pide armar el viaje y saber si alcanza el presupuesto de 700.000 ARS, así que hacen falta pasajes, alojamiento, comida/actividades y cotización del dólar (oficial, tarjeta y MEP) para cubrir R1. R2, R3, R4, R5 y R6 todavía no se pueden verificar porque no hay datos. Corresponde pasar primero al investigador con todos los temas pendientes.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:44:05.819-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "temas_en_memoria": [],
+        "pausa": true,
+        "resultado": "aprobada",
+        "origen": "persona",
+        "comentario": "ok desde el notebook"
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:44:30.178-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos actuales con fuente (URL o memoria mem-...) para un viaje de Córdoba a Mar del Plata, ida 2027-02-10 y vuelta 2027-02-14 (5 días, 4 noches), 2 personas. Necesitamos: (1) pasajes Córdoba-Mar del Plata en ómnibus y/o avión, con precios de referencia por persona (rangos, valores \"desde\" o promedios de fechas cercanas, no hace falta el precio exacto de esas fechas); (2) alojamiento en Mar del Plata para 2 personas por 4 noches en febrero, con precio de referencia por noche; (3) comida y actividades en Mar del Plata con precios de referencia; (4) clima esperado para febrero en Mar del Plata; (5) cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente de cada dato y aclará la unidad de cada precio (por persona, por noche, por total).",
+        "contenido": "## Hallazgos\n\n### Pasajes Córdoba–Mar del Plata\n- Micro: desde ARS 92.130; precio promedio ARS 102.180. La unidad (por persona o total) no figura en la fuente — unidad no especificada. [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata] (web)\n- Micro: \"Desde $ 129.000 por persona\" (precio promedio y más barato también $129.000). Tramo y fecha de referencia no indicados en el extracto. [https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba] (web)\n- Micro: desde 43 € (moneda extranjera, sin ARS; unidad no especificada; el sitio indica que el lunes es el día más barato). [https://www.checkmybus.es/cordoba-cd/mar-del-plata-ba] (web)\n- Avión: no se encontraron datos en esta búsqueda.\n\n### Alojamiento en Mar del Plata (4 noches, 2 personas)\n- Despegar: \"1 noche, 2 personas desde $246.954\" (precio tachado $312.600, −21 %) para Hotel Oscar Lescano. Unidad: por noche por habitación para 2 personas (según el formato de la oferta; confirmar). [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata] (web)\n- Despegar: \"Noches desde $46.917\" (categoría y unidad no aclaradas en el extracto; probablemente por persona o por noche de una opción básica, no confirmado). [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata] (web)\n- Expedia: casas de vacaciones desde \"$67 por noche\" (moneda y unidad no claras; probablemente no es un precio en ARS comparable). [https://www.expedia.com/es/Mar-Del-Plata-Rentas-Vacacionales.d2252.Guia-De-Viaje-Rentas-Vacacionales] (web)\n- Booking: promedios en R$ (reales brasileños, no ARS; no se puede usar directamente). [https://www.booking.com/city/ar/mar-del-plata.es-ar.html] (web)\n\n### Comida\n- No se extrajeron montos concretos. Las fuentes son videos de Instagram y YouTube con precios de marzo 2025 (desactualizados). [https://www.instagram.com/reel/DH6OYP6MmCt] (web); [https://www.youtube.com/watch?v=KupW6I_2qiw] (web)\n\n### Actividades\n- Tangol lista excursiones con precios \"2026-2027\" pero el extracto no muestra montos; menciona la Visita y Degustación Bodega Trapiche (sin precio). [https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3] (web)\n- Turismo Mar del Plata (oficial): audioguías gratuitas; playas y guía de actividades, sin precios. [https://www.turismomardelplata.gob.ar] (web)\n\n### Clima (febrero)\n- Febrero con temperaturas récord en Mar del Plata: máxima estimada 37–38 °C, poca lluvia (nota de un año puntual, no es promedio). [https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823] (web)\n- Temporada templada de ~3,4 meses (7 dic a 20 mar) con máxima promedio diaria superior a 23 °C; el mes más cálido no se pudo confirmar en el extracto. [https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o] (web)\n- Pronóstico de 14 días de Meteored: no sirve para febrero 2027. [https://www.tiempo.com/mar-del-plata.htm] (web)\n\n### Cotización del dólar (ARS por USD)\n- Cronista: BNA (oficial) venta $1.575,00; tarjeta $2.047,50; MEP $1.595,91. Fecha de la captura no clara. [https://www.cronista.com/MercadosOnline/dolar.html] (web)\n- La Nación (captura con fecha \"15 de noviembre\", año no indicado): oficial venta $1.579,00; tarjeta $2.052,70; MEP venta $1.572,90. [https://www.lanacion.com.ar/dolar-hoy] (web)\n- Dolarito: sin valores legibles en el extracto. [https://www.dolarito.ar] (web)\n\n## Datos que faltan\n- Pasajes en avión: no encontrados.\n- Pasajes en micro: unidad (por persona o total) y tramo de los precios de plataforma10 y checkmybus no confirmados; no hay precios para las fechas exactas (10 y 14/02/2027).\n- Alojamiento: no hay precio por noche confirmado en ARS para 2 personas; las cifras de Despegar y Expedia tienen unidad o moneda ambiguas. No hay datos de departamentos específicos.\n- Comida: sin precios concretos en ARS de restaurantes.\n- Actividades: sin precios concretos en ARS.\n- Clima: no hay promedio mensual detallado de febrero (máx./mín. y lluvias); falta confirmar el mes más cálido.\n- Cambio: las fechas de las capturas no se pueden verificar con certeza; conviene confirmar la cotización del día antes de presupuestar. Presupuesto total de referencia: ARS 700.000.",
+        "fuentes": [
+          {
+            "ref": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.checkmybus.es/cordoba-cd/mar-del-plata-ba",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.checkmybus.es/cordoba-cd/mar-del-plata-ba",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.booking.com/city/ar/mar-del-plata.es-ar.html",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.booking.com/city/ar/mar-del-plata.es-ar.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.expedia.com/es/Mar-Del-Plata-Rentas-Vacacionales.d2252.Guia-De-Viaje-Rentas-Vacacionales",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.expedia.com/es/Mar-Del-Plata-Rentas-Vacacionales.d2252.Guia-De-Viaje-Rentas-Vacacionales",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.instagram.com/reel/DTTsNyoDijm?hl=en",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.instagram.com/reel/DTTsNyoDijm?hl=en",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.instagram.com/reel/DH6OYP6MmCt",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.instagram.com/reel/DH6OYP6MmCt",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.youtube.com/watch?v=KupW6I_2qiw",
+            "origen": "web",
+            "tema": "comida",
+            "url": "https://www.youtube.com/watch?v=KupW6I_2qiw",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/walking-tour/d_21_tp_3_in_97",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/walking-tour/d_21_tp_3_in_97",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.turismomardelplata.gob.ar",
+            "origen": "web",
+            "tema": "actividades",
+            "url": "https://www.turismomardelplata.gob.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.tiempo.com/mar-del-plata.htm",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://www.tiempo.com/mar-del-plata.htm",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o",
+            "origen": "web",
+            "tema": "clima",
+            "url": "https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.lanacion.com.ar/dolar-hoy",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.dolarito.ar",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.dolarito.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "origen": "web",
+            "tema": "cambio",
+            "url": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes ómnibus o avión Córdoba a Mar del Plata precio por persona",
+              "destino": "Mar del Plata",
+              "tema": "pasajes"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'pasajes ómnibus o avión Córdoba a Mar del Plata precio por persona' [destino=Mar del Plata, tema=pasajes]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento precio por noche febrero para 2 personas",
+              "destino": "Mar del Plata",
+              "tema": "alojamiento"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'alojamiento precio por noche febrero para 2 personas' [destino=Mar del Plata, tema=alojamiento]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "precios de comida, restaurantes y actividades",
+              "destino": "Mar del Plata",
+              "tema": "comida"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'precios de comida, restaurantes y actividades' [destino=Mar del Plata, tema=comida]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "actividades y excursiones con precio",
+              "destino": "Mar del Plata",
+              "tema": "actividades"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'actividades y excursiones con precio' [destino=Mar del Plata, tema=actividades]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima esperado en febrero temperaturas y lluvias",
+              "destino": "Mar del Plata",
+              "tema": "clima"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'clima esperado en febrero temperaturas y lluvias' [destino=Mar del Plata, tema=clima]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta y MEP",
+              "destino": "Mar del Plata",
+              "tema": "cambio"
+            },
+            "resultado": "SIN RESULTADOS EN MEMORIA para 'cotización dólar oficial tarjeta y MEP' [destino=Mar del Plata, tema=cambio]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "pasajes micro Córdoba a Mar del Plata precio por persona",
+              "destino": "Mar del Plata",
+              "tema": "pasajes"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'pasajes micro Córdoba a Mar del Plata precio por persona' (guardados en memoria):\n\n[https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata] origen=web | tema=pasajes | guardado como mem-5feda6412460\nPasajes de Córdoba a Mar del Plata en micro Precios y horarios\nEl precio del pasaje de micro de Córdoba a Mar del Plata arranca en ARS 92.130, llegando a un precio promedio de ARS 102.180. Para conseguir las tarifas más\n\n[https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba] origen=web | tema=pasajes | guardado como mem-7c366f...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "alojamiento hotel departamento Mar del Plata febrero precio por noche",
+              "destino": "Mar del Plata",
+              "tema": "alojamiento"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'alojamiento hotel departamento Mar del Plata febrero precio por noche' (guardados en memoria):\n\n[https://www.booking.com/city/ar/mar-del-plata.es-ar.html] origen=web | tema=alojamiento | guardado como mem-dbd8598c41e5\nLos 10 mejores hoteles de Mar del Plata, Argentina (precios desde R$ 142)\nEn promedio, los hoteles 3 estrellas de Mar del Plata salen R$ 370 por noche y los de 4 estrellas de Mar del Plata salen R$ 655. Si estás buscando algo especial, en Mar del Plata se pueden encontrar hoteles 5 estrellas por R$ 763 en promedio por noche (según los precios que...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio comida restaurante y actividades Mar del Plata",
+              "destino": "Mar del Plata",
+              "tema": "comida"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'precio comida restaurante y actividades Mar del Plata' (guardados en memoria):\n\n[https://www.instagram.com/reel/DTTsNyoDijm?hl=en] origen=web | tema=comida | guardado como mem-180d62fed5cf\nPRECIOS DE COMIDA EN MAR DEL PLATA Hoy te traigo LA ...\nIr a comer una milanesa o fideos a un restaurante es gastar plata ... 🕊️ Turismo de cercanía beneficiado por el feriado tras la visita\n\n[https://www.instagram.com/reel/DH6OYP6MmCt] origen=web | tema=comida | guardado como mem-0efe671f9e35\nCuánto cuesta salir a comer en Mar del Plata y en Buenos Aires ...\nCuánto cuesta s...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "actividades excursiones Mar del Plata precios",
+              "destino": "Mar del Plata",
+              "tema": "actividades"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'actividades excursiones Mar del Plata precios' (guardados en memoria):\n\n[https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/walking-tour/d_21_tp_3_in_97] origen=web | tema=actividades | guardado como mem-96c14a7d3673\n▷ Excursiones en Mar del Plata 【Tours, paseos y actividades para hacer】 ✅ Precios 2026-2027 (Walking Tour)\n### City Tour\n\n### Minitrekking Glaciar Perito Moreno\n\n### Visita Estadios Monumental Y Bombonera - River Y Boca\n\n### Walking Tour\n\n### Tigre Con Paseo En Barco Por El Delta\n\n### Navegando Al Tigre\n\n### Tour Torres Del Paine En El...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "clima Mar del Plata febrero temperatura máxima mínima lluvias",
+              "destino": "Mar del Plata",
+              "tema": "clima"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'clima Mar del Plata febrero temperatura máxima mínima lluvias' (guardados en memoria):\n\n[https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823] origen=web | tema=clima | guardado como mem-db0c848ab44e\n\"Febrero arranca con temperaturas récord en Mar del Plata ...\ntemperatura máxima estimada entre los 37 y 38 grados, cielo algo a parcialmente nublado y viento del sector norte. Así lo informó el meteorólogo\n\n[https://www.tiempo.com/mar-del-plata.htm] origen=web | tema=c...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP hoy Argentina",
+              "destino": "Mar del Plata",
+              "tema": "cambio"
+            },
+            "resultado": "WEB (Tavily) — 3 resultados para 'cotización dólar oficial tarjeta MEP hoy Argentina' (guardados en memoria):\n\n[https://www.lanacion.com.ar/dolar-hoy] origen=web | tema=cambio | guardado como mem-14fd3bd3fdd7\nÚltimas noticias de Cotización del Dólar Hoy, Precio del Dólar el 15 de noviembre - LA NACION\n# Cotización del dólar hoy\n\n Banco Central\n Banco Nación\n Servicios Dólar\n Dólar blue\n Mercados\n Dólares\n Argentina\n Dólar Mep\n Inflación y precios\n Dólar CCL\n\n ## Dólar oficial\n\n  Compra$1515,00Venta$1579,00\n ## Dólar blue\n\n  Compra$1522,90Venta$1570,00\n ## Dólar tarjeta\n\n  Venta$2052,70\n ## Dól...",
+            "timestamp": "2026-11-18T14:44:30.175-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": false
+          },
+          {
+            "tema": "clima",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": false
+          },
+          {
+            "tema": "cambio",
+            "fuentes": 3,
+            "memoria": 0,
+            "web": 3,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:44:34.405-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "analista",
+        "instruccion": "Validá el viaje con validar_viaje (Córdoba a Mar del Plata, ida 2027-02-10, vuelta 2027-02-14, 5 días / 4 noches, 2 personas, presupuesto 700.000 ARS) y después ejecutá calcular_presupuesto usando estos precios de referencia del investigador: pasajes en micro desde ARS 92.130 a 129.000 (unidad dudosa: tomá como por persona y aclará la incertidumbre; compará ida y vuelta para 2 personas); alojamiento Despegar desde ARS 46.917 por noche (unidad no confirmada) y alternativa 246.954 por noche para 2 personas en hotel; cotización: usá el dato de cambio del investigador (oficial, tarjeta y MEP). Indicá si el presupuesto de 700.000 ARS alcanza, en qué escenario, y aclará explícitamente las unidades dudosas de cada precio.",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida y cambio tienen fuentes; actividades y clima tienen fuentes pero sin precios (clima no necesita precio, pero actividades sí conviene precio de referencia). Cambio no aparece en el aporte listado: la cobertura indica 3 fuentes de cambio, así que está cubierto. R2 Fuentes: todos los aportes tienen URL. R3 Precios: pasajes tienen montos (aunque la unidad es dudosa: por persona o total) y alojamiento tiene montos (unidad dudosa: por noche/habitación). Alcanza para estimar. R4 Cálculo: falta que el analista ejecute validar_viaje y calcular_presupuesto. R5 Observaciones: ninguna. R6 Coherencia: fechas y 4 noches/2 personas consistentes; falta que el analista aclare unidades dudosas. Falta cerrar: actividades con precio de referencia (no bloqueante) y el cálculo. Priorizo el cálculo ahora.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "analista",
+      "timestamp": "2026-11-18T14:44:51.870-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Validá el viaje con validar_viaje (Córdoba a Mar del Plata, ida 2027-02-10, vuelta 2027-02-14, 5 días / 4 noches, 2 personas, presupuesto 700.000 ARS) y después ejecutá calcular_presupuesto usando estos precios de referencia del investigador: pasajes en micro desde ARS 92.130 a 129.000 (unidad dudosa: tomá como por persona y aclará la incertidumbre; compará ida y vuelta para 2 personas); alojamiento Despegar desde ARS 46.917 por noche (unidad no confirmada) y alternativa 246.954 por noche para 2 personas en hotel; cotización: usá el dato de cambio del investigador (oficial, tarjeta y MEP). Indicá si el presupuesto de 700.000 ARS alcanza, en qué escenario, y aclará explícitamente las unidades dudosas de cada precio.",
+        "contenido": "## Validación\n**VÁLIDO:** Córdoba → Mar del Plata, del 2027-02-10 al 2027-02-14 (5 días, 4 noches), 2 personas, presupuesto $700.000 ARS.\n\n## Presupuesto\n\n**Opción 1: económica (micro + Despegar \"desde\", alojamiento por persona)**\n- Pasajes micro: $184.260 (ARS 92.130 por persona, ida y vuelta, × 2 personas)\n- Alojamiento Despegar desde: $375.336 (ARS 46.917 por persona por noche × 4 noches × 2 personas)\n- Comida: $0 (sin precio en los hallazgos)\n- Actividades y extras: $0 (sin precio en los hallazgos)\n- **Total: $559.596 de $700.000 → ENTRA. Sobran $140.404.**\n- Costo por día: $111.919 (por persona por día: $55.960)\n- Conversiones: ninguna, todo en ARS.\n\n**Opción 2: alternativa en hotel (2 personas por habitación)**\n- Pasajes micro: $184.260 (igual que la opción 1)\n- Alojamiento Hotel Oscar Lescano: $987.816 (ARS 246.954 por noche por habitación × 4 noches × 1 habitación)\n- Comida: $0\n- **Total: $1.172.076 de $700.000 → NO ENTRA. Faltan $472.076.**\n- Costo por día: $234.415 (por persona por día: $117.208)\n- Conversiones: ninguna.\n\n**Tipos de cambio:** no se usaron. Todos los precios del investigador están en ARS, así que no hizo falta convertir. Las cotizaciones (oficial, tarjeta y MEP) quedan sin aplicar. Si se pidieran precios en USD, habría que usar la fecha de la captura, que no está verificada.\n\n## Conclusión\nCon la opción económica el viaje entra en los $700.000 y sobran $140.404, pero ese margen tiene que cubrir comida y actividades, que no tienen precio confiable. Con alojamiento en hotel a $246.954 por noche por habitación no alcanza (faltan $472.076). Lo más conveniente es reservar en la opción económica y verificar el precio real del alojamiento antes de decidir.\n\n**Unidades dudosas (explícitas):**\n- **Pasajes micro:** la unidad no figura en la fuente de plataforma10. Se tomó como por persona, ida y vuelta. Si fuera el total de los dos, el costo bajaría. Si fuera solo ida, habría que duplicarlo, y el total de pasajes subiría. El precio de $129.000 (centraldepasajes) no tiene tramo ni fecha indicados. No se calculó con él: habría que correrlo con tool si se quiere comparar.\n- **Alojamiento Despegar \"desde\" $46.917:** la unidad no está confirmada. Se asumió por persona por noche, que es el caso más caro. Si fuera por habitación para 2 personas, el costo del alojamiento sería la mitad.\n- **Hotel $246.954:** la oferta es \"1 noche, 2 personas\". Se asumió por habitación por noche (la opción 2). Si fuera por persona, el costo sería el doble y el escenario seguiría sin entrar.\n- **Comida y actividades:** no hay precios en ARS; se cargaron en 0. Ambos escenarios son un piso y el costo real será mayor.\n\n## Datos que faltan\n- Precio de comida por persona por día en ARS (sin esto, el total está subestimado).\n- Precio de actividades y excursiones en ARS.\n- Confirmación de la unidad (por persona o por habitación) de los precios de Despegar.\n- Confirmación de la unidad y el tramo de los pasajes de plataforma10 y del precio de $129.000.\n- Pasajes en avión (no encontrados).\n- Cotización del día: las capturas de dólar no tienen fecha verificable (una no tiene año), así que no se pudo confirmar ningún tipo de cambio.",
+        "fuentes": [
+          {
+            "ref": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata",
+            "origen": "web",
+            "tema": "pasajes",
+            "url": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata",
+            "origen": "web",
+            "tema": "alojamiento",
+            "url": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "validar_viaje",
+          "calcular_presupuesto"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "validar_viaje",
+            "argumentos": {
+              "origen": "Córdoba",
+              "destino": "Mar del Plata",
+              "fecha_ida": "2027-02-10",
+              "fecha_vuelta": "2027-02-14",
+              "personas": 2,
+              "presupuesto": 700000,
+              "moneda": "ARS",
+              "dias_pedidos": 5
+            },
+            "resultado": "VÁLIDO: Córdoba → Mar del Plata, del 2027-02-10 al 2027-02-14 (5 días, 4 noches), 2 personas, presupuesto $ 700.000.",
+            "timestamp": "2026-11-18T14:44:51.868-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "económica (micro + Despegar desde, por persona)",
+              "personas": 2,
+              "noches": 4,
+              "presupuesto": 700000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 92130,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "micro",
+                "fuente": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata"
+              },
+              "alojamiento": {
+                "monto": 46917,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_persona",
+                "tipo": "Despegar desde (unidad no confirmada, se asume por persona)",
+                "fuente": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 0,
+                "moneda": "ARS",
+                "fuente": null
+              }
+            },
+            "resultado": "PRESUPUESTO — opción 'económica (micro + Despegar desde, por persona)' (5 días, 4 noches, 2 personas):\n- Pasajes micro: $ 184.260  [$ 92.130 por persona (ida y vuelta) × 2 personas]\n- Alojamiento Despegar desde (unidad no confirmada, se asume por persona): $ 375.336  [$ 46.917 por persona por noche × 4 noches × 2 personas]\n- Comida: $ 0  [$ 0 por persona por día × 5 días × 2 personas]\nTOTAL: $ 559.596 | PRESUPUESTO: $ 700.000\nRESULTADO: ENTRA en el presupuesto. Sobran $ 140.404.\nCosto por día: $ 111.919 | por persona por día: $ 55.960\nConversiones de moneda: ninguna (todo en la misma moneda).",
+            "timestamp": "2026-11-18T14:44:51.868-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "alternativa hotel 2 personas (246.954 por noche por habitación)",
+              "personas": 2,
+              "noches": 4,
+              "presupuesto": 700000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 92130,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "micro",
+                "fuente": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata"
+              },
+              "alojamiento": {
+                "monto": 246954,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "Hotel Oscar Lescano, 2 personas (unidad a confirmar)",
+                "fuente": "https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 0,
+                "moneda": "ARS",
+                "fuente": null
+              }
+            },
+            "resultado": "PRESUPUESTO — opción 'alternativa hotel 2 personas (246.954 por noche por habitación)' (5 días, 4 noches, 2 personas):\n- Pasajes micro: $ 184.260  [$ 92.130 por persona (ida y vuelta) × 2 personas]\n- Alojamiento Hotel Oscar Lescano, 2 personas (unidad a confirmar): $ 987.816  [$ 246.954 por noche por habitación × 4 noches × 1 habitación (de 2 personas)]\n- Comida: $ 0  [$ 0 por persona por día × 5 días × 2 personas]\nTOTAL: $ 1.172.076 | PRESUPUESTO: $ 700.000\nRESULTADO: NO ENTRA en el presupuesto. Faltan $ 472.076.\nCosto por día: $ 234.415 | por persona por día: $ 117.208\nConversiones de moneda...",
+            "timestamp": "2026-11-18T14:44:51.868-03:00"
+          }
+        ],
+        "cobertura": [],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:44:54.985-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades, clima y cambio tienen fuentes. Pero actividades y clima no traen precios/datos útiles (clima sí tiene dato de un año puntual; actividades sin montos). Como la pregunta es si alcanza la plata, comida y actividades quedan con precios débiles; el analista dejó comida y actividades en $0. R2 Fuentes: todos los aportes tienen URLs. R3 Precios: pasajes y alojamiento tienen montos de referencia (aunque con unidades dudosas, lo que el analista ya aclaró). R4 Cálculo: validar_viaje dio VÁLIDO y calcular_presupuesto se ejecutó con conclusión (entra en opción económica). R5 Observaciones: ninguna pendiente. R6 Coherencia: noches (4) y personas (2) consistentes; el analista aclaró unidades dudosas. Faltaría cubrir comida con precio, pero ya hay una ronda de investigación previa y el margen para una corrección adicional es limitado; el resultado (entra con margen de $140.404 y alternativa de hotel explícita) es utilizable. Conviene finalizar y que la síntesis aclare que comida y actividades no tienen precios confiables.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:45:06.369-03:00",
+      "detalle": {
+        "respuesta": "## Respuesta corta\n\nSí, con la opción económica el viaje entra en los $700.000, pero el margen tiene que cubrir comida y actividades, que no tienen precio confiable. Con alojamiento en hotel no alcanza.\n\n## Itinerario\n\nFechas asumidas: ida el 10/02/2027 y vuelta el 14/02/2027 (febrero de 2026 ya pasó).\n\n- **Día 1 (10/02): llegada y primer paseo.** Llegada en micro desde Córdoba, check-in y paseo por la costa.\n- **Día 2 (11/02): bodega.** Visita y degustación en Bodega Trapiche, que figura en Tangol pero sin precio [https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3].\n- **Día 3 (12/02): centro y audioguías.** Recorrido con las audioguías gratuitas de la oficina de turismo [https://www.turismomardelplata.gob.ar].\n- **Día 4 (13/02): día libre.** Playa o descanso. No hay más actividades con datos confirmados.\n- **Día 5 (14/02): regreso.**\n\n**Clima esperado:** febrero suele ser cálido y seco. Una nota de un año puntual reporta máximas de 37–38 °C y poca lluvia [https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823]. Es un caso aislado, no un promedio. La temporada templada va del 7 de diciembre al 20 de marzo, con máximas promedio superiores a 23 °C [https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o].\n\n## Presupuesto\n\n**Opción económica (micro + alojamiento \"desde\" de Despegar)**\n\n| Renglón | Monto |\n|---|---|\n| Pasajes micro: ARS 92.130 por persona, ida y vuelta, × 2 | $184.260 |\n| Alojamiento: ARS 46.917 por persona por noche × 4 noches × 2 | $375.336 |\n| Comida | $0 (sin precio confiable) |\n| Actividades | $0 (sin precio confiable) |\n| **Total** | **$559.596** |\n\n- **Resultado:** entra en $700.000 y sobran **$140.404**.\n- **Costo por día:** $111.919 ($55.960 por persona por día).\n- **Pasajes:** [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata]\n- **Alojamiento:** [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata]\n\n**Tipo de cambio:** no se usó. Todos los precios están en ARS. Las cotizaciones encontradas (oficial, tarjeta y MEP) no tienen una fecha verificable, así que no se aplicaron [https://www.cronista.com/MercadosOnline/dolar.html] [https://www.lanacion.com.ar/dolar-hoy].\n\n**Unidades dudosas:**\n- **Pasajes:** la fuente no indica si el precio es por persona o total. Tomamos por persona, ida y vuelta. Si fuera solo ida, el total de pasajes se duplica y el margen se achica mucho.\n- **Alojamiento:** tomamos el caso más caro, por persona por noche. Si fuera por habitación, el costo baja a la mitad.\n\n## Alternativas\n\n**Hotel Oscar Lescano:** la oferta de $246.954 es por noche por habitación para 2 personas. Con 4 noches el total sería $1.172.076, es decir, **faltan $472.076**. No conviene con este presupuesto [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata].\n\nPara ajustar más, se puede alquilar un departamento o compartir alojamiento, cocinar parte de las comidas y priorizar actividades gratuitas.\n\n## Lo que no pudimos averiguar\n\n- **Comida:** no hay precios en ARS confirmados. Las fuentes son videos con precios de marzo 2025.\n- **Actividades:** sin montos en ARS.\n- **Avión:** no se encontraron precios.\n- **Pasajes:** no se confirmó la unidad del precio de plataforma10 ni el tramo del precio de $129.000 de centraldepasajes.\n- **Alojamiento:** no hay un precio confirmado por noche en ARS para 2 personas.\n- **Clima:** no hay un promedio detallado de febrero.\n\nComo comida y actividades están en cero, el costo real va a ser mayor que el calculado. Conviene verificar el precio del alojamiento y los pasajes antes de reservar.\n\n## Fuentes\n- [web] https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata — pasajes, buscado el 2026-11-18\n- [web] https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata — alojamiento, buscado el 2026-11-18\n- [web] https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3 — actividades, buscado el 2026-11-18\n- [web] https://www.turismomardelplata.gob.ar — actividades, buscado el 2026-11-18\n- [web] https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823 — clima, buscado el 2026-11-18\n- [web] https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o — clima, buscado el 2026-11-18\n- [web] https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://www.cronista.com/MercadosOnline/dolar.html — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Respuesta corta\n\nSí, con la opción económica el viaje entra en los $700.000, pero el margen tiene que cubrir comida y actividades, que no tienen precio confiable. Con alojamiento en hotel no alcanza.\n\n## Itinerario\n\nFechas asumidas: ida el 10/02/2027 y vuelta el 14/02/2027 (febrero de 2026 ya pasó).\n\n- **Día 1 (10/02): llegada y primer paseo.** Llegada en micro desde Córdoba, check-in y paseo por la costa.\n- **Día 2 (11/02): bodega.** Visita y degustación en Bodega Trapiche, que figura en Tangol pero sin precio [https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3].\n- **Día 3 (12/02): centro y audioguías.** Recorrido con las audioguías gratuitas de la oficina de turismo [https://www.turismomardelplata.gob.ar].\n- **Día 4 (13/02): día libre.** Playa o descanso. No hay más actividades con datos confirmados.\n- **Día 5 (14/02): regreso.**\n\n**Clima esperado:** febrero suele ser cálido y seco. Una nota de un año puntual reporta máximas de 37–38 °C y poca lluvia [https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823]. Es un caso aislado, no un promedio. La temporada templada va del 7 de diciembre al 20 de marzo, con máximas promedio superiores a 23 °C [https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o].\n\n## Presupuesto\n\n**Opción económica (micro + alojamiento \"desde\" de Despegar)**\n\n| Renglón | Monto |\n|---|---|\n| Pasajes micro: ARS 92.130 por persona, ida y vuelta, × 2 | $184.260 |\n| Alojamiento: ARS 46.917 por persona por noche × 4 noches × 2 | $375.336 |\n| Comida | $0 (sin precio confiable) |\n| Actividades | $0 (sin precio confiable) |\n| **Total** | **$559.596** |\n\n- **Resultado:** entra en $700.000 y sobran **$140.404**.\n- **Costo por día:** $111.919 ($55.960 por persona por día).\n- **Pasajes:** [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata]\n- **Alojamiento:** [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata]\n\n**Tipo de cambio:** no se usó. Todos los precios están en ARS. Las cotizaciones encontradas (oficial, tarjeta y MEP) no tienen una fecha verificable, así que no se aplicaron [https://www.cronista.com/MercadosOnline/dolar.html] [https://www.lanacion.com.ar/dolar-hoy].\n\n**Unidades dudosas:**\n- **Pasajes:** la fuente no indica si el precio es por persona o total. Tomamos por persona, ida y vuelta. Si fuera solo ida, el total de pasajes se duplica y el margen se achica mucho.\n- **Alojamiento:** tomamos el caso más caro, por persona por noche. Si fuera por habitación, el costo baja a la mitad.\n\n## Alternativas\n\n**Hotel Oscar Lescano:** la oferta de $246.954 es por noche por habitación para 2 personas. Con 4 noches el total sería $1.172.076, es decir, **faltan $472.076**. No conviene con este presupuesto [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata].\n\nPara ajustar más, se puede alquilar un departamento o compartir alojamiento, cocinar parte de las comidas y priorizar actividades gratuitas.\n\n## Lo que no pudimos averiguar\n\n- **Comida:** no hay precios en ARS confirmados. Las fuentes son videos con precios de marzo 2025.\n- **Actividades:** sin montos en ARS.\n- **Avión:** no se encontraron precios.\n- **Pasajes:** no se confirmó la unidad del precio de plataforma10 ni el tramo del precio de $129.000 de centraldepasajes.\n- **Alojamiento:** no hay un precio confirmado por noche en ARS para 2 personas.\n- **Clima:** no hay un promedio detallado de febrero.\n\nComo comida y actividades están en cero, el costo real va a ser mayor que el calculado. Conviene verificar el precio del alojamiento y los pasajes antes de reservar.\n\n## Fuentes\n- [web] https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata — pasajes, buscado el 2026-11-18\n- [web] https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata — alojamiento, buscado el 2026-11-18\n- [web] https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3 — actividades, buscado el 2026-11-18\n- [web] https://www.turismomardelplata.gob.ar — actividades, buscado el 2026-11-18\n- [web] https://www.lu9mardelplata.com.ar/nota-febrero-arranca-con-temperaturas-record-en-mar-del-plata-jornada-muy-calurosa-y-escasas-precipitaciones-15823 — clima, buscado el 2026-11-18\n- [web] https://es.weatherspark.com/y/29078/Tiempo-promedio-en-Mar-del-Plata-Argentina-durante-todo-el-a%C3%B1o — clima, buscado el 2026-11-18\n- [web] https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://www.cronista.com/MercadosOnline/dolar.html — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+    "pasos_supervisor": 3,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 1,
+      "analista": 1
+    },
+    "refinamientos": 0,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 6,
+      "buscar_en_web": 6,
+      "validar_viaje": 1,
+      "calcular_presupuesto": 2
+    },
+    "busquedas_web": 6,
+    "fuentes_memoria": 0,
+    "fuentes_web": 18,
+    "observaciones": [],
+    "validacion": "aprobada",
+    "presupuesto_entra": true,
+    "alternativa_calculada": true
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "output_token_details": {
+        "reasoning": 2385
+      },
+      "output_tokens": 12443,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "total_tokens": 83767,
+      "input_tokens": 71324
+    }
+  },
+  "archivo": "traces\\api\\api_3e7a2827_real_20261118-144354.json"
+}

@@ -1,0 +1,115 @@
+==========================================================================================
+TRAZA MULTI-AGENTE | escenario: api_356a6b63 | modo: real | modelo: claude-haiku-5-5
+MAX_PASOS_SUPERVISOR: 6 | RECURSION_LIMIT: 20 | inicio: 2026-11-18T14:45:48.095-03:00
+==========================================================================================
+PREGUNTA: Quiero ir 5 días a Mar del Plata en febrero, somos 2 personas, salimos desde Córdoba y tenemos 700.000 pesos. ¿Me armás el viaje y me decís si nos alcanza?
+RUTA: supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis
+
+[14:45:53.260] SUPERVISOR · pedido extraído: {"origen": "Córdoba", "destino": "Mar del Plata", "fecha_ida": "2027-02-10", "fecha_vuelta": "2027-02-14", "dias": 5, "personas": 2, "presupuesto": 700000.0, "moneda": "ARS", "supuestos": ["Febrero sin día exacto: ida el 10/02/2027 (próximo febrero, ya que el de 2026 ya pasó), vuelta el 14/02/2027 según 5 días de viaje."]}
+[14:45:53.260] SUPERVISOR · decisión 1 → investigador
+           evaluación: Aún no hay aportes. La pregunta pide armar el viaje y saber si alcanza el presupuesto de 700.000 ARS, por lo que hacen falta pasajes, alojamiento, comida/actividades y cotización del dólar (tarjeta, MEP y oficial) para R1. Ninguno de los puntos de la rúbrica está cumplido todavía (R2 a R4 pendientes). Corresponde mandar al investigador con todos los temas necesarios.
+           instrucción: Buscá datos con fuente (URL o mem-...) para un viaje de Córdoba a Mar del Plata, ida 2027-02-10 y vuelta 2027-02-14 (5 días, 4 noches), para 2 personas. Necesito: pasajes de ida y vuelta Córdoba-Mar del Plata (aéreos o terrestres, con precio de referencia por persona o total), alojamiento en Mar del Plata para 4 noches para 2 personas (precio de referencia por noche), comida (rango de precio por persona por día en restaurantes o similar) y actividades principales con precio de referencia si los hay. Cotización del dólar oficial, tarjeta y MEP (no el blue). Los precios pueden ser rangos, valores "desde", promedios o de fechas cercanas; no hace falta que sean exactos para las fechas. Indicá la unidad de cada precio (por persona, por noche, total, ARS o USD).
+           temas pedidos: pasajes, alojamiento, comida, actividades, cambio
+[14:45:53.759] APROBACIÓN WEB · sin_pedir (memoria) · sin memoria: ninguno
+[14:46:15.280] INVESTIGADOR · ronda 1 · herramientas: buscar_en_memoria, buscar_en_web
+           ACCIÓN: buscar_en_memoria({"consulta": "pasajes Córdoba a Mar del Plata ida y vuelta, avión o micro, precio por persona", "destino": "Mar del Plata", "tema": "pasajes"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'pasajes Córdoba a Mar del Plata ida y vuelta, avión o micro, precio por persona':  [mem-cb8739f7613a] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.checkmybus.es/cordoba-cd/mar-del-plata-ba Con precios a partir de 43 €, lunes es...
+           ACCIÓN: buscar_en_memoria({"consulta": "alojamiento hoteles o departamentos para 2 personas por noche, febrero", "destino": "Mar del Plata", "tema": "alojamiento"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'alojamiento hoteles o departamentos para 2 personas por noche, febrero':  [mem-867d981a82dc] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata ###### Encuentre la mejor...
+           ACCIÓN: buscar_en_memoria({"consulta": "precio comida restaurantes por persona por día", "destino": "Mar del Plata", "tema": "comida"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'precio comida restaurantes por persona por día':  [mem-180d62fed5cf] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://www.instagram.com/reel/DTTsNyoDijm?hl=en Ir a comer una milanesa o fideos a un restaurante es gastar plata ... 🕊️ Turi...
+           ACCIÓN: buscar_en_memoria({"consulta": "actividades principales y precios de entradas", "destino": "Mar del Plata", "tema": "actividades"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'actividades principales y precios de entradas' [destino=Mar del Plata, tema=actividades]: 3 datos recientes pero poco parecido a la consulta. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "cotización dólar oficial, tarjeta y MEP", "destino": "Mar del Plata", "tema": "cambio"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'cotización dólar oficial, tarjeta y MEP':  [mem-14fd3bd3fdd7] origen=memoria | tema=cambio | buscado hace 0.0 días (2026-11-18) | url=https://www.lanacion.com.ar/dolar-hoy # Cotización del dólar hoy   Banco Central  Banco Nación  Servicios Dólar  Dólar blue  Mercados...
+           ACCIÓN: buscar_en_web({"consulta": "cuánto cuesta comer en restaurantes Mar del Plata precio promedio por persona", "destino": "Mar del Plata", "tema": "comida"})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes sobre esto (si no traen precios, repetí con forzar=true).  MEMORIA — 3 datos vigentes para 'cuánto cuesta comer en restaurantes Mar del Plata precio promedio por persona':  [mem-421200453b64] origen=memoria | tema=comida | buscado hace 0.0 dí...
+           ACCIÓN: buscar_en_web({"consulta": "principales actividades y atracciones Mar del Plata precio entradas", "destino": "Mar del Plata", "tema": "actividades"})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes sobre esto (si no traen precios, repetí con forzar=true).  MEMORIA — 3 datos vigentes para 'principales actividades y atracciones Mar del Plata precio entradas':  [mem-e9315e4fc417] origen=memoria | tema=actividades | buscado hace 0.0 días (2...
+           ACCIÓN: buscar_en_web({"consulta": "precio comida restaurantes Mar del Plata por persona 2027 menú promedio pesos", "destino": "Mar del Plata", "tema": "comida", "forzar": true})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.  MEMORIA — 3 datos vigentes para 'precio comida restaurantes Mar del Plata por persona 2027 menú promedio pesos':  [mem-421200453b64] origen=memoria | tema=comida | buscado hace 0.0 dí...
+           ACCIÓN: buscar_en_web({"consulta": "precio entradas Mar del Plata Mundo Marino Torreón del Monje Aquarium Casino excursiones precio", "destino": "Mar del Plata", "tema": "actividades", "forzar": true})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la búsqueda web no fue autorizada (la memoria cubría los temas pedidos). Estos son los datos vigentes en memoria sobre Mar del Plata / actividades (pueden ser menos precisos):  MEMORIA — 3 datos vigentes para 'precio entradas Mar del Plata Mundo Marino Torreón del Monje Aquari...
+           fuentes: mem-cb8739f7613a (memoria, pasajes), mem-5feda6412460 (memoria, pasajes), mem-7c366f28a452 (memoria, pasajes), mem-867d981a82dc (memoria, alojamiento), mem-a33238e9e9fb (memoria, alojamiento), mem-dbd8598c41e5 (memoria, alojamiento), mem-180d62fed5cf (memoria, comida), mem-421200453b64 (memoria, comida), mem-0efe671f9e35 (memoria, comida), mem-14fd3bd3fdd7 (memoria, cambio), mem-465d9a4d7249 (memoria, cambio), mem-47809bba6dae (memoria, cambio), mem-e9315e4fc417 (memoria, actividades), mem-7775e5370ade (memoria, actividades), mem-96c14a7d3673 (memoria, actividades)
+           cobertura: pasajes 3 (3 mem / 0 web, con precios); alojamiento 3 (3 mem / 0 web, con precios); comida 3 (3 mem / 0 web, con precios); actividades 3 (3 mem / 0 web, sin precios); cambio 3 (3 mem / 0 web, con precios)
+           chequeo por código: sin observaciones
+[14:46:19.967] SUPERVISOR · decisión 2 → analista
+           evaluación: R1 Cobertura: pasajes, alojamiento, comida y cambio tienen fuentes; actividades tiene fuentes pero sin precios (solo entradas sin monto). Falta cotización del dólar oficial, tarjeta y MEP: el tema 'cambio' figura con fuentes y precios, pero no está claro que incluya oficial, tarjeta y MEP (no el blue). R2 Fuentes: todos los aportes tienen URL o mem-. R3 Precios: pasajes tienen montos (ARS 92.130 / 129.000, unidad dudosa; 43 € sin convertir) y alojamiento tiene montos (ARS 46.917 por noche probable). Alcanzan como referencia. R4 Cálculo: falta que el analista ejecute validar_viaje y calcular_presupuesto. R5 Observaciones: ninguna. R6 Coherencia: los pasajes mezclan sentido de trayecto y monedas (EUR, BRL, USD sin confirmar); el analista debe aclarar unidades. Las fechas (10 al 14 de febrero 2027) son razonables y no hay contradicción grave.
+           instrucción: Validá el viaje con validar_viaje (Córdoba → Mar del Plata, ida 2027-02-10, vuelta 2027-02-14, 5 días / 4 noches, 2 personas, presupuesto 700.000 ARS) y después ejecutá calcular_presupuesto usando como referencia: pasajes desde ARS 92.130 (micro, unidad probablemente por persona; confirmá o asumí por persona y aclaralo) y, como alternativa, ARS 129.000 por persona; alojamiento desde ARS 46.917 por noche (unidad probablemente por noche, aclarar); Hotel Oscar Lescano ARS 246.954 para 2 personas por noche como caso alto; comida y actividades según los datos del investigador (si no hay precio de comida por persona/día, usá un supuesto explícito y señalalo). Ignorá como base de cálculo los precios en EUR, BRL y USD sin convertir, salvo que los documentes con cotización. Indicá si el presupuesto de 700.000 ARS alcanza, con rango mínimo y máximo, y qué unidades quedaron dudosas.
+[14:46:47.453] ANALISTA · ronda 2 · herramientas: validar_viaje, calcular_presupuesto
+           ACCIÓN: validar_viaje({"origen": "Córdoba", "destino": "Mar del Plata", "fecha_ida": "2027-02-10", "fecha_vuelta": "2027-02-14", "personas": 2, "presupuesto": 700000, "moneda": "ARS", "dias_pedidos": 5})
+           OBSERVACIÓN: VÁLIDO: Córdoba → Mar del Plata, del 2027-02-10 al 2027-02-14 (5 días, 4 noches), 2 personas, presupuesto $ 700.000.
+           ACCIÓN: calcular_presupuesto({"opcion": "económica", "personas": 2, "noches": 4, "presupuesto": 700000, "moneda_presupuesto": "ARS", "dias": 5, "pasaje": {"monto": 92130, "moneda": "ARS", "tramo": "por_tramo", "medio": "micro", "fuente": "https://www.plataforma10.com.ar/pasajes-...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'económica' (5 días, 4 noches, 2 personas): - Pasajes micro: $ 368.520  [$ 92.130 por persona por tramo × 2 tramos × 2 personas] - Alojamiento hotel 'noches desde' Mar del Plata (unidad no confirmada, se asume por persona): $ 375.336  [$ 46.917 por persona por noche × 4 noches ×...
+           ACCIÓN: calcular_presupuesto({"opcion": "alternativa barata: pasaje ida y vuelta, alojamiento por habitación", "personas": 2, "noches": 4, "presupuesto": 700000, "moneda_presupuesto": "ARS", "dias": 5, "pasaje": {"monto": 92130, "moneda": "ARS", "tramo": "ida_y_vuelta", "medio":...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'alternativa barata: pasaje ida y vuelta, alojamiento por habitación' (5 días, 4 noches, 2 personas): - Pasajes micro: $ 184.260  [$ 92.130 por persona (ida y vuelta) × 2 personas] - Alojamiento hotel 'noches desde' Mar del Plata (supuesto: por habitación de 2): $ 187.668  [$ 46...
+           ACCIÓN: calcular_presupuesto({"opcion": "caso alto: pasaje 129.000 por tramo, Hotel Oscar Lescano", "personas": 2, "noches": 4, "presupuesto": 700000, "moneda_presupuesto": "ARS", "dias": 5, "pasaje": {"monto": 129000, "moneda": "ARS", "tramo": "por_tramo", "medio": "micro", "fu...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'caso alto: pasaje 129.000 por tramo, Hotel Oscar Lescano' (5 días, 4 noches, 2 personas): - Pasajes micro: $ 516.000  [$ 129.000 por persona por tramo × 2 tramos × 2 personas] - Alojamiento Hotel Oscar Lescano, 2 personas: $ 987.816  [$ 246.954 por noche por habitación × 4 noch...
+           fuentes: https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata (web, pasajes), https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata (web, alojamiento), https://www.turismomardelplata.gob.ar (web, actividades), https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba (web, pasajes)
+           chequeo por código: sin observaciones
+[14:46:50.776] SUPERVISOR · decisión 3 → FINALIZAR
+           evaluación: R1 Cobertura: pasajes, alojamiento y cambio tienen datos. Comida no tiene precio por persona/día (solo supuesto del analista). Actividades sin precios (solo playas y guía gratuita; es aceptable con $0 si se aclara, pero la rúbrica pide precio de referencia si existe). R2 Fuentes: todos los hallazgos del investigador tienen URL o mem-. Cambio tiene fuentes pero no aparece el dato de cotización en el extracto visible, se indica "sí" en cobertura. R3 Precios: pasajes y alojamiento traen montos; OK. R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) y calcular_presupuesto con rango 571.928 a 1.703.816; dijo si entra (depende de unidades). OK. R5 Observaciones: ninguna pendiente. R6 Coherencia: el analista asumió 4 noches y 2 personas, consistente; el Oscar Lescano se extrapoló a 4 noches (dudoso pero aclarado). Hay unidades dudosas que la síntesis puede explicar. Falta precio de comida real, pero ya hay un supuesto explícito y es la 3ª decisión: priorizar terminar.
+[14:47:01.899] SÍNTESIS · respuesta final (4504 caracteres)
+
+RESPUESTA FINAL:
+## Itinerario
+
+Viaje del 10 al 14 de febrero de 2027 (5 días, 4 noches). Los aportes encontraron pocas actividades, así que varios días quedan libres.
+
+- **Día 1 (10/02):** Viaje Córdoba → Mar del Plata en micro y llegada al alojamiento. Sin actividades confirmadas.
+- **Día 2 (11/02):** Playa. Mar del Plata tiene 47 km de costa ([https://www.turismomardelplata.gob.ar]). Día libre.
+- **Día 3 (12/02):** Audioguías gratuitas de la ciudad, según la guía oficial ([https://www.turismomardelplata.gob.ar]).
+- **Día 4 (13/02):** Excursión a Bodega Trapiche, que aparece en la oferta de Tangol, pero sin precio publicado ([https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3]).
+- **Día 5 (14/02):** Regreso a Córdoba.
+
+**Clima esperado:** No tenemos datos de clima para febrero en los aportes, así que no podemos informarlo.
+
+## Presupuesto
+
+Todos los montos están en pesos (ARS). No hizo falta convertir monedas, así que no se usó ningún dólar. Las cotizaciones que aparecieron son del 18/11/2026 y no corresponden a febrero de 2027.
+
+| Opción | Pasajes | Alojamiento | Comida (supuesto) | Total | Resultado |
+|---|---|---|---|---|---|
+| 1: pasaje por tramo, alojamiento por persona | $368.520 | $375.336 | $200.000 | $943.856 | **No alcanza**, faltan $243.856 |
+| 2: pasaje ida y vuelta, alojamiento por habitación | $184.260 | $187.668 | $200.000 | $571.928 | **Alcanza**, sobran $128.072 |
+| 3: pasaje $129.000 por tramo, Hotel Oscar Lescano | $516.000 | $987.816 | $200.000 | $1.703.816 | **No alcanza**, faltan $1.003.816 |
+
+- Pasajes: [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata] (desde $92.130). [https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba] (desde $129.000 por persona, pero el trayecto es el inverso).
+- Alojamiento: [https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata] (noches desde $46.917; Hotel Oscar Lescano, $246.954 por noche para 2 personas).
+- Costo por día (opción 2): $114.386 por día, o $57.193 por persona por día.
+
+**Importante:** la opción 2 solo alcanza si el pasaje de $92.130 es ida y vuelta por persona y el alojamiento de $46.917 se cobra por habitación. Ninguna de las dos unidades está confirmada. Si el pasaje es por tramo o el alojamiento es por persona, el total sube a $943.856 y no alcanza.
+
+## Alternativas
+
+- Confirmar con las empresas de micro si el precio de $92.130 es por persona e ida y vuelta.
+- Preguntar si el alojamiento de $46.917 se cobra por habitación o por persona.
+- Buscar alojamiento compartido o un departamento para 2 personas, ya que las rentas vacacionales aparecen desde USD 67 por noche ([https://www.expedia.com/es/Mar-Del-Plata-Rentas-Vacacionales.d2252.Guia-De-Viaje-Rentas-Vacacionales]), aunque la moneda no está confirmada.
+- Cocinar en el alojamiento para bajar el costo de la comida, que hoy es un supuesto de $20.000 por persona por día.
+- Acortar el viaje a 3 o 4 días si los precios reales superan el presupuesto.
+
+## Lo que no pudimos averiguar
+
+- **Pasajes aéreos:** no encontramos precios de vuelos.
+- **Comida:** no hay precios reales. Los $200.000 son un supuesto.
+- **Alojamiento en febrero de 2027:** los precios son de referencia, sin fecha confirmada.
+- **Excursiones y entradas:** no hay precios publicados (incluida la excursión a Bodega Trapiche).
+- **Clima:** no hay datos para las fechas del viaje.
+
+Antes de reservar, conviene confirmar la unidad del pasaje y del alojamiento, y averiguar un precio real de comida.
+
+## Fuentes
+- [memoria] mem-5feda6412460 → https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/mar-del-plata — pasajes, buscado el 2026-11-18
+- [memoria] mem-7c366f28a452 → https://www.centraldepasajes.com.ar/cdp/pasajes-micro/mar-del-plata/cordoba — pasajes, buscado el 2026-11-18
+- [memoria] mem-867d981a82dc → https://www.despegar.com.ar/hoteles/hl/4445/i1/hoteles-en-mar+del+plata — alojamiento, buscado el 2026-11-18
+- [memoria] mem-a33238e9e9fb → https://www.expedia.com/es/Mar-Del-Plata-Rentas-Vacacionales.d2252.Guia-De-Viaje-Rentas-Vacacionales — alojamiento, buscado el 2026-11-18
+- [memoria] mem-e9315e4fc417 → https://www.turismomardelplata.gob.ar — actividades, buscado el 2026-11-18
+- [memoria] mem-7775e5370ade → https://www.tangol.com/esp/argentina/mar-del-plata/excursiones/d_21_tp_3 — actividades, buscado el 2026-11-18
+
+_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._
+
+------------------------------------------------------------------------------------------
+ESTADO: completo | DURACIÓN: 76.43 s | DECISIONES DEL SUPERVISOR: 3
+REFINAMIENTOS: 0 | BÚSQUEDAS WEB REALES (TAVILY): 0 | DATOS: 15 de memoria · 0 de la web
+VALIDACIÓN: aprobada | PRESUPUESTO ENTRA: False | HERRAMIENTAS: {"buscar_en_memoria": 5, "buscar_en_web": 4, "validar_viaje": 1, "calcular_presupuesto": 3}
+TOKENS: {"claude-haiku-5-5": {"output_token_details": {"reasoning": 4315}, "output_tokens": 15486, "input_token_details": {"ephemeral_5m_input_tokens": 0, "ephemeral_1h_input_tokens": 0, "cache_creation": 0, "cache_read": 0}, "total_tokens": 117141, "input_tokens": 101655}}

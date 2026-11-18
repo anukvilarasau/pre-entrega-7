@@ -1,0 +1,236 @@
+{
+  "pregunta": "¿Qué clima hace en Ushuaia en agosto y qué actividades de nieve hay?",
+  "escenario": "api_1ec8b191",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:39:01.034-03:00",
+  "fin": "2026-11-18T14:39:36.297-03:00",
+  "duracion_s": 35.26,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": null,
+    "destino": "Ushuaia",
+    "fecha_ida": null,
+    "fecha_vuelta": null,
+    "dias": null,
+    "personas": null,
+    "presupuesto": null,
+    "moneda": null,
+    "supuestos": []
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:05.662-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "destino": "Ushuaia",
+          "supuestos": []
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-...) sobre Ushuaia en agosto: clima (temperaturas medias, máximas y mínimas, nevadas, días de lluvia o viento) y actividades de nieve (esquí, centros de esquí como Cerro Castor, trineo, raquetas, excursiones con nieve, etc.) con precios de referencia si están disponibles (rangos o valores \"desde\", no exactos). No hace falta buscar pasajes, alojamiento ni comida, ya que el pedido no tiene presupuesto. Indicá la fuente de cada dato.",
+        "temas": [
+          "clima",
+          "actividades"
+        ],
+        "evaluacion": "Aún no hay aportes. La pregunta pide clima de Ushuaia en agosto y actividades de nieve: son datos de clima y actividades, sin presupuesto ni cuentas, así que no corresponde llamar al analista. Falta toda la cobertura: hay que buscar clima y actividades (R1, R2). Todavía no se puede evaluar R3 a R6.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:39:06.208-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "clima",
+          "actividades"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:39:24.909-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-...) sobre Ushuaia en agosto: clima (temperaturas medias, máximas y mínimas, nevadas, días de lluvia o viento) y actividades de nieve (esquí, centros de esquí como Cerro Castor, trineo, raquetas, excursiones con nieve, etc.) con precios de referencia si están disponibles (rangos o valores \"desde\", no exactos). No hace falta buscar pasajes, alojamiento ni comida, ya que el pedido no tiene presupuesto. Indicá la fuente de cada dato.",
+        "contenido": "## Hallazgos\n\n### Clima (Ushuaia, agosto)\n- La temporada fría va del 23 de mayo al 23 de agosto, con temperatura máxima promedio diaria menor a 5 °C. — [https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o] (memoria, [mem-0f5d24a538e6])\n- Temperatura media de agosto de alrededor de 2 °C, y los días de viento aumentan la sensación de frío. — [https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701] (memoria, [mem-e7a65593fc1e])\n- Una fuente general de Ushuaia indica máximas cercanas a 14 °C y mínimas en torno a 5,2 °C. Esta cifra no está confirmada como dato de agosto, así que debe tomarse con cuidado. — [https://terramar.tur.ar/como-es-el-clima-en-ushuaia] (memoria, [mem-fc5b66a20739])\n\n### Actividades de nieve\n- Cerro Castor ofrece esquí y snowboard, alquiler de equipos de ski carving (botas, bastones y esquíes; si se elige snowboard se abona diferencia), y paquetes flexibles de 4 días (Mini Week) y 7 días (Ski Week), con opciones de temporada alta y baja. Los precios de los paquetes están en la misma fuente, pero no se incluyeron en los datos de memoria. — [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] (memoria, [mem-d4ebb12749f7])\n- En Cerro Castor también hay caminatas con raquetas, trineos, pista de patinaje, spa y miradores. Se puede subir a la base sin esquiar. — [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] (memoria, [mem-d4ebb12749f7])\n- Paseo en trineo tirado por perros con musher: vuelta de 2 km, con reserva previa. — [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] (memoria, [mem-f95f9775fe9e])\n- Criadero Siberianos de Fuego (Llanos del Castor, a 20 km del centro): visitas y trineo de perros, con reserva previa. Tarifa adultos $20.000 y menores de 14 años $15.000 (moneda y unidad no especificadas en la fuente). — [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] (memoria, [mem-f95f9775fe9e])\n- Excursiones con motos de nieve, caminatas con raquetas, esquí de fondo y excursiones combinadas diurnas y nocturnas (con reserva previa). — [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] (memoria, [mem-f95f9775fe9e])\n- Excursión \"Aventura Blanca\": motos de nieve y trineo con huskies, con chocolate caliente y traslados. Precio no visible en el extracto. — [https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve] (memoria, [mem-8c83d38b4d9b])\n\n## Datos que faltan\n- Temperaturas mínimas, máximas y medias de agosto confirmadas para Ushuaia. Los datos de memoria son parciales y en parte contradictorios. No se pudo hacer una búsqueda web nueva porque la memoria cubría el tema y la herramienta no la autorizó.\n- Cantidad de nevadas, días de lluvia y días de viento en agosto.\n- Precios actuales de pases de esquí en Cerro Castor y de los paquetes Mini Week y Ski Week.\n- Precio de la excursión Aventura Blanca y de otras excursiones de nieve (moto de nieve, raquetas, trineo).\n- Moneda y unidad de la tarifa del criadero (no especificadas en la fuente).",
+        "fuentes": [
+          {
+            "ref": "mem-0f5d24a538e6",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-fc5b66a20739",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://terramar.tur.ar/como-es-el-clima-en-ushuaia",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-e7a65593fc1e",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f95f9775fe9e",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-d4ebb12749f7",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-8c83d38b4d9b",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima en agosto: temperaturas medias, máximas y mínimas, nevadas, días de lluvia o viento",
+              "destino": "Ushuaia",
+              "tema": "clima"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'clima en agosto: temperaturas medias, máximas y mínimas, nevadas, días de lluvia o viento':\n\n[mem-0f5d24a538e6] origen=memoria | tema=clima | buscado hace 0.0 días (2026-11-18) | url=https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o\nLa temporada fría dura 3,0 meses, del 23 de mayo al 23 de agosto, y la temperatura máxima promedio diaria es menos de 5 °C. ... Temperatura máxima y mínima\n\n[mem-fc5b66a20739] origen=memoria | tema=clima | buscado hace 0.0 días (2026-11-18) | url=https://terramar.tur.ar/como-es-el-clim...",
+            "timestamp": "2026-11-18T14:39:24.907-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "actividades de nieve en agosto: esquí, Cerro Castor, trineo, raquetas, excursiones con nieve, precios",
+              "destino": "Ushuaia",
+              "tema": "actividades"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'actividades de nieve en agosto: esquí, Cerro Castor, trineo, raquetas, excursiones con nieve, precios':\n\n[mem-f95f9775fe9e] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf\nA 24 Km del Centro. Wsp: + 54 9 2901 653848 - Restaurante y confitería. Tenedor libre de cordero y a la carta. Excursiones combinadas diurnas y nocturnas, caminatas con raquetas, motos de nieve, esquí de fondo. Alojamiento. CON RESERVA PREVIA.-Tierra Mayor Valle Hermoso Llanos del Cast...",
+            "timestamp": "2026-11-18T14:39:24.907-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "Ushuaia clima agosto temperatura media máxima mínima días de nieve viento",
+              "destino": "Ushuaia",
+              "tema": "clima",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la búsqueda web no fue autorizada (la memoria cubría los temas pedidos). Estos son los datos vigentes en memoria sobre Ushuaia / clima (pueden ser menos precisos):\n\nMEMORIA — 3 datos vigentes para 'Ushuaia clima agosto temperatura media máxima mínima días de nieve viento':\n\n[mem-0f5d24a538e6] origen=memoria | tema=clima | buscado hace 0.0 días (2026-11-18) | url=https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o\nLa temporada fría dura 3,0 meses, del 23 de mayo al 23 de agosto, y la temperatura máxima promedio diaria es menos...",
+            "timestamp": "2026-11-18T14:39:24.907-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "clima",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": false
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:27.519-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: la pregunta pide clima en agosto y actividades de nieve; hay clima (temperaturas, temporada fría, viento) y actividades (Cerro Castor, trineo, motos de nieve, raquetas). Cubierto. R2 Fuentes: todos los aportes tienen URL o mem-. Cumplido. R3 Precios: no aplica estrictamente (no hay presupuesto); hay precios de referencia de actividades. R4: no hay presupuesto, no corresponde analista. R5: sin observaciones del chequeo por código. R6: el dato de máximas (~14 °C) está marcado como no confirmado para agosto, pero no contradice la temperatura media de ~2 °C; es una advertencia de fuente, no una contradicción grave. Todo lo pedido está cubierto; no hace falta otra ronda.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:39:33.838-03:00",
+      "detalle": {
+        "respuesta": "## Clima en Ushuaia en agosto\n\nAgosto está dentro de la temporada fría, que va del 23 de mayo al 23 de agosto, con máximas promedio menores a 5 °C [https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o] [mem-0f5d24a538e6]. La temperatura media de agosto ronda los 2 °C, y los días de viento aumentan la sensación de frío [https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701] [mem-e7a65593fc1e]. Otra fuente general da máximas cercanas a 14 °C y mínimas en torno a 5,2 °C, pero no está confirmado que sea un dato de agosto, así que tomalo con cuidado [https://terramar.tur.ar/como-es-el-clima-en-ushuaia] [mem-fc5b66a20739].\n\n## Actividades de nieve\n\n**Cerro Castor**\n- Esquí y snowboard, con alquiler de equipos de ski carving. Si elegís snowboard se abona una diferencia [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Paquetes flexibles de 4 días (Mini Week) y 7 días (Ski Week), con opciones de temporada alta y baja [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Caminatas con raquetas, trineos, pista de patinaje, spa y miradores. Se puede subir a la base sin esquiar [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n\n**Otras opciones (con reserva previa)**\n- Paseo en trineo tirado por perros con musher, de unos 2 km [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Criadero Siberianos de Fuego, a unos 20 km del centro, con visitas y trineo de perros. La fuente indica tarifa de $20.000 para adultos y $15.000 para menores de 14 años, pero no aclara moneda ni unidad [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Motos de nieve, raquetas, esquí de fondo y excursiones combinadas diurnas y nocturnas [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- \"Aventura Blanca\": motos de nieve y trineo con huskies, con chocolate caliente y traslados. El precio no aparece en el extracto [https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve] [mem-8c83d38b4d9b].\n\n## Lo que no pudimos averiguar\n\n- Temperaturas mínimas, máximas y medias de agosto confirmadas. Los datos disponibles son parciales y se contradicen en parte.\n- Cantidad de nevadas, días de lluvia y días de viento en agosto.\n- Precios actuales de pases de esquí en Cerro Castor y de los paquetes Mini Week y Ski Week.\n- Precios de la excursión Aventura Blanca y de otras actividades (motos de nieve, raquetas, trineo).\n- Moneda y unidad de la tarifa del criadero.\n\nSi me decís desde dónde salís, las fechas y cuántos días y personas son, puedo armar un itinerario con presupuesto.\n\n## Fuentes\n- [memoria] mem-0f5d24a538e6 → https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o — clima, buscado el 2026-11-18\n- [memoria] mem-fc5b66a20739 → https://terramar.tur.ar/como-es-el-clima-en-ushuaia — clima, buscado el 2026-11-18\n- [memoria] mem-e7a65593fc1e → https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701 — clima, buscado el 2026-11-18\n- [memoria] mem-f95f9775fe9e → https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf — actividades, buscado el 2026-11-18\n- [memoria] mem-d4ebb12749f7 → https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq — actividades, buscado el 2026-11-18\n- [memoria] mem-8c83d38b4d9b → https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Clima en Ushuaia en agosto\n\nAgosto está dentro de la temporada fría, que va del 23 de mayo al 23 de agosto, con máximas promedio menores a 5 °C [https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o] [mem-0f5d24a538e6]. La temperatura media de agosto ronda los 2 °C, y los días de viento aumentan la sensación de frío [https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701] [mem-e7a65593fc1e]. Otra fuente general da máximas cercanas a 14 °C y mínimas en torno a 5,2 °C, pero no está confirmado que sea un dato de agosto, así que tomalo con cuidado [https://terramar.tur.ar/como-es-el-clima-en-ushuaia] [mem-fc5b66a20739].\n\n## Actividades de nieve\n\n**Cerro Castor**\n- Esquí y snowboard, con alquiler de equipos de ski carving. Si elegís snowboard se abona una diferencia [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Paquetes flexibles de 4 días (Mini Week) y 7 días (Ski Week), con opciones de temporada alta y baja [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Caminatas con raquetas, trineos, pista de patinaje, spa y miradores. Se puede subir a la base sin esquiar [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n\n**Otras opciones (con reserva previa)**\n- Paseo en trineo tirado por perros con musher, de unos 2 km [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Criadero Siberianos de Fuego, a unos 20 km del centro, con visitas y trineo de perros. La fuente indica tarifa de $20.000 para adultos y $15.000 para menores de 14 años, pero no aclara moneda ni unidad [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Motos de nieve, raquetas, esquí de fondo y excursiones combinadas diurnas y nocturnas [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- \"Aventura Blanca\": motos de nieve y trineo con huskies, con chocolate caliente y traslados. El precio no aparece en el extracto [https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve] [mem-8c83d38b4d9b].\n\n## Lo que no pudimos averiguar\n\n- Temperaturas mínimas, máximas y medias de agosto confirmadas. Los datos disponibles son parciales y se contradicen en parte.\n- Cantidad de nevadas, días de lluvia y días de viento en agosto.\n- Precios actuales de pases de esquí en Cerro Castor y de los paquetes Mini Week y Ski Week.\n- Precios de la excursión Aventura Blanca y de otras actividades (motos de nieve, raquetas, trineo).\n- Moneda y unidad de la tarifa del criadero.\n\nSi me decís desde dónde salís, las fechas y cuántos días y personas son, puedo armar un itinerario con presupuesto.\n\n## Fuentes\n- [memoria] mem-0f5d24a538e6 → https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o — clima, buscado el 2026-11-18\n- [memoria] mem-fc5b66a20739 → https://terramar.tur.ar/como-es-el-clima-en-ushuaia — clima, buscado el 2026-11-18\n- [memoria] mem-e7a65593fc1e → https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701 — clima, buscado el 2026-11-18\n- [memoria] mem-f95f9775fe9e → https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf — actividades, buscado el 2026-11-18\n- [memoria] mem-d4ebb12749f7 → https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq — actividades, buscado el 2026-11-18\n- [memoria] mem-8c83d38b4d9b → https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → sintesis",
+    "pasos_supervisor": 2,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 1
+    },
+    "refinamientos": 0,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 2,
+      "buscar_en_web": 1
+    },
+    "busquedas_web": 0,
+    "fuentes_memoria": 6,
+    "fuentes_web": 0,
+    "observaciones": [],
+    "validacion": "no se validó",
+    "presupuesto_entra": null,
+    "alternativa_calculada": false
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "output_token_details": {
+        "reasoning": 346
+      },
+      "output_tokens": 4786,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "total_tokens": 29096,
+      "input_tokens": 24310
+    }
+  },
+  "archivo": "traces\\api\\api_1ec8b191_real_20261118-143901.json"
+}

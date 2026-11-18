@@ -1,0 +1,150 @@
+==========================================================================================
+TRAZA MULTI-AGENTE | escenario: api_9f7d383e | modo: real | modelo: claude-haiku-5-5
+MAX_PASOS_SUPERVISOR: 6 | RECURSION_LIMIT: 20 | inicio: 2026-11-18T14:32:23.588-03:00
+==========================================================================================
+PREGUNTA: Queremos ir 5 días a Salta en abril, somos 3 personas, salimos desde Córdoba y tenemos 1.200.000 pesos. ¿Nos alcanza? Armanos un itinerario.
+RUTA: supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis
+
+[14:32:28.711] SUPERVISOR · pedido extraído: {"origen": "Córdoba", "destino": "Salta", "fecha_ida": "2027-04-10", "fecha_vuelta": "2027-04-14", "dias": 5, "personas": 3, "presupuesto": 1200000.0, "moneda": "ARS", "supuestos": ["Abril sin día exacto: ida asumida el 10/04/2027 (abril de 2026 ya pasó), vuelta 14/04/2027 según 5 días"]}
+[14:32:28.711] SUPERVISOR · decisión 1 → investigador
+           evaluación: Pregunta con presupuesto (1.200.000 ARS, 3 personas, 5 días, Córdoba-Salta, abril). R1 Cobertura: no hay datos aún; faltan pasajes, alojamiento, comida/actividades y cotización del dólar (hay precios que podrían estar en dólares). R2 Fuentes: no hay aportes. R3 Precios: pendientes. R4 Cálculo: pendiente, requiere precios del investigador. R5 y R6: sin aportes, no aplica todavía. Corresponde primero al investigador.
+           instrucción: Buscar datos actuales con fuente (URL o memoria) para un viaje de Córdoba a Salta, ida 10/04/2027 y vuelta 14/04/2027, 3 personas, 5 días. Pedir precios de referencia (rangos, valores "desde" o promedios), no exactos. Temas: pasajes aéreos y/o terrestres Córdoba-Salta para 3 personas (ida y vuelta, indicando moneda y monto); alojamiento en Salta para 4 noches y 3 personas (precio por noche); comida (costo diario aproximado por persona); actividades principales en Salta con precio de referencia; clima esperado en Salta en abril; y cotización del dólar oficial, tarjeta y MEP (no el blue). Indicar la fuente de cada dato.
+           temas pedidos: pasajes, alojamiento, comida, actividades, clima, cambio
+[14:32:36.027] APROBACIÓN WEB · aprobada (persona, con pausa) · sin memoria: pasajes, alojamiento, comida, actividades, clima, cambio
+[14:33:12.338] INVESTIGADOR · ronda 1 · herramientas: buscar_en_memoria, buscar_en_web
+           ACCIÓN: buscar_en_memoria({"consulta": "pasajes aéreos y terrestres Córdoba a Salta ida y vuelta, precio por persona", "destino": "Salta", "tema": "pasajes"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'pasajes aéreos y terrestres Córdoba a Salta ida y vuelta, precio por persona' [destino=Salta, tema=pasajes]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "alojamiento hotel precio por noche por habitación para 3 personas", "destino": "Salta", "tema": "alojamiento"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'alojamiento hotel precio por noche por habitación para 3 personas' [destino=Salta, tema=alojamiento]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "costo diario aproximado de comida por persona restaurantes", "destino": "Salta", "tema": "comida"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'costo diario aproximado de comida por persona restaurantes' [destino=Salta, tema=comida]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "actividades principales y precios de entradas, excursiones", "destino": "Salta", "tema": "actividades"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'actividades principales y precios de entradas, excursiones' [destino=Salta, tema=actividades]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "clima esperado en abril temperaturas y lluvias", "destino": "Salta", "tema": "clima"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'clima esperado en abril temperaturas y lluvias' [destino=Salta, tema=clima]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_memoria({"consulta": "cotización dólar oficial, tarjeta y MEP", "destino": "Salta", "tema": "cambio"})
+           OBSERVACIÓN: SIN RESULTADOS EN MEMORIA para 'cotización dólar oficial, tarjeta y MEP' [destino=Salta, tema=cambio]: no hay nada guardado sobre este destino y tema. Buscá en la web con buscar_en_web.
+           ACCIÓN: buscar_en_web({"consulta": "pasajes micro o avión Córdoba a Salta precio ida y vuelta por persona", "destino": "Salta", "tema": "pasajes"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'pasajes micro o avión Córdoba a Salta precio ida y vuelta por persona' (guardados en memoria):  [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta] origen=web | tema=pasajes | guardado como mem-a221684974f7 Pasajes de Córdoba a Salta en micro 🚌 Precios ...
+           ACCIÓN: buscar_en_web({"consulta": "precio hotel por noche habitación Salta capital temporada abril", "destino": "Salta", "tema": "alojamiento"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'precio hotel por noche habitación Salta capital temporada abril' (guardados en memoria):  [https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp] origen=web | tema=alojamiento | guardado como mem-90e8907fc98b Hoteles en Ciudad de Salta desde $20/noche -...
+           ACCIÓN: buscar_en_web({"consulta": "costo promedio comida por persona por día restaurantes Salta", "destino": "Salta", "tema": "comida"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'costo promedio comida por persona por día restaurantes Salta' (guardados en memoria):  [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta] origen=web | tema=comida | guardado como mem-ec7d...
+           ACCIÓN: buscar_en_web({"consulta": "precio entradas excursiones Salta Cafayate Quebrada de Humahuaca Tren a las Nubes", "destino": "Salta", "tema": "actividades"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'precio entradas excursiones Salta Cafayate Quebrada de Humahuaca Tren a las Nubes' (guardados en memoria):  [https://www.getyourguide.com/tren-a-las-nubes-l261931] origen=web | tema=actividades | guardado como mem-c246a4c3a13c Tren a las Nubes Trips & Tickets - GetY...
+           ACCIÓN: buscar_en_web({"consulta": "clima Salta en abril temperatura máxima mínima lluvias promedio", "destino": "Salta", "tema": "clima"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'clima Salta en abril temperatura máxima mínima lluvias promedio' (guardados en memoria):  [https://www.tiempo3.com/south-america/argentina/salta?page=month&month=April] origen=web | tema=clima | guardado como mem-bf9a932ca270 Pronóstico meteorológico del clima en Sa...
+           ACCIÓN: buscar_en_web({"consulta": "cotización dólar oficial tarjeta MEP hoy Argentina", "destino": "Salta", "tema": "cambio"})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'cotización dólar oficial tarjeta MEP hoy Argentina' (guardados en memoria):  [https://www.lanacion.com.ar/dolar-hoy] origen=web | tema=cambio | guardado como mem-f84a5546c019 Últimas noticias de Cotización del Dólar Hoy, Precio del Dólar el 15 de noviembre - LA NACI...
+           fuentes: https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta (web, pasajes), https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba (web, pasajes), https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla (web, pasajes), https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp (web, alojamiento), https://www.kayak.com.gt/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp (web, alojamiento), https://www.youtube.com/watch?v=dS6B1vg8Cpw (web, alojamiento), https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta (web, comida), https://www.tiktok.com/@bodegonero/video/7425755015647612165?lang=en (web, comida), https://cuantomecuesta.com/ar/restaurante (web, comida), https://www.getyourguide.com/tren-a-las-nubes-l261931 (web, actividades), https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360 (web, actividades), https://www.altiplanotravel.tur.ar/excursion/243/Tren-Solar-de-la-Quebrada.html (web, actividades), https://www.tiempo3.com/south-america/argentina/salta?page=month&month=April (web, clima), https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92 (web, clima), https://estadisticas.salta.gov.ar/web/level2/1/6/1 (web, clima), https://www.lanacion.com.ar/dolar-hoy (web, cambio), https://www.dolarito.ar (web, cambio), https://www.cronista.com/MercadosOnline/dolar.html (web, cambio)
+           cobertura: pasajes 3 (0 mem / 3 web, con precios); alojamiento 3 (0 mem / 3 web, con precios); comida 3 (0 mem / 3 web, con precios); actividades 3 (0 mem / 3 web, sin precios); clima 3 (0 mem / 3 web, sin precios); cambio 3 (0 mem / 3 web, con precios)
+           chequeo por código: sin observaciones
+[14:33:16.700] SUPERVISOR · decisión 2 → investigador
+           evaluación: R1 Cobertura: pasajes, alojamiento, comida, cambio tienen datos con fuente; actividades y clima aparecen sin precios (clima no es monto, pero actividades sí necesita precio de referencia para armar itinerario). R2 Fuentes: todos los aportes tienen URLs. R3 Precios: pasajes trae montos pero con unidad no confirmada (micro/avión, por persona o ida y vuelta); alojamiento trae montos dudosos (Kayak $20/$160 sin unidad, video 120 sin moneda). Falta un precio de alojamiento confiable en ARS. R4 Cálculo: el analista todavía no calculó nada. R5 Observaciones: ninguna por código. R6 Coherencia: aún no evaluable; las unidades de pasajes y alojamiento son dudosas. Corresponde pedir al investigador que aclare unidades y complete alojamiento y actividades con precios de referencia en ARS; luego al analista.
+           instrucción: Para el viaje Córdoba–Salta, ida 10/04/2027 y vuelta 14/04/2027, 3 personas, 4 noches. Re-buscar con precios de referencia en ARS y aclarar la unidad de cada monto: (1) PASAJES: precio de referencia de micro y/o avión Córdoba–Salta indicando si es por persona, por tramo o ida y vuelta, y la moneda. (2) ALOJAMIENTO: precio por noche de hotel/hostel en Salta para 3 personas en abril (habitación triple o dos habitaciones), en ARS, indicando si es por habitación o por persona. (3) ACTIVIDADES: precios de referencia en ARS de las principales actividades en Salta (Tren a las Nubes, Quebrada de Humahuaca, Cafayate, etc.). Cada dato con URL o mem-. No hace falta repetir clima, comida ni cambio, que ya tienen fuentes.
+           temas pedidos: pasajes, alojamiento, actividades
+[14:33:17.199] APROBACIÓN WEB · aprobada (decision_previa) · sin memoria: ninguno
+[14:33:37.273] INVESTIGADOR · ronda 2 · herramientas: buscar_en_memoria, buscar_en_web
+           ACCIÓN: buscar_en_memoria({"consulta": "pasajes micro avión Córdoba a Salta precio ARS abril", "destino": "Salta", "tema": "pasajes"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'pasajes micro avión Córdoba a Salta precio ARS abril':  [mem-a221684974f7] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta El precio del pasaje de micro de Córdoba a Salta arranca...
+           ACCIÓN: buscar_en_memoria({"consulta": "hotel hostel precio por noche habitación triple abril ARS", "destino": "Salta", "tema": "alojamiento"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'hotel hostel precio por noche habitación triple abril ARS':  [mem-58ec2a8c0a89] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.youtube.com/watch?v=dS6B1vg8Cpw [3:51] y buena relación, calidad precio. La tarifa diaria en tempo...
+           ACCIÓN: buscar_en_memoria({"consulta": "precio Tren a las Nubes Quebrada de Humahuaca Cafayate excursión ARS", "destino": "Salta", "tema": "actividades"})
+           OBSERVACIÓN: MEMORIA — 3 datos vigentes para 'precio Tren a las Nubes Quebrada de Humahuaca Cafayate excursión ARS':  [mem-c246a4c3a13c] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.getyourguide.com/tren-a-las-nubes-l261931 Book your Tren a las Nubes tickets online. Sa...
+           ACCIÓN: buscar_en_web({"consulta": "precio pasaje micro Córdoba Salta ARS por persona tramo ida y vuelta abril 2027", "destino": "Salta", "tema": "pasajes", "forzar": true})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.  MEMORIA — 3 datos vigentes para 'precio pasaje micro Córdoba Salta ARS por persona tramo ida y vuelta abril 2027':  [mem-e1b795d70c7a] origen=memoria | tema=pasajes | buscado hace 0.0...
+           ACCIÓN: buscar_en_web({"consulta": "precio hotel hostel Salta capital por noche habitación triple 3 personas ARS abril", "destino": "Salta", "tema": "alojamiento", "forzar": true})
+           OBSERVACIÓN: NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.  MEMORIA — 3 datos vigentes para 'precio hotel hostel Salta capital por noche habitación triple 3 personas ARS abril':  [mem-58ec2a8c0a89] origen=memoria | tema=alojamiento | buscado h...
+           ACCIÓN: buscar_en_web({"consulta": "precio Tren a las Nubes Quebrada de Humahuaca Cafayate excursión pesos argentinos ARS por persona", "destino": "Salta", "tema": "actividades", "forzar": true})
+           OBSERVACIÓN: WEB (Tavily) — 3 resultados para 'precio Tren a las Nubes Quebrada de Humahuaca Cafayate excursión pesos argentinos ARS por persona' (guardados en memoria):  [https://rubenyelmundo.com/salta-tren-a-las-nubes-precio-boletos] origen=web | tema=actividades | guardado como mem-9bb5794b3c4b Como es el TR...
+           fuentes: mem-a221684974f7 (memoria, pasajes), mem-e1b795d70c7a (memoria, pasajes), mem-3881821b4e49 (memoria, pasajes), mem-58ec2a8c0a89 (memoria, alojamiento), mem-90e8907fc98b (memoria, alojamiento), mem-f9dca089068b (memoria, alojamiento), mem-c246a4c3a13c (memoria, actividades), mem-e0d5a08aa036 (memoria, actividades), mem-809e4ad26711 (memoria, actividades), https://rubenyelmundo.com/salta-tren-a-las-nubes-precio-boletos (web, actividades), https://trensaltatiamar.com (web, actividades), https://visitsalta.ar/favoritos/tren-a-las-nubes (web, actividades)
+           cobertura: pasajes 3 (3 mem / 0 web, con precios); alojamiento 3 (3 mem / 0 web, con precios); actividades 6 (3 mem / 3 web, con precios)
+           chequeo por código: sin observaciones
+[14:33:42.394] SUPERVISOR · decisión 3 → analista
+           evaluación: R1 Cobertura: pasajes, alojamiento, comida y actividades tienen fuentes y precios; clima NO trae precios (no hace falta precio, pero sí fuentes: tiene 3 fuentes web, cubre el tema). Cambio tiene fuentes y precios. Falta confirmar cotización (hay 3 fuentes de cambio, OK). R2 Fuentes: todos los aportes tienen URL o mem-. R3 Precios: pasajes y alojamiento tienen montos, aunque con unidades dudosas (micro/avión sin aclarar si es por persona o ida y vuelta; alojamiento sin unidad confiable en ARS para 3 personas). Para el analista esto alcanza como referencia, aclarando unidades. R4 Cálculo: no hay aporte del analista todavía; hace falta que ejecute validar_viaje y calcular_presupuesto. R5 Observaciones: ninguna en ambos aportes. R6: noches (4) y personas (3) son consistentes en ambos aportes; la moneda de algunos precios es dudosa pero el analista debe aclararla.
+           instrucción: Validá el viaje con validar_viaje (Córdoba a Salta, ida 10/04/2027, vuelta 14/04/2027, 3 personas, 5 días, presupuesto 1.200.000 ARS; el supuesto de fecha es que abril de 2026 ya pasó). Luego ejecutá calcular_presupuesto usando los precios de referencia de los aportes: pasajes (micro desde ARS 57.750 promedio ARS 83.799; avión desde ARS 204.226 por persona, unidad tramo/ida y vuelta no confirmada), alojamiento (4 noches, 3 personas; los precios de Kayak y YouTube no tienen unidad ni moneda confiables, así que aclará la unidad y, si no hay un precio confiable en ARS, usá el supuesto explícito y marcalo), comida (rango de referencia de Salta: menús ≈ ARS 9.000 y comida regional; restaurantes de referencia nacional ARS 20.000–80.000 por persona como cota superior), y actividades (Tren a las Nubes solo tren ARS 139.500–149.500 por persona, válido 2026; Tren Solar ≈ USD 50 por persona, convertir con la cotización del dólar informada). Indicá si el presupuesto de 1.200.000 ARS entra, aclarando las unidades dudosas y los supuestos usados.
+[14:34:08.738] ANALISTA · ronda 3 · herramientas: validar_viaje, calcular_presupuesto
+           ACCIÓN: validar_viaje({"origen": "Córdoba", "destino": "Salta", "fecha_ida": "2027-04-10", "fecha_vuelta": "2027-04-14", "personas": 3, "presupuesto": 1200000, "moneda": "ARS", "dias_pedidos": 5})
+           OBSERVACIÓN: VÁLIDO: Córdoba → Salta, del 2027-04-10 al 2027-04-14 (5 días, 4 noches), 3 personas, presupuesto $ 1.200.000.
+           ACCIÓN: calcular_presupuesto({"opcion": "económica", "personas": 3, "noches": 4, "dias": 5, "presupuesto": 1200000, "moneda_presupuesto": "ARS", "pasaje": {"monto": 57750, "moneda": "ARS", "tramo": "ida_y_vuelta", "medio": "micro (desde, optimista; unidad no confirmada, se asume...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'económica' (5 días, 4 noches, 3 personas): - Pasajes micro (desde, optimista; unidad no confirmada, se asume ida y vuelta por persona): $ 173.250  [$ 57.750 por persona (ida y vuelta) × 3 personas] - Alojamiento supuesto del analista: habitación triple, sin fuente confiable en ...
+           ACCIÓN: calcular_presupuesto({"opcion": "principal con actividades", "personas": 3, "noches": 4, "dias": 5, "presupuesto": 1200000, "moneda_presupuesto": "ARS", "pasaje": {"monto": 83799, "moneda": "ARS", "tramo": "ida_y_vuelta", "medio": "micro (precio promedio; unidad no confi...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'principal con actividades' (5 días, 4 noches, 3 personas): - Pasajes micro (precio promedio; unidad no confirmada, se asume ida y vuelta por persona): $ 251.397  [$ 83.799 por persona (ida y vuelta) × 3 personas] - Alojamiento supuesto del analista: habitación triple, sin fuent...
+           ACCIÓN: calcular_presupuesto({"opcion": "alternativa: comida regional, solo Tren a las Nubes", "personas": 3, "noches": 4, "dias": 5, "presupuesto": 1200000, "moneda_presupuesto": "ARS", "pasaje": {"monto": 83799, "moneda": "ARS", "tramo": "ida_y_vuelta", "medio": "micro (precio...)
+           OBSERVACIÓN: PRESUPUESTO — opción 'alternativa: comida regional, solo Tren a las Nubes' (5 días, 4 noches, 3 personas): - Pasajes micro (precio promedio; unidad no confirmada, se asume ida y vuelta por persona): $ 251.397  [$ 83.799 por persona (ida y vuelta) × 3 personas] - Alojamiento supuesto del analista: ha...
+           fuentes: https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta (web, pasajes), https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta (web, comida), https://cuantomecuesta.com/ar/restaurante (web, comida), https://trensaltatiamar.com (web, actividades), https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360 (web, actividades), https://www.lanacion.com.ar/dolar-hoy (web, cambio), https://www.cronista.com/MercadosOnline/dolar.html (web, cambio)
+           chequeo por código: sin observaciones
+[14:34:13.146] SUPERVISOR · decisión 4 → FINALIZAR
+           evaluación: R1 Cobertura: pasajes, alojamiento, comida y actividades tienen datos; cambio tiene cotización (tarjeta/Cronista); clima tiene fuentes pero SIN precios (no se requieren precios para clima, pero el tema está cubierto). Falta confirmar cotización oficial y MEP, y el dato de alojamiento es supuesto (no hay precio confiable en ARS). R2 Fuentes: los aportes tienen URLs o mem-. R3 Precios: pasajes sí (micro 57.750/83.799 y avión 204.226), alojamiento NO tiene precio confiable en ARS (el analista usó un supuesto de 60.000/noche). R4 Cálculo: validar_viaje dio VÁLIDO y calcular_presupuesto se ejecutó, con resultado que entra en unas opciones y no en otras. R5 Observaciones: ninguna por código. R6 Coherencia: la unidad de pasajes (por persona, ida y vuelta vs tramo) es dudosa y el analista la marcó como supuesto; el alojamiento es un supuesto sin fuente. El dato que más pesa en el resultado (alojamiento) no está respaldado. Conviene una última búsqueda acotada de alojamiento en ARS para 3 personas con unidad clara, sin repetir pasajes, comida, clima ni actividades. [regla dura: el investigador ya trabajó 2 veces; se finaliza con lo que hay]
+[14:34:21.787] SÍNTESIS · respuesta final (5046 caracteres)
+
+RESPUESTA FINAL:
+## Respuesta corta
+
+Sí, en la versión económica y en la alternativa el viaje entra en $1.200.000, pero el cálculo depende de dos supuestos fuertes: que el precio del micro es ida y vuelta por persona, y que el alojamiento cuesta $60.000 por noche (dato sin fuente). Si incluís el Tren Solar y comida de restaurante, no alcanza.
+
+## Itinerario (Córdoba → Salta, 10 al 14 de abril de 2027)
+
+- **Día 1 (10/04):** Viaje en micro Córdoba–Salta. Llegada y check-in. Clima esperado: mínima 13 °C, máxima hasta 24 °C; llevar campera liviana [https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92].
+- **Día 2 (11/04):** Tren a las Nubes (solo tren, tarifa de referencia $139.500 por persona, promoción de 2026; puede cambiar) [https://trensaltatiamar.com].
+- **Día 3 (12/04):** Día libre para recorrer la ciudad de Salta y comer comida regional (menús de trabajador desde ~$9.000; empanadas ~$16.000 la docena) [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta].
+- **Día 4 (13/04):** Día libre o de descanso. Si querés sumar el Tren Solar, cuesta alrededor de USD 50 por persona según una reseña de 2025 [https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360], pero no entra en el presupuesto de la versión económica.
+- **Día 5 (14/04):** Regreso a Córdoba en micro.
+
+## Presupuesto
+
+**Opción económica** (micro desde $57.750, comida regional, sin extras)
+- Pasajes micro: $173.250 (57.750 × 3, ida y vuelta, unidad no confirmada) [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta]
+- Alojamiento (supuesto): $240.000 (60.000 por noche × 4 noches, habitación triple; sin fuente)
+- Comida: $135.000 (9.000 por persona por día × 5 × 3)
+- **Total: $548.250. Entra; sobran $651.750.** Costo por día: $109.650.
+
+**Opción principal con actividades** (micro promedio, comida de restaurante, Tren a las Nubes y Tren Solar)
+- Pasajes micro: $251.397 (83.799 × 3)
+- Alojamiento (supuesto): $240.000
+- Comida: $300.000 (20.000 por persona por día × 5 × 3)
+- Tren a las Nubes (solo tren): $418.500
+- Tren Solar: $307.125 (USD 50 × 3 a dólar tarjeta de $2.048, Cronista)
+- **Total: $1.517.022. No entra; faltan $317.022.** Costo por día: $303.404.
+
+**Opción alternativa** (micro promedio, comida regional, solo Tren a las Nubes)
+- Pasajes micro: $251.397
+- Alojamiento (supuesto): $240.000
+- Comida: $135.000
+- Tren a las Nubes: $418.500
+- **Total: $1.044.897. Entra; sobran $155.103.** Costo por día: $208.979.
+
+**Tipo de cambio:** usé el dólar tarjeta de Cronista ($2.048, sin fecha verificable) [https://www.cronista.com/MercadosOnline/dolar.html]. El de La Nación ($2.052,70, fechado "15 de noviembre") daría un Tren Solar algo más caro [https://www.lanacion.com.ar/dolar-hoy].
+
+## Alternativas para bajar costos
+
+- Si el micro es por tramo y no ida y vuelta, el costo de pasajes se duplica y el viaje no entra con actividades.
+- Reducir a 4 días o compartir una habitación doble en lugar de triple, si el alojamiento resulta más caro.
+- Cocinar algunas comidas y reservar comida de restaurante solo para una o dos cenas.
+- Elegir actividades gratuitas: caminar por el centro, plazas y miradores de la ciudad.
+
+## Lo que no pudimos averiguar
+
+- **Pasajes:** no hay precio confirmado por persona e ida y vuelta, ni en micro ni en avión. El avión ("desde $204.226 por persona") no está calculado: si fuera ida y vuelta por persona, son $612.678 solo en pasajes.
+- **Alojamiento:** no encontramos un precio en ARS para habitación triple en Salta en abril. El dato de $60.000 por noche es un supuesto y es el que más pesa en el resultado.
+- **Comida:** no hay un costo diario completo (desayuno, almuerzo y cena) por persona. El de $9.000 es un menú de trabajador y puede subestimar el gasto.
+- **Actividades:** la tarifa del Tren a las Nubes es de promoción 2026 y el Tren Solar solo tiene un dato en USD de 2025. Los precios para abril de 2027 pueden cambiar.
+- **Clima:** el pronóstico para abril de 2027 es orientativo por la distancia en el tiempo.
+
+## Fuentes
+- [web] https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta — pasajes, buscado el 2026-11-18
+- [web] https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta — comida, buscado el 2026-11-18
+- [web] https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360 — actividades, buscado el 2026-11-18
+- [web] https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92 — clima, buscado el 2026-11-18
+- [web] https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18
+- [web] https://www.cronista.com/MercadosOnline/dolar.html — cambio, buscado el 2026-11-18
+- [web] https://trensaltatiamar.com — actividades, buscado el 2026-11-18
+- [web] https://cuantomecuesta.com/ar/restaurante — comida, buscado el 2026-11-18
+
+_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._
+
+------------------------------------------------------------------------------------------
+ESTADO: completo | DURACIÓN: 120.99 s | DECISIONES DEL SUPERVISOR: 4
+REFINAMIENTOS: 1 | BÚSQUEDAS WEB REALES (TAVILY): 7 | DATOS: 9 de memoria · 21 de la web
+VALIDACIÓN: aprobada | PRESUPUESTO ENTRA: True | HERRAMIENTAS: {"buscar_en_memoria": 9, "buscar_en_web": 9, "validar_viaje": 1, "calcular_presupuesto": 3}
+TOKENS: {"claude-haiku-5-5": {"input_token_details": {"cache_creation": 0, "ephemeral_5m_input_tokens": 0, "ephemeral_1h_input_tokens": 0, "cache_read": 0}, "input_tokens": 125776, "total_tokens": 145025, "output_tokens": 19249, "output_token_details": {"reasoning": 3475}}}

@@ -1,0 +1,653 @@
+{
+  "url": "http://localhost:8000",
+  "n": 5,
+  "aprobar": "script",
+  "health": {
+    "status": "ok",
+    "modo": "real",
+    "modelo": "claude-haiku-5-5",
+    "redis": {
+      "ok": true,
+      "tipo": "redis"
+    },
+    "checkpointer": "AsyncRedisSaver",
+    "langsmith": {
+      "tracing": true,
+      "proyecto": "pre-entrega-7",
+      "clave": true
+    },
+    "jobs_activos": 0,
+    "max_concurrentes": 5
+  },
+  "tiempo_total_s": 92.78,
+  "latencia_p50_s": 79.33,
+  "latencia_p95_s": 91.0,
+  "costo_estimado_total_usd": 0.070838,
+  "langsmith": {
+    "17d521cfc3684286a5b12ad24b484b59": {
+      "trazas": 2,
+      "costo_usd": 0.016394,
+      "latencia_s": 72.35,
+      "tokens": 111905
+    },
+    "abf031f5331a4b9daa635c051fc62f1b": {
+      "trazas": 1,
+      "costo_usd": 0.016517,
+      "latencia_s": 82.25,
+      "tokens": 105389
+    },
+    "9c06a718db364070bf87c97892b2601c": {
+      "trazas": 1,
+      "costo_usd": 0.021385,
+      "latencia_s": 88.9,
+      "tokens": 143798
+    },
+    "1ec8b19149974b6e9dd9f3bb852db514": {
+      "trazas": 1,
+      "costo_usd": 0.004824,
+      "latencia_s": 32.07,
+      "tokens": 29096
+    },
+    "f996b96997a245d2919745127312cb06": {
+      "trazas": 2,
+      "costo_usd": 0.011718,
+      "latencia_s": 61.95,
+      "tokens": 71031
+    }
+  },
+  "jobs": [
+    {
+      "job_id": "17d521cfc3684286a5b12ad24b484b59",
+      "estado": "DONE",
+      "pregunta": "Quiero ir 7 días a Bariloche en enero, somos 2 personas, salimos desde Mendoza y tenemos 800.000 pesos. ¿Me armás el viaje y me decís si nos alcanza?",
+      "auto_aprobar": false,
+      "modo": "real",
+      "thread_id": "17d521cfc3684286a5b12ad24b484b59",
+      "creado": "2026-11-18T14:39:00.697-03:00",
+      "iniciado": "2026-11-18T14:39:01.036-03:00",
+      "actualizado": "2026-11-18T14:40:20.024-03:00",
+      "terminado": "2026-11-18T14:40:20.024-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "clima"
+          ],
+          "timestamp": "2026-11-18T14:39:10.980-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Validación del viaje\n\nEl viaje es válido: Mendoza → Bariloche, del 10 al 16 de enero de 2027 (7 días, 6 noches), para 2 personas, con un presupuesto de ARS 800.000. Tomé enero de 2027 porque enero de 2026 ya pasó.\n\n## Itinerario\n\nComo el presupuesto no alcanza para incluir excursiones con las comidas estándar, el itinerario es de referencia y no tiene actividades pagas. No encontré actividades gratuitas con precio confirmado en los aportes.\n\n- **Día 1 (10/01):** Llegada en micro desde Mendoza. Acomodación y paseo por el centro.\n- **Días 2 a 6:** Días libres para recorrer la ciudad y la costa del lago. Clima esperado: máxima de ~19 a 21 °C, mínima de ~5 a 6 °C, con algunos días de lluvia, según el SMN y [https://www.turismobariloche.com.ar/clima.html] y [https://www.eltiempo.es/viajar/tiempo-habitual/san-carlos-de-bariloche].\n- **Día 7 (16/01):** Regreso en micro a Mendoza.\n\nLas excursiones (por ejemplo, el brazo Blest a ARS 120.000 por adulto [https://bariloche.org/tarifas-excursiones-bariloche] o los 7 lagos a ARS 90.000 por persona [https://www.turisur.com.ar?c=inicio&v=tarifas]) no entran en el presupuesto con comida estándar.\n\n## Presupuesto\n\nLos precios de comida son por plato y se armó un costo diario con un café, una hamburguesa y una pasta por persona [https://bariloche.org/cuanto_me_cuesta]. Usé dólar oficial venta ARS 1.579 [https://www.lanacion.com.ar/dolar-hoy], aunque no se usa en el cálculo porque todos los precios están en pesos.\n\n**Opción recomendada: micro con comida austera (ENTRA)**\n- Pasajes micro (ida y vuelta, 2 personas): ARS 288.000 [https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes]\n- Alojamiento 4 estrellas (referencia, 6 noches, 2 personas): ARS 924 [https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp]\n- Comida austera (café + hamburguesa, 2 personas, 7 días): ARS 434.000\n- **Total: ARS 722.924. Sobran ARS 77.076.**\n- Costo por día: ARS 103.275 (ARS 51.637 por persona por día)\n\n**Opción con comida estándar (NO ENTRA)**\n- Pasajes micro: ARS 288.000\n- Alojamiento: ARS 924\n- Comida estándar (56.000 por persona por día): ARS 784.000\n- **Total: ARS 1.072.924. Faltan ARS 272.924.**\n\n**Opción en avión (NO ENTRA)**\n- Pasajes ida y vuelta (tratado como por persona): ARS 754.022\n- Alojamiento: ARS 924\n- Comida estándar: ARS 784.000\n- **Total: ARS 1.538.946. Faltan ARS 738.946.**\n\n## Alternativas\n\n- **Bajar la comida:** la opción de comida austera es la única que entra en el presupuesto.\n- **Acortar el viaje:** con 5 días o 6 días se libera presupuesto de comida y alojamiento, aunque no lo calculé.\n- **Micro en vez de avión:** es la diferencia más grande del presupuesto.\n- **Alojamiento compartido o cocinar:** puede reducir la comida, pero no lo cuantifiqué con fuentes.\n\n## Lo que no pudimos averiguar\n\n- **Alojamiento:** los precios de referencia (ARS 77 y 213 por noche) no tienen unidad confirmada y parecen de fin de semana. Un hotel real en enero costaría bastante más, así que el alojamiento está subestimado y el margen de ARS 77.000 podría no alcanzar.\n- **Pasajes:** el precio de avión (ARS 377.011) no aclara si es por persona ni el sentido del tramo. El precio de micro (ARS 72.000) tampoco especifica unidad, aunque lo tomé por persona y por tramo.\n- **Excursiones:** no hay precios vigentes para enero 2027. Los datos son de noviembre de 2026 y pueden haber cambiado.\n- **Costo diario de comida:** no hay una fuente que lo dé directamente. Es un cálculo a partir de precios por plato.\n\n## Fuentes\n- [memoria] mem-033ff1f16aa7 → https://www.unibus.com.ar/es/rutas/bariloche-mendoza-pasajes — pasajes, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 → https://www.kayak.com.sv/Hoteles-en-Bariloche.54322.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 → https://bariloche.org/cuanto_me_cuesta — comida, buscado el 2026-11-18\n- [memoria] mem-8caa35501769 → https://www.turisur.com.ar?c=inicio&v=tarifas — actividades, buscado el 2026-11-18\n- [memoria] mem-f2962de0fd34 → https://bariloche.org/tarifas-excursiones-bariloche — actividades, buscado el 2026-11-18\n- [memoria] mem-cd4486c8ba76 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://www.turismobariloche.com.ar/clima.html — clima, buscado el 2026-11-18\n- [web] https://www.eltiempo.es/viajar/tiempo-habitual/san-carlos-de-bariloche — clima, buscado el 2026-11-18\n- [memoria] mem-033ff1f16aa7 — pasajes, buscado el 2026-11-18\n- [memoria] mem-374bc333ef93 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0019ce230e02 — comida, buscado el 2026-11-18\n- [memoria] mem-62a4a54dac46 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-0f05625e7bb7 — pasajes, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "clima"
+            ],
+            "temas_en_memoria": [
+              "pasajes",
+              "alojamiento",
+              "comida",
+              "actividades",
+              "cambio"
+            ],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:39:15.724-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 3,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 1,
+            "analista": 1
+          },
+          "refinamientos": 0,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 6,
+            "buscar_en_web": 1,
+            "validar_viaje": 1,
+            "calcular_presupuesto": 4
+          },
+          "busquedas_web": 1,
+          "fuentes_memoria": 15,
+          "fuentes_web": 3,
+          "observaciones": [],
+          "validacion": "aprobada",
+          "presupuesto_entra": false,
+          "alternativa_calculada": true
+        },
+        "pedido": {
+          "origen": "Mendoza",
+          "destino": "Bariloche",
+          "fecha_ida": "2027-01-10",
+          "fecha_vuelta": "2027-01-16",
+          "dias": 7,
+          "personas": 2,
+          "presupuesto": 800000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Enero sin día exacto: ida el 10/01/2027 (próximo enero, ya que enero de 2026 ya pasó), vuelta el 16/01/2027 (7 días)."
+          ]
+        },
+        "traza": "traces\\api\\api_17d521cf_real_20261118-143900.json"
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 79.33,
+      "tiempo_ejecucion_s": 73.07,
+      "total_tokens": 111905,
+      "costo_usd": 0.016394,
+      "tokens": {
+        "claude-haiku-5-5": {
+          "output_token_details": {
+            "reasoning": 1642
+          },
+          "output_tokens": 13008,
+          "input_token_details": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0,
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "total_tokens": 111905,
+          "input_tokens": 98897
+        }
+      },
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 79.63
+    },
+    {
+      "job_id": "abf031f5331a4b9daa635c051fc62f1b",
+      "estado": "DONE",
+      "pregunta": "Queremos ir 5 días a Salta en abril, somos 3 personas, salimos desde Córdoba y tenemos 1.200.000 pesos. ¿Nos alcanza? Armanos un itinerario.",
+      "auto_aprobar": false,
+      "modo": "real",
+      "thread_id": "abf031f5331a4b9daa635c051fc62f1b",
+      "creado": "2026-11-18T14:39:00.957-03:00",
+      "iniciado": "2026-11-18T14:39:02.090-03:00",
+      "actualizado": "2026-11-18T14:40:26.638-03:00",
+      "terminado": "2026-11-18T14:40:26.638-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [],
+      "resultado": {
+        "respuesta_final": "## Respuesta corta\n\nNo podemos confirmar si los $1.200.000 alcanzan. El viaje es válido (Córdoba → Salta, 10 al 14 de abril de 2027, 3 personas), pero no tenemos precios confiables para armar el presupuesto. Te explicamos qué falta.\n\n## Itinerario\n\nComo no hay presupuesto calculado, no armamos un itinerario día por día. Cuando tengamos precios, lo preparamos.\n\nLo que sí sabemos del clima: en abril la temperatura máxima ronda los 22 °C y la mínima los 13 °C, con pocas lluvias [https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92]. Es un dato promedio, no un pronóstico para tus fechas.\n\n## Lo que sí encontramos\n\n- **Pasajes en micro:** desde ARS 57.750, con promedio de ARS 83.799 [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta]. No se sabe si es por persona, por tramo o ida y vuelta.\n- **Pasajes en avión:** desde $204.226 por persona, según Despegar [https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba]. No aclara el tramo.\n- **Comida:** menú turístico de unos $9.000 y empanadas de $9.000 a $16.000 la docena según la zona [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta]. Los precios son sueltos y de unidad no especificada.\n\n## Lo que no pudimos averiguar\n\n- **Alojamiento (el dato clave):** no hay precio en pesos por noche para 3 personas. Los valores de KAYAK y YouTube no tienen moneda ni unidad, así que no los usamos.\n- **Costo diario de comida por persona** en Salta.\n- **Actividades:** no hay precios actuales de atractivos como el Cerro San Bernardo, Cafayate o los Valles Calchaquíes. El precio del Tren a las Nubes que encontramos es de menor extranjero, no de adulto.\n- **Cotización:** los datos son del 18/11/2026 y hay que actualizarlos. Ejemplo: dólar oficial venta $1.579 [https://www.lanacion.com.ar/dolar-hoy].\n- **Clima exacto:** el pronóstico para abril de 2027 no es confiable a más de un año de distancia.\n\n## Próximos pasos\n\n1. Buscar precios de alojamiento en ARS por noche, para habitación triple o dos habitaciones, en abril de 2027.\n2. Confirmar si el micro se cobra por persona y por tramo.\n3. Conseguir un costo diario de comida por persona en Salta.\n\nCon esos datos calculamos el presupuesto y, si no alcanza, te proponemos alternativas: menos días, micro en lugar de avión, alojamiento compartido o cocinar parte de las comidas.\n\n## Fuentes\n- [memoria] mem-e1b795d70c7a → https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba — pasajes, buscado el 2026-11-18\n- [memoria] mem-a221684974f7 → https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta — pasajes, buscado el 2026-11-18\n- [memoria] mem-ec7dfae0cc77 → https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta — comida, buscado el 2026-11-18\n- [memoria] mem-47455a27250f → https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92 — clima, buscado el 2026-11-18\n- [memoria] mem-f84a5546c019 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "sin_pedir",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [],
+            "temas_en_memoria": [
+              "pasajes",
+              "alojamiento",
+              "comida",
+              "actividades",
+              "clima",
+              "cambio"
+            ],
+            "pausa": false,
+            "resultado": "sin_pedir",
+            "origen": "memoria",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:39:08.012-03:00"
+          },
+          {
+            "ronda": 2,
+            "temas_sin_memoria": [],
+            "temas_en_memoria": [
+              "alojamiento",
+              "pasajes"
+            ],
+            "pausa": false,
+            "resultado": "sin_pedir",
+            "origen": "memoria",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:39:46.386-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 4,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 2,
+            "analista": 1
+          },
+          "refinamientos": 1,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 8,
+            "buscar_en_web": 5,
+            "validar_viaje": 1
+          },
+          "busquedas_web": 0,
+          "fuentes_memoria": 20,
+          "fuentes_web": 0,
+          "observaciones": [
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+          ],
+          "validacion": "aprobada",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Córdoba",
+          "destino": "Salta",
+          "fecha_ida": "2027-04-10",
+          "fecha_vuelta": "2027-04-14",
+          "dias": 5,
+          "personas": 3,
+          "presupuesto": 1200000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Abril sin día exacto: la ida se asume el 10/04/2027 (abril de 2026 ya pasó), vuelta 14/04/2027 por 5 días"
+          ]
+        },
+        "traza": "traces\\api\\api_abf031f5_real_20261118-143900.json"
+      },
+      "error": null,
+      "tramos": 1,
+      "duracion_s": 85.68,
+      "tiempo_ejecucion_s": 82.58,
+      "total_tokens": 105389,
+      "costo_usd": 0.016517,
+      "tokens": {
+        "claude-haiku-5-5": {
+          "output_token_details": {
+            "reasoning": 3453
+          },
+          "output_tokens": 14946,
+          "input_token_details": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0,
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "total_tokens": 105389,
+          "input_tokens": 90443
+        }
+      },
+      "_aprobadas_por_script": 0,
+      "_latencia_cliente_s": 86.16
+    },
+    {
+      "job_id": "9c06a718db364070bf87c97892b2601c",
+      "estado": "DONE",
+      "pregunta": "Somos 2 y queremos ir 4 días a Mendoza en marzo desde Buenos Aires con 900.000 pesos. ¿Nos alcanza para bodegas y alta montaña?",
+      "auto_aprobar": false,
+      "modo": "real",
+      "thread_id": "9c06a718db364070bf87c97892b2601c",
+      "creado": "2026-11-18T14:39:00.959-03:00",
+      "iniciado": "2026-11-18T14:39:02.092-03:00",
+      "actualizado": "2026-11-18T14:40:33.294-03:00",
+      "terminado": "2026-11-18T14:40:33.294-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [],
+      "resultado": {
+        "respuesta_final": "## Respuesta corta\n\nCon 900.000 ARS para 2 personas y 4 días (10 al 13 de marzo de 2027), **el viaje entra solo en un escenario económico**: pasajes aéreos por persona, alojamiento por habitación a ARS 54.496 por noche y sin excursiones. En ese caso sobran ARS 45.918. Si el alojamiento se cobra por persona, o si sumás las excursiones, **no alcanza**.\n\n## Itinerario\n\nLos datos encontrados sirven para estos días, pero el escenario que entra en el presupuesto no incluye excursiones.\n\n- **Día 1 (10/03):** llegada a Mendoza en avión. Alojamiento para 3 noches.\n- **Día 2 (11/03):** excursión de día completo a Puente del Inca y Aconcagua, con traslado y guía, a ARS 86.000 por persona (precio de referencia de enero de 2026) [https://www.quehacermendoza.site/ayuda/puente-del-inca] [mem-f61e06e7cf31]. Esta excursión solo entra en el escenario con extras.\n- **Día 3 (12/03):** visita a bodegas en Maipú o Luján de Cuyo. No tenemos precio real en ARS. El único dato es un menú de bodega de ARS 50.500 por persona [https://busvitivinicola.com/tarifas-en-bodegas] [mem-5938db66d3a0], que usamos como estimación.\n- **Día 4 (13/03):** regreso a Buenos Aires.\n\n**Clima:** no tenemos datos de clima para marzo de 2027 en los aportes.\n\n## Presupuesto\n\n| Concepto | Escenario B (económico) | Escenario A (con extras) |\n|---|---|---|\n| Pasajes avión (ARS 143.297 × 2) | $286.594 | $286.594 |\n| Alojamiento | $163.488 (54.496 × 3 noches × 1 hab.) | $229.434 (76.478 × 3 noches × 1 hab.) |\n| Comida (ARS 50.500 × 4 días × 2 pers.) | $404.000 | $404.000 |\n| Excursión Puente del Inca | — | $172.000 |\n| Excursión bodegas (estimación) | — | $101.000 |\n| **Total** | **$854.082** | **$1.193.028** |\n| Resultado | **Entra: sobran $45.918** | **No entra: faltan $293.028** |\n| Costo por día | $213.520 ($106.760 por persona) | $298.257 ($149.128 por persona) |\n\n- Pasajes: ARS 143.297 por persona, ida y vuelta [https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419] [mem-bbc137ba1504]. La fuente no aclara si el precio es por persona. Lo tomamos así.\n- Alojamiento: ARS 54.496 (escenario B) y ARS 76.478 (escenario A), ambos de Despegar [https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza] [mem-247ab927e3d1]. La unidad no está clara. Si es por persona, el escenario B ya no entra.\n- No hicimos conversión de moneda: todos los precios están en ARS. Por eso no usamos ningún tipo de cambio.\n\n## Alternativas\n\n- **Confirmar la unidad** del pasaje y del alojamiento antes de reservar. Es lo que más cambia el resultado.\n- **Si el alojamiento es por persona**, el viaje de 4 días no entra. Podés reducir a 3 días o buscar alojamiento más barato.\n- **Para incluir una excursión**, el presupuesto no alcanza para las dos. Elegí solo una: Puente del Inca (faltan $ 205.000 aprox. en el escenario B? No: entra con $45.918 de sobrante solo si el resto coincide; con la excursión de $172.000 faltan $126.082) o la bodega (con $101.000 faltan $55.082). Los números dependen de los supuestos de arriba.\n- **Pasajes terrestres (micro):** no tenemos datos, así que no podemos comparar.\n\n## Lo que no pudimos averiguar\n\n- Unidad real del pasaje y del alojamiento.\n- Precio en ARS de una excursión a bodegas en Maipú o Luján de Cuyo. El precio de ARS 50.500 es una estimación.\n- Precios de comida por día por persona: solo tenemos un menú de almuerzo en bodega.\n- Pasajes terrestres Buenos Aires – Mendoza.\n- Clima esperado para marzo de 2027.\n- Todos los precios son de referencia de 2026, no de marzo de 2027.\n\n## Fuentes\n- [memoria] mem-bbc137ba1504 → https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 → https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza — alojamiento, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 → https://www.quehacermendoza.site/ayuda/puente-del-inca — actividades, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 → https://busvitivinicola.com/tarifas-en-bodegas — comida, buscado el 2026-11-18\n- [memoria] mem-bbc137ba1504 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 — comida, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "sin_pedir",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [],
+            "temas_en_memoria": [
+              "pasajes",
+              "alojamiento",
+              "actividades",
+              "comida",
+              "cambio"
+            ],
+            "pausa": false,
+            "resultado": "sin_pedir",
+            "origen": "memoria",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:39:08.272-03:00"
+          },
+          {
+            "ronda": 2,
+            "temas_sin_memoria": [],
+            "temas_en_memoria": [
+              "comida",
+              "actividades"
+            ],
+            "pausa": false,
+            "resultado": "sin_pedir",
+            "origen": "memoria",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:39:39.767-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 4,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 2,
+            "analista": 1
+          },
+          "refinamientos": 1,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 7,
+            "buscar_en_web": 3,
+            "validar_viaje": 1,
+            "calcular_presupuesto": 3
+          },
+          "busquedas_web": 0,
+          "fuentes_memoria": 15,
+          "fuentes_web": 0,
+          "observaciones": [],
+          "validacion": "aprobada",
+          "presupuesto_entra": true,
+          "alternativa_calculada": true
+        },
+        "pedido": {
+          "origen": "Buenos Aires",
+          "destino": "Mendoza",
+          "fecha_ida": "2027-03-10",
+          "fecha_vuelta": "2027-03-13",
+          "dias": 4,
+          "personas": 2,
+          "presupuesto": 900000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Marzo sin día exacto: ida el 10/03/2027 (próximo marzo, ya que marzo 2026 ya pasó)",
+            "4 días desde el 10/03: vuelta 13/03/2027"
+          ]
+        },
+        "traza": "traces\\api\\api_9c06a718_real_20261118-143900.json"
+      },
+      "error": null,
+      "tramos": 1,
+      "duracion_s": 92.33,
+      "tiempo_ejecucion_s": 89.23,
+      "total_tokens": 143798,
+      "costo_usd": 0.021385,
+      "tokens": {
+        "claude-haiku-5-5": {
+          "output_token_details": {
+            "reasoning": 4030
+          },
+          "output_tokens": 17513,
+          "input_token_details": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0,
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "total_tokens": 143798,
+          "input_tokens": 126285
+        }
+      },
+      "_aprobadas_por_script": 0,
+      "_latencia_cliente_s": 92.78
+    },
+    {
+      "job_id": "1ec8b19149974b6e9dd9f3bb852db514",
+      "estado": "DONE",
+      "pregunta": "¿Qué clima hace en Ushuaia en agosto y qué actividades de nieve hay?",
+      "auto_aprobar": false,
+      "modo": "real",
+      "thread_id": "1ec8b19149974b6e9dd9f3bb852db514",
+      "creado": "2026-11-18T14:39:01.034-03:00",
+      "iniciado": "2026-11-18T14:39:02.092-03:00",
+      "actualizado": "2026-11-18T14:39:36.300-03:00",
+      "terminado": "2026-11-18T14:39:36.300-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [],
+      "resultado": {
+        "respuesta_final": "## Clima en Ushuaia en agosto\n\nAgosto está dentro de la temporada fría, que va del 23 de mayo al 23 de agosto, con máximas promedio menores a 5 °C [https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o] [mem-0f5d24a538e6]. La temperatura media de agosto ronda los 2 °C, y los días de viento aumentan la sensación de frío [https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701] [mem-e7a65593fc1e]. Otra fuente general da máximas cercanas a 14 °C y mínimas en torno a 5,2 °C, pero no está confirmado que sea un dato de agosto, así que tomalo con cuidado [https://terramar.tur.ar/como-es-el-clima-en-ushuaia] [mem-fc5b66a20739].\n\n## Actividades de nieve\n\n**Cerro Castor**\n- Esquí y snowboard, con alquiler de equipos de ski carving. Si elegís snowboard se abona una diferencia [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Paquetes flexibles de 4 días (Mini Week) y 7 días (Ski Week), con opciones de temporada alta y baja [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n- Caminatas con raquetas, trineos, pista de patinaje, spa y miradores. Se puede subir a la base sin esquiar [https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq] [mem-d4ebb12749f7].\n\n**Otras opciones (con reserva previa)**\n- Paseo en trineo tirado por perros con musher, de unos 2 km [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Criadero Siberianos de Fuego, a unos 20 km del centro, con visitas y trineo de perros. La fuente indica tarifa de $20.000 para adultos y $15.000 para menores de 14 años, pero no aclara moneda ni unidad [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- Motos de nieve, raquetas, esquí de fondo y excursiones combinadas diurnas y nocturnas [https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf] [mem-f95f9775fe9e].\n- \"Aventura Blanca\": motos de nieve y trineo con huskies, con chocolate caliente y traslados. El precio no aparece en el extracto [https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve] [mem-8c83d38b4d9b].\n\n## Lo que no pudimos averiguar\n\n- Temperaturas mínimas, máximas y medias de agosto confirmadas. Los datos disponibles son parciales y se contradicen en parte.\n- Cantidad de nevadas, días de lluvia y días de viento en agosto.\n- Precios actuales de pases de esquí en Cerro Castor y de los paquetes Mini Week y Ski Week.\n- Precios de la excursión Aventura Blanca y de otras actividades (motos de nieve, raquetas, trineo).\n- Moneda y unidad de la tarifa del criadero.\n\nSi me decís desde dónde salís, las fechas y cuántos días y personas son, puedo armar un itinerario con presupuesto.\n\n## Fuentes\n- [memoria] mem-0f5d24a538e6 → https://es.weatherspark.com/y/27291/Tiempo-promedio-en-Ushuaia-Argentina-durante-todo-el-a%C3%B1o — clima, buscado el 2026-11-18\n- [memoria] mem-fc5b66a20739 → https://terramar.tur.ar/como-es-el-clima-en-ushuaia — clima, buscado el 2026-11-18\n- [memoria] mem-e7a65593fc1e → https://www.facebook.com/InfodeUshuaia/posts/quer%C3%A9s-saber-c%C3%B3mo-es-el-clima-de-ushuaia-en-agosto-te-contamos-todo-%EF%B8%8F%EF%B8%8F%EF%B8%8Fla-temper/5674366205929701 — clima, buscado el 2026-11-18\n- [memoria] mem-f95f9775fe9e → https://turismoushuaia.com/wp-content/uploads/2021/07/PDF-INVERNAL-05.08.25.pdf — actividades, buscado el 2026-11-18\n- [memoria] mem-d4ebb12749f7 → https://excursionesenushuaia.com/guia-practica-de-ushuaia/cerro-castor-faq — actividades, buscado el 2026-11-18\n- [memoria] mem-8c83d38b4d9b → https://ushuaiaexcursiones.com/esp/excursion.php?ida=172&a=Aventura+Blanca+Ushuaia+%7C+Motos+de+Nieve+y+Trineos+con+Huskies&t=Actividades+en+la+Nieve — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → sintesis",
+        "permiso_web": "sin_pedir",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [],
+            "temas_en_memoria": [
+              "clima",
+              "actividades"
+            ],
+            "pausa": false,
+            "resultado": "sin_pedir",
+            "origen": "memoria",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:39:06.204-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → sintesis",
+          "pasos_supervisor": 2,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 1
+          },
+          "refinamientos": 0,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 2,
+            "buscar_en_web": 1
+          },
+          "busquedas_web": 0,
+          "fuentes_memoria": 6,
+          "fuentes_web": 0,
+          "observaciones": [],
+          "validacion": "no se validó",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": null,
+          "destino": "Ushuaia",
+          "fecha_ida": null,
+          "fecha_vuelta": null,
+          "dias": null,
+          "personas": null,
+          "presupuesto": null,
+          "moneda": null,
+          "supuestos": []
+        },
+        "traza": "traces\\api\\api_1ec8b191_real_20261118-143901.json"
+      },
+      "error": null,
+      "tramos": 1,
+      "duracion_s": 35.27,
+      "tiempo_ejecucion_s": 32.4,
+      "total_tokens": 29096,
+      "costo_usd": 0.004824,
+      "tokens": {
+        "claude-haiku-5-5": {
+          "output_token_details": {
+            "reasoning": 346
+          },
+          "output_tokens": 4786,
+          "input_token_details": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0,
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "total_tokens": 29096,
+          "input_tokens": 24310
+        }
+      },
+      "_aprobadas_por_script": 0,
+      "_latencia_cliente_s": 36.27
+    },
+    {
+      "job_id": "f996b96997a245d2919745127312cb06",
+      "estado": "DONE",
+      "pregunta": "Quiero ir 6 días a Puerto Madryn en octubre, somos 2 personas, salimos desde Buenos Aires y tenemos 1.500 dólares. ¿Me armás el viaje y me decís si alcanza?",
+      "auto_aprobar": false,
+      "modo": "real",
+      "thread_id": "f996b96997a245d2919745127312cb06",
+      "creado": "2026-11-18T14:39:01.035-03:00",
+      "iniciado": "2026-11-18T14:39:02.093-03:00",
+      "actualizado": "2026-11-18T14:40:11.451-03:00",
+      "terminado": "2026-11-18T14:40:11.451-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "cambio"
+          ],
+          "timestamp": "2026-11-18T14:39:11.275-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Itinerario\n\nEl viaje es válido: Buenos Aires → Puerto Madryn del 10 al 15 de octubre de 2027 (6 días, 5 noches), para 2 personas.\n\nLas fuentes no traen actividades con fecha ni clima para octubre, así que el itinerario es orientativo.\n\n- **Día 1 (10/10):** Viaje de Buenos Aires a Puerto Madryn en avión (Flybondi, ver pasajes). Check-in en el alojamiento y paseo por la costa. [mem-6a7f7f54e4e9]\n- **Día 2 (11/10):** Excursión a Península Valdés para avistaje de ballenas en Puerto Pirámides. Paseo en barco de $150.000 ARS por adulto, no incluye almuerzo. [https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes] (memoria, mem-a18b9d116f03)\n- **Día 3 (12/10):** Día libre de descanso, o visita a la Reserva Península Valdés por tu cuenta. La entrada cuesta $45.000 ARS por adulto extranjero, o $50.000 según la fuente de 2026. [https://www.puertomadrynturismo.com.ar/peninsula-valdes.html] (memoria, mem-a67e137256b6)\n- **Día 4 (13/10):** Día libre para caminar por la ciudad y comer en restaurantes de la zona.\n- **Día 5 (14/10):** Día libre de descanso.\n- **Día 6 (15/10):** Regreso a Buenos Aires en avión.\n\nNo tenemos datos de clima para octubre de 2027, así que no podemos informarlo.\n\n## Presupuesto\n\n| Concepto | Cálculo | Total |\n|---|---|---|\n| Pasajes avión Flybondi (ida y vuelta) | US$ 55,62 por persona × 2 | US$ 111,23 |\n| Alojamiento 3 estrellas, habitación para 2 | US$ 39,62 por noche × 5 noches | US$ 198,08 |\n| Comida (económica) | US$ 30 por persona por día × 6 días × 2 | US$ 360,00 |\n| **Total** | | **US$ 669,31** |\n\n- **Resultado: alcanza.** Sobran US$ 830,69 de los US$ 1.500.\n- **Costo por día:** US$ 111,55 (US$ 55,78 por persona por día).\n- **Dólar usado:** tarjeta, $2.052,70 (fuente: [https://www.lanacion.com.ar/dolar-hoy]). Se usó porque el cálculo supone pago con tarjeta. Con el oficial ($1.579) o el MEP ($1.572,90), los montos en USD serían mayores, aunque el total sigue dentro del presupuesto.\n- **Pasajes:** Flybondi $114.162 [https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE] (memoria, mem-66c088725b2c). Se asumió que el monto es por persona, pero la fuente no lo aclara y es del sentido inverso.\n- **Alojamiento:** $81.321 por noche [https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp] (memoria, mem-2264d46ababa). Se asumió que es por habitación para 2 personas. Si fuera por persona, el total sube a US$ 867,38, y sigue entrando.\n- **Comida:** se usó el punto medio de la comida callejera o de supermercado (USD 5-15 por comida), tres por día. [https://www.patagoniahub.travel/es/budget-guide/puerto-madryn] (memoria, mem-f1624ce90c27). Si comen en restaurantes económicos (USD 15-30 por comida), el costo sube bastante, pero aun así queda margen.\n- **Excursiones no incluidas:** el avistaje de ballenas ($150.000 ARS por adulto) y la entrada a la reserva ($45.000 ARS por adulto extranjero) no están en el cálculo. Sumarlas reduce el margen, pero no supera el presupuesto.\n\n## Lo que no pudimos averiguar\n\n- Precio actual del micro Buenos Aires–Puerto Madryn. La fuente no muestra monto.\n- Precio de la excursión de día completo a Península Valdés.\n- Precios de comida actualizados en pesos.\n- Confirmar si el pasaje y el alojamiento son por persona o por tramo/habitación.\n- Todos los precios son de memoria, de noviembre de 2026, y no reflejan tarifas reales para octubre de 2027. Conviene confirmarlos antes de reservar.\n\n## Fuentes\n- [memoria] mem-6a7f7f54e4e9 → https://www.es.momondo.com/vuelos/buenos-aires/puerto-madryn — pasajes, buscado el 2026-11-18\n- [memoria] mem-66c088725b2c → https://www.kayak.com.ar/vuelos/Puerto-Madryn-El-Tehuelche-PMY/Buenos-Aires-BUE — pasajes, buscado el 2026-11-18\n- [memoria] mem-2264d46ababa → https://www.kayak.com.ar/Hoteles-en-Puerto-Madryn.5374.hotel.ksp — alojamiento, buscado el 2026-11-18\n- [memoria] mem-f1624ce90c27 → https://www.patagoniahub.travel/es/budget-guide/puerto-madryn — comida, buscado el 2026-11-18\n- [memoria] mem-a18b9d116f03 → https://www.civitatis.com/es/puerto-madryn/excursion-peninsula-valdes?aid=11724&cmp=postPatagonia_Widget&cmpint=ES_NOBUTT_NOGREY_MAN_COMF_NOLAT_NOSDW_NORND_NOCOL_MON_NEU&is_widget=true&currency=EUR — actividades, buscado el 2026-11-18\n- [memoria] mem-a67e137256b6 → https://www.puertomadrynturismo.com.ar/peninsula-valdes.html — actividades, buscado el 2026-11-18\n- [memoria] mem-b787c697984c → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "cambio"
+            ],
+            "temas_en_memoria": [
+              "pasajes",
+              "alojamiento",
+              "comida",
+              "actividades"
+            ],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:39:15.859-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 3,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 1,
+            "analista": 1
+          },
+          "refinamientos": 0,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 5,
+            "validar_viaje": 1,
+            "calcular_presupuesto": 1
+          },
+          "busquedas_web": 0,
+          "fuentes_memoria": 15,
+          "fuentes_web": 0,
+          "observaciones": [],
+          "validacion": "aprobada",
+          "presupuesto_entra": true,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Buenos Aires",
+          "destino": "Puerto Madryn",
+          "fecha_ida": "2027-10-10",
+          "fecha_vuelta": "2027-10-15",
+          "dias": 6,
+          "personas": 2,
+          "presupuesto": 1500.0,
+          "moneda": "USD",
+          "supuestos": [
+            "Octubre sin día exacto: ida el 10/10/2027 (octubre de 2026 ya pasó respecto de hoy, 18/11/2026)",
+            "Duración de 6 días: vuelta = ida + 5 días, es decir 15/10/2027"
+          ]
+        },
+        "traza": "traces\\api\\api_f996b969_real_20261118-143901.json"
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 70.42,
+      "tiempo_ejecucion_s": 62.62,
+      "total_tokens": 71031,
+      "costo_usd": 0.011718,
+      "tokens": {
+        "claude-haiku-5-5": {
+          "output_token_details": {
+            "reasoning": 1811
+          },
+          "output_tokens": 11536,
+          "input_token_details": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0,
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "total_tokens": 71031,
+          "input_tokens": 59495
+        }
+      },
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 71.07
+    }
+  ]
+}

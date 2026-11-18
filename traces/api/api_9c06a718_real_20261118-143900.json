@@ -1,0 +1,722 @@
+{
+  "pregunta": "Somos 2 y queremos ir 4 días a Mendoza en marzo desde Buenos Aires con 900.000 pesos. ¿Nos alcanza para bodegas y alta montaña?",
+  "escenario": "api_9c06a718",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:39:00.959-03:00",
+  "fin": "2026-11-18T14:40:33.290-03:00",
+  "duracion_s": 92.33,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "analista",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": "Buenos Aires",
+    "destino": "Mendoza",
+    "fecha_ida": "2027-03-10",
+    "fecha_vuelta": "2027-03-13",
+    "dias": 4,
+    "personas": 2,
+    "presupuesto": 900000.0,
+    "moneda": "ARS",
+    "supuestos": [
+      "Marzo sin día exacto: ida el 10/03/2027 (próximo marzo, ya que marzo 2026 ya pasó)",
+      "4 días desde el 10/03: vuelta 13/03/2027"
+    ]
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:07.772-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "origen": "Buenos Aires",
+          "destino": "Mendoza",
+          "fecha_ida": "2027-03-10",
+          "fecha_vuelta": "2027-03-13",
+          "dias": 4,
+          "personas": 2,
+          "presupuesto": 900000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Marzo sin día exacto: ida el 10/03/2027 (próximo marzo, ya que marzo 2026 ya pasó)",
+            "4 días desde el 10/03: vuelta 13/03/2027"
+          ]
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos con fuente (URL o mem-...) para un viaje de 2 personas de Buenos Aires a Mendoza, ida 2027-03-10 y vuelta 2027-03-13 (4 días). Temas: (1) pasajes aéreos o terrestres Buenos Aires-Mendoza, con precio de referencia por persona (rangos o valores 'desde' están bien; no hace falta el precio exacto de esas fechas); (2) alojamiento en Mendoza para 2 personas, 3 noches, con precio de referencia por noche; (3) actividades: excursiones a bodegas (Maipú, Luján de Cuyo) y alta montaña (Aconcagua/Penitentes/Puente del Inca), con precio de referencia; (4) comida: rangos de precio de restaurantes o comidas típicas en Mendoza; (5) cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente de cada dato y el monto en ARS.",
+        "temas": [
+          "pasajes",
+          "alojamiento",
+          "actividades",
+          "comida",
+          "cambio"
+        ],
+        "evaluacion": "Pregunta con presupuesto (900.000 ARS, 2 personas, 4 días a Mendoza) y pide armar el viaje: requiere cuentas. Aún no hay aportes, así que ninguna de las rúbricas R1 a R6 se cumple. Primero hace falta que el investigador busque pasajes Buenos Aires-Mendoza, alojamiento, comida/actividades (bodegas y alta montaña) y cotización del dólar (oficial, tarjeta y MEP). Luego el analista validará fechas y calculará el presupuesto.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:39:08.274-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "pasajes",
+          "alojamiento",
+          "actividades",
+          "comida",
+          "cambio"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:39:31.202-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos con fuente (URL o mem-...) para un viaje de 2 personas de Buenos Aires a Mendoza, ida 2027-03-10 y vuelta 2027-03-13 (4 días). Temas: (1) pasajes aéreos o terrestres Buenos Aires-Mendoza, con precio de referencia por persona (rangos o valores 'desde' están bien; no hace falta el precio exacto de esas fechas); (2) alojamiento en Mendoza para 2 personas, 3 noches, con precio de referencia por noche; (3) actividades: excursiones a bodegas (Maipú, Luján de Cuyo) y alta montaña (Aconcagua/Penitentes/Puente del Inca), con precio de referencia; (4) comida: rangos de precio de restaurantes o comidas típicas en Mendoza; (5) cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la fuente de cada dato y el monto en ARS.",
+        "contenido": "## Hallazgos\n\n### Pasajes Buenos Aires – Mendoza\n- Ida y vuelta más económico (vuelo, Buenos Aires – Mendoza): ARS 143.297, unidad no especificada (probablemente por persona, la fuente no lo aclara). [https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419] (memoria, mem-bbc137ba1504)\n- Ida sola más económica (vuelo): ARS 84.195, unidad no especificada. [https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419] (memoria, mem-bbc137ba1504)\n- Ida y vuelta desde Aeroparque, mes más barato junio: \"$85.740\", por tramo/persona no especificado y la moneda es dudosa (el sitio es kayak.cl, podría ser CLP). No lo tomo como dato en ARS. [https://www.kayak.cl/vuelos/Buenos-Aires-Aeroparque-Jorge-Newbery-AEP/Mendoza-El-Plumerillo-MDZ] (memoria, mem-ce539955df41)\n- Skyscanner trae precios en moneda no ARS (hryvnia), por lo que no lo uso. (memoria, mem-9367a21dddfc)\n\n### Alojamiento en Mendoza\n- \"1 noche, 2 personas desde $76.478\" (hoteles más vendidos). La unidad parece ser por habitación para 2 personas, pero la fuente no lo deja claro y la moneda figura como \"$\" en un sitio .cl. [https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza] (memoria, mem-247ab927e3d1)\n- Otro precio de Despegar: \"2 personas desde $54.496\", \"$68.121 – 20 %\"; unidad y moneda igual de dudosas. [https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza] (memoria, mem-247ab927e3d1)\n- Booking muestra precios en TL y R$ (no sirven en ARS para este presupuesto). [https://www.booking.com/city/ar/mendoza.es-ar.html] (memoria, mem-884aff4feecb); [https://www.booking.com/budget/district/ar/mendoza/citycentre.es-mx.html] (memoria, mem-11033ef728ce)\n\n### Actividades (excursiones)\n- Excursión Puente del Inca + Aconcagua (día completo, incluye traslado y guía): ARS 86.000 por persona, precio de referencia de enero 2026. [https://www.quehacermendoza.site/ayuda/puente-del-inca] (memoria, mem-f61e06e7cf31)\n- Excursión Aconcagua y Puente del Inca (GetYourGuide, recogida en Mendoza): la fuente no muestra precio en el extracto. [https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515] (memoria, mem-c0e699908a0d)\n- Excursión a bodegas familiares y aceite de oliva (tur.com): precio \"desde CLP 32.486\", en pesos chilenos, no ARS. [https://www.tur.com/es/mendoza-159/experiencia-aconcagua-mirador-y-puente-del-inca-3492] (memoria, mem-1bd3df252853)\n\n### Comida\n- Menú Mendoza en bodega (3 pasos + botella de vino cada 2 personas): AR$ 50.500 por persona. [https://busvitivinicola.com/tarifas-en-bodegas] (memoria, mem-5938db66d3a0)\n- Catena Zapata y otras bodegas con precios de referencia (agosto 2026), pero el extracto no muestra montos. [https://www.facebook.com/atrapaloargentina/posts/cu%C3%A1nto-sale-visitar-las-mejores-bodegas-de-mendoza-te-lo-resumimos-en-este-carru/1487689163395957] (memoria, mem-6d21d48c23ba)\n- Restaurante recomendado (Casa Agostino), sin precio en el extracto. [https://www.instagram.com/reel/DOKEaa7kciY?hl=en] (memoria, mem-d7c1a30641f3)\n\n### Cotización del dólar (referencia de la memoria, buscada el 2026-11-18)\n- Dólar oficial (La Nación): venta ARS 1.579,00; compra ARS 1.515,00. [https://www.lanacion.com.ar/dolar-hoy] (memoria, mem-c0f763ec0073)\n- Dólar tarjeta (La Nación): venta ARS 2.052,70. [https://www.lanacion.com.ar/dolar-hoy] (memoria, mem-c0f763ec0073)\n- Dólar MEP (La Nación): venta ARS 1.572,90. [https://www.lanacion.com.ar/dolar-hoy] (memoria, mem-c0f763ec0073)\n- Dólar BNA (Cronista): venta ARS 1.575. Dólar tarjeta: ARS 2.047,50. Dólar MEP: ARS 1.595,91. [https://www.cronista.com/MercadosOnline/dolar.html] (memoria, mem-f620a242aa8a)\n- Nota: las dos fuentes difieren entre sí y estos valores son de noviembre de 2026, no de la fecha del viaje.\n\n## Datos que faltan\n- Pasajes terrestres (micro) Buenos Aires – Mendoza: no hay datos en memoria ni en la web en esta búsqueda.\n- Precio por persona confirmado en pasajes aéreos: la unidad de los precios de Google no está especificada.\n- Alojamiento: no hay precio confirmado en ARS con unidad clara (por noche, por habitación, para 2 personas). No se pudo hacer búsqueda web nueva porque la memoria ya tenía datos con precios.\n- Excursiones a bodegas en Maipú / Luján de Cuyo: sin precio en ARS.\n- Excursión Aconcagua/Penitentes: sin precio en ARS confirmado (solo el Puente del Inca, ver arriba).\n- Restaurantes (rangos de precio a la carta): sin datos en ARS.\n- Todos los precios son de referencia de fechas de 2026, no de marzo de 2027.",
+        "fuentes": [
+          {
+            "ref": "mem-ce539955df41",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.kayak.cl/vuelos/Buenos-Aires-Aeroparque-Jorge-Newbery-AEP/Mendoza-El-Plumerillo-MDZ",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-bbc137ba1504",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-9367a21dddfc",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.skyscanner.com/routes/buea/mdz/buenos-aires-to-mendoza.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-247ab927e3d1",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-884aff4feecb",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.booking.com/city/ar/mendoza.es-ar.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-11033ef728ce",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.booking.com/budget/district/ar/mendoza/citycentre.es-mx.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-c0e699908a0d",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-1bd3df252853",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.tur.com/es/mendoza-159/experiencia-aconcagua-mirador-y-puente-del-inca-3492",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f61e06e7cf31",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.quehacermendoza.site/ayuda/puente-del-inca",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-5938db66d3a0",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://busvitivinicola.com/tarifas-en-bodegas",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-6d21d48c23ba",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.facebook.com/atrapaloargentina/posts/cu%C3%A1nto-sale-visitar-las-mejores-bodegas-de-mendoza-te-lo-resumimos-en-este-carru/1487689163395957",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-d7c1a30641f3",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.instagram.com/reel/DOKEaa7kciY?hl=en",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-c0f763ec0073",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f620a242aa8a",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-39187841404e",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.dolarito.ar",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes aéreos o terrestres Buenos Aires a Mendoza precio por persona",
+              "destino": "Mendoza",
+              "tema": "pasajes"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'pasajes aéreos o terrestres Buenos Aires a Mendoza precio por persona':\n\n[mem-ce539955df41] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.cl/vuelos/Buenos-Aires-Aeroparque-Jorge-Newbery-AEP/Mendoza-El-Plumerillo-MDZ\nEl mes más barato para volar desde Aeropuerto Buenos Aires Aeroparque Jorge Newbery a Mendoza es junio, ya que un viaje de ida y vuelta cuesta $85.740. •Los\n\n[mem-bbc137ba1504] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.google.com/travel/flights/flights-from-bueno...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento hotel u hostería precio por noche para 2 personas",
+              "destino": "Mendoza",
+              "tema": "alojamiento"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'alojamiento hotel u hostería precio por noche para 2 personas':\n\n[mem-247ab927e3d1] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza\n1 noche, 2 personas desde $76.478 $ … 2 personas desde $54.496 $ 68.121 - 20 % En los hoteles más vendidos en Mendoza el precio para alojarse una noche es de $\n\n[mem-884aff4feecb] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.booking.com/city/ar/mendoza.es-ar.html\n1.672 comentarios\n\nPrecio desde\n\nTL ...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "excursiones bodegas Maipú Luján de Cuyo y alta montaña Aconcagua Penitentes Puente del Inca precio",
+              "destino": "Mendoza",
+              "tema": "actividades"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'excursiones bodegas Maipú Luján de Cuyo y alta montaña Aconcagua Penitentes Puente del Inca precio':\n\n[mem-c0e699908a0d] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515\nExcursión: Alta Montaña, Aconcagua y Puente del Inca · Lugar de recogida: Mendoza · Potrerillos · Uspallata · Parada para hacer fotos, Paseo, Vistas panorámicas por\n\n[mem-1bd3df252853] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) ...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "precio restaurantes comidas típicas rangos de precio",
+              "destino": "Mendoza",
+              "tema": "comida"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'precio restaurantes comidas típicas rangos de precio':\n\n[mem-5938db66d3a0] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://busvitivinicola.com/tarifas-en-bodegas\nSi usted tiene preferencia de almorzar en alguna de las bodegas le pedimos lo comunique al momento de comprar el ticket o 48 hs antes del inicio del recorrido, para poder confirmar su cupo: info@busvitivinicola.com o +54 9 2612639439.\n\nMENÚ MENDOZA- 3 pasos + botella de vino cada 2 personas\n\nEntrada –  Dúo de empanadas con chimichurri\n\nPlato Principal – Ñoquis con salsa ...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP",
+              "destino": "Mendoza",
+              "tema": "cambio"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'cotización dólar oficial tarjeta MEP':\n\n[mem-c0f763ec0073] origen=memoria | tema=cambio | buscado hace 0.0 días (2026-11-18) | url=https://www.lanacion.com.ar/dolar-hoy\n# Cotización del dólar hoy\n\n Banco Central\n Banco Nación\n Servicios Dólar\n Dólar blue\n Mercados\n Dólares\n Argentina\n Dólar Mep\n Inflación y precios\n Dólar CCL\n\n ## Dólar oficial\n\n  Compra$1515,00Venta$1579,00\n ## Dólar blue\n\n  Compra$1522,90Venta$1570,00\n ## Dólar tarjeta\n\n  Venta$2052,70\n ## Dólar CCL\n\n  Venta$1676,01\n ## Dólar MEP\n\n  Venta$1572,90\n ## Dólar mayorista\n\n  Venta$1543,50\n ## Euro\n...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "hoteles Mendoza precio por noche en pesos argentinos 2 personas",
+              "destino": "Mendoza",
+              "tema": "alojamiento",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'hoteles Mendoza precio por noche en pesos argentinos 2 personas':\n\n[mem-247ab927e3d1] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza\n1 noche, 2 personas desde $76.478 $ … 2 personas desde $54.496 $ 68.121 - 20 % En los hoteles más vendidos en Mendoza el precio para alojarse una noche es de $\n\n[mem-884aff4feecb] origen=memoria | tema=alojamiento | buscado h...",
+            "timestamp": "2026-11-18T14:39:31.199-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "cambio",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:39.272-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "investigador",
+        "instruccion": "Completá los temas que faltan con fuentes (URL o mem-...) y montos en ARS: (1) comida: rangos de precio de restaurantes o comidas típicas en Mendoza, por persona, en ARS (el aporte anterior quedó trunco); (2) actividades: excursión a bodegas en Maipú o Luján de Cuyo con precio de referencia en ARS por persona (el precio encontrado estaba en CLP y no sirve). Indicá para cada monto si es por persona o por grupo. Precios de referencia están bien, no hace falta el exacto para las fechas de marzo de 2027.",
+        "temas": [
+          "comida",
+          "actividades"
+        ],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, actividades, comida y cambio tienen fuentes, pero el aporte de comida quedó trunco (\"Menú Mendoza ...\") y no hay precios claros de comida. R2 Fuentes: todos los hallazgos tienen URL o mem-. R3 Precios: pasajes tienen montos (143.297 y 84.195, unidad no aclarada); alojamiento tiene montos (76.478 y 54.496, unidad y moneda dudosas); la actividad de bodegas no tiene precio en ARS (solo CLP) y la de alta montaña tiene 86.000 ARS por persona. Falta un precio ARS de bodegas y de alojamiento con unidad aclarada. R4 Cálculo: no se ejecutó validar_viaje ni calcular_presupuesto, así que el analista tiene que hacerlo. R5 Observaciones: ninguna por código. R6 Coherencia: los pasajes no especifican si son por persona; el analista tiene que aclararlo. La cotización del dólar aparece en cobertura pero el contenido visible no la muestra con detalle.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:39:39.770-03:00",
+      "detalle": {
+        "ronda": 2,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "comida",
+          "actividades"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:39:51.089-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Completá los temas que faltan con fuentes (URL o mem-...) y montos en ARS: (1) comida: rangos de precio de restaurantes o comidas típicas en Mendoza, por persona, en ARS (el aporte anterior quedó trunco); (2) actividades: excursión a bodegas en Maipú o Luján de Cuyo con precio de referencia en ARS por persona (el precio encontrado estaba en CLP y no sirve). Indicá para cada monto si es por persona o por grupo. Precios de referencia están bien, no hace falta el exacto para las fechas de marzo de 2027.",
+        "contenido": "## Hallazgos\n### Comida\n- Menú \"Mendoza\" en bodega (Bus Vitivinícola): 3 pasos (empanadas, ñoquis, postre) + botella de vino cada 2 personas: AR$ 50.500 por persona. Fuente: [mem-5938db66d3a0] (memoria). URL original: https://busvitivinicola.com/tarifas-en-bodegas\n- Menú \"Los Barrancos\" en bodega, 3 pasos + botella de vino cada 2 personas: el precio no llegó completo en el dato guardado. Fuente: [mem-5938db66d3a0] (memoria).\n- Los otros datos de comida en memoria ([mem-d7c1a30641f3], [mem-6d21d48c23ba]) no traen rangos de precio por persona en ARS, así que no los uso.\n\n### Actividades\n- Excursión a Bodegas Familiares y Fábrica de Aceite de Oliva en Mendoza: CLP 32.486 \"desde\". Está en pesos chilenos, así que no sirve según la instrucción. Fuente: [mem-1bd3df252853] (memoria). URL: https://www.tur.com/es/mendoza-159/experiencia-aconcagua-mirador-y-puente-del-inca-3492\n- Referencia de otra excursión, no de bodegas: excursión Puente del Inca/Aconcagua, ronda AR$ 86.000 por persona (enero 2026), incluye traslado ida y vuelta y guía. Fuente: [mem-f61e06e7cf31] (memoria). URL: https://www.quehacermendoza.site/ayuda/puente-del-inca\n\n## Datos que faltan\n- Excursión a bodegas en Maipú o Luján de Cuyo con precio en ARS por persona: no encontrado. La memoria solo tiene el precio en CLP. Intenté una segunda búsqueda con forzar=true, pero el sistema la rechazó porque la memoria ya tiene datos con precios para este tema. Hace falta una búsqueda web con otra redacción (por ejemplo, nombres de bodegas o \"tour bodegas Maipú precio ARS\") para cubrirlo.\n- Rango de precios de restaurantes en Mendoza: solo hay un dato de menú de bodega (AR$ 50.500 por persona). Un rango más amplio de restaurantes no está en la memoria.",
+        "fuentes": [
+          {
+            "ref": "mem-5938db66d3a0",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://busvitivinicola.com/tarifas-en-bodegas",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-d7c1a30641f3",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.instagram.com/reel/DOKEaa7kciY?hl=en",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-6d21d48c23ba",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.facebook.com/atrapaloargentina/posts/cu%C3%A1nto-sale-visitar-las-mejores-bodegas-de-mendoza-te-lo-resumimos-en-este-carru/1487689163395957",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-1bd3df252853",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.tur.com/es/mendoza-159/experiencia-aconcagua-mirador-y-puente-del-inca-3492",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f61e06e7cf31",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.quehacermendoza.site/ayuda/puente-del-inca",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-c0e699908a0d",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "precios de restaurantes y comidas típicas en Mendoza por persona en ARS",
+              "destino": "Mendoza",
+              "tema": "comida"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'precios de restaurantes y comidas típicas en Mendoza por persona en ARS':\n\n[mem-5938db66d3a0] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://busvitivinicola.com/tarifas-en-bodegas\nSi usted tiene preferencia de almorzar en alguna de las bodegas le pedimos lo comunique al momento de comprar el ticket o 48 hs antes del inicio del recorrido, para poder confirmar su cupo: info@busvitivinicola.com o +54 9 2612639439.\n\nMENÚ MENDOZA- 3 pasos + botella de vino cada 2 personas\n\nEntrada –  Dúo de empanadas con chimichurri\n\nPlato Principal ...",
+            "timestamp": "2026-11-18T14:39:51.086-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "excursión a bodegas en Maipú o Luján de Cuyo precio por persona en ARS",
+              "destino": "Mendoza",
+              "tema": "actividades"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'excursión a bodegas en Maipú o Luján de Cuyo precio por persona en ARS':\n\n[mem-1bd3df252853] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.tur.com/es/mendoza-159/experiencia-aconcagua-mirador-y-puente-del-inca-3492\nExcursión a Bodegas Familiares y Fábrica de Aceite de Oliva en Mendoza. 4.9. Desde. CLP 32.486 · Excursión de\n\n[mem-f61e06e7cf31] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.quehacermendoza.site/ayuda/puente-del-inca\n## ¿Cuál es el precio de la excursión al Puente...",
+            "timestamp": "2026-11-18T14:39:51.086-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "excursión tour bodegas Maipú Luján de Cuyo precio por persona ARS",
+              "destino": "Mendoza",
+              "tema": "actividades"
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes sobre esto (si no traen precios, repetí con forzar=true).\n\nMEMORIA — 3 datos vigentes para 'excursión tour bodegas Maipú Luján de Cuyo precio por persona ARS':\n\n[mem-c0e699908a0d] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515\nExcursión: Alta Montaña, Aconcagua y Puente del Inca · Lugar de recogida: Mendoza · Potrerillos · Uspallata · Parada para hacer fotos, Paseo, Vistas panorámicas por\n\n[mem-1...",
+            "timestamp": "2026-11-18T14:39:51.086-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "excursión tour bodegas Maipú Luján de Cuyo precio por persona ARS",
+              "destino": "Mendoza",
+              "tema": "actividades",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'excursión tour bodegas Maipú Luján de Cuyo precio por persona ARS':\n\n[mem-c0e699908a0d] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.getyourguide.com/es-es/las-cuevas-l175298/excursion-alta-montana-aconcagua-y-puente-del-inca-t994515\nExcursión: Alta Montaña, Aconcagua y Puente del Inca · Lugar de recogida: Mendoza · Potrerillos · Uspallata · Parada para hacer fotos, Paseo, Vistas panorámicas por\n\n[mem-1...",
+            "timestamp": "2026-11-18T14:39:51.086-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:56.332-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "analista",
+        "instruccion": "Validá el viaje (Buenos Aires a Mendoza, ida 2027-03-10, vuelta 2027-03-13, 4 días, 2 personas, presupuesto total ARS 900.000) con validar_viaje, y luego ejecutá calcular_presupuesto. Precios disponibles de la memoria: pasajes ida y vuelta más económico ARS 143.297 (unidad no especificada, probablemente por persona; tomá también ida sola ARS 84.195 como referencia de unidad); alojamiento \"2 personas desde\" ARS 76.478 por noche (probablemente por habitación; alternativa ARS 54.496), 3 noches; excursión alta montaña Puente del Inca + Aconcagua ARS 86.000 por persona (enero 2026); menú de bodega ARS 50.500 por persona (almuerzo de bodega, Bus Vitivinícola). La excursión a bodegas en ARS NO tiene precio: estimála usando el menú de bodega como referencia y marcala como estimación. Aclarà explícitamente las unidades dudosas (pasajes y alojamiento), mostrá el total con cada supuesto y decí si entra en ARS 900.000 para 2 personas, 4 días.",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, actividades, comida y cambio tienen fuentes, pero la excursión a bodegas en ARS por persona no se encontró (solo CLP). Falta el dato de bodegas, que es parte central de la pregunta. R2 Fuentes: todos los aportes tienen mem-... o URL. R3 Precios: pasajes (ARS 143.297 / 84.195) y alojamiento (ARS 76.478 / 54.496, unidad dudosa) tienen montos; el analista puede estimar aclarando unidades. Pero el precio de bodegas no está en ARS. R4 Cálculo: no hay aún validación ni presupuesto calculado por el analista. R5 Observaciones: ninguna por código. R6 Coherencia: sin contradicciones de noches/personas; quedan unidades dudosas en pasajes y alojamiento que el analista debe aclarar. Conviene pedir una última búsqueda web de bodegas en ARS (ya fue reintentado en memoria, sin éxito) y luego calcular. Como el investigador ya tuvo dos rondas, para no exceder la regla de una corrección por especialista, paso al analista con los precios disponibles, indicando que la excursión a bodegas se estima con el menú de bodega (AR$ 50.500 por persona) y la excursión de alta montaña (AR$ 86.000 por persona) y que la falta de precio exacto de bodegas se aclara en la síntesis.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 8,
+      "nodo": "analista",
+      "timestamp": "2026-11-18T14:40:15.116-03:00",
+      "detalle": {
+        "ronda": 3,
+        "instruccion": "Validá el viaje (Buenos Aires a Mendoza, ida 2027-03-10, vuelta 2027-03-13, 4 días, 2 personas, presupuesto total ARS 900.000) con validar_viaje, y luego ejecutá calcular_presupuesto. Precios disponibles de la memoria: pasajes ida y vuelta más económico ARS 143.297 (unidad no especificada, probablemente por persona; tomá también ida sola ARS 84.195 como referencia de unidad); alojamiento \"2 personas desde\" ARS 76.478 por noche (probablemente por habitación; alternativa ARS 54.496), 3 noches; excursión alta montaña Puente del Inca + Aconcagua ARS 86.000 por persona (enero 2026); menú de bodega ARS 50.500 por persona (almuerzo de bodega, Bus Vitivinícola). La excursión a bodegas en ARS NO tiene precio: estimála usando el menú de bodega como referencia y marcala como estimación. Aclarà explícitamente las unidades dudosas (pasajes y alojamiento), mostrá el total con cada supuesto y decí si entra en ARS 900.000 para 2 personas, 4 días.",
+        "contenido": "## Validación\n**VÁLIDO:** Buenos Aires → Mendoza, del 2027-03-10 al 2027-03-13 (4 días, 3 noches), 2 personas, presupuesto $ 900.000.\n\n## Presupuesto\n\nSupuestos dudosos: el pasaje de ARS 143.297 se toma como **por persona, ida y vuelta** (la fuente no aclara la unidad). El alojamiento de ARS 76.478 se toma **por noche por habitación** para 2 personas (la fuente no aclara si es por habitación o por persona). Comida: se usa el menú de bodega (ARS 50.500 pp) como referencia de **comida por persona por día**, que es una estimación conservadora. La excursión a bodegas de ARS 50.500 pp es **ESTIMACIÓN** tomada del menú de bodega. No hay precios en ARS para esa excursión.\n\n**Supuesto A: con extras (pasaje por persona, alojamiento por habitación)**\n- Pasajes avión: $ 286.594 (143.297 × 2 personas)\n- Alojamiento: $ 229.434 (76.478 × 3 noches × 1 habitación)\n- Comida: $ 404.000 (50.500 × 4 días × 2 personas)\n- Excursión Puente del Inca + Aconcagua: $ 172.000 (86.000 × 2)\n- Excursión bodegas (ESTIMACIÓN): $ 101.000 (50.500 × 2)\n- **TOTAL: $ 1.193.028. NO ENTRA: faltan $ 293.028.**\n- Costo por día: $ 298.257 (por persona por día: $ 149.128)\n\n**Supuesto B (económica): pasaje por persona, alojamiento 54.496 por habitación, sin extras**\n- Pasajes avión: $ 286.594\n- Alojamiento: $ 163.488 (54.496 × 3 noches × 1 habitación)\n- Comida: $ 404.000\n- **TOTAL: $ 854.082. ENTRA: sobran $ 45.918.**\n- Costo por día: $ 213.520 (por persona por día: $ 106.760)\n\n**Supuesto C (peor caso): pasaje por persona, alojamiento 76.478 por persona por noche, sin extras**\n- Pasajes avión: $ 286.594\n- Alojamiento: $ 458.868 (76.478 × 3 noches × 2 personas)\n- Comida: $ 404.000\n- **TOTAL: $ 1.149.462. NO ENTRA: faltan $ 249.462.**\n- Costo por día: $ 287.366 (por persona por día: $ 143.683)\n\nNo hubo conversión de moneda: todos los precios están en ARS.\n\n## Conclusión\nPara 2 personas y 4 días, el viaje entra en ARS 900.000 solo si el alojamiento es por habitación a ARS 54.496 por noche (supuesto B), con sobrante de $ 45.918 y sin excursiones. Si el alojamiento es por persona, o si se incluyen las excursiones, no entra. Antes de confirmar hay que verificar la unidad del alojamiento y del pasaje, y conseguir un precio real de la excursión a bodegas.\n\n## Datos que faltan\n- Unidad confirmada del pasaje (ida y vuelta por persona) y del alojamiento (por habitación o por persona).\n- Precio en ARS de la excursión a bodegas (Maipú o Luján de Cuyo). Solo hay un precio en CLP, y la cifra usada es una estimación.\n- Precio de comida por día por persona real (solo hay un menú de bodega, que es almuerzo).\n- Pasajes terrestres (micro) Buenos Aires – Mendoza: sin datos.\n- Precios de referencia de 2026, no de marzo de 2027. El tipo de cambio no se usó porque todo está en ARS.",
+        "fuentes": [
+          {
+            "ref": "mem-bbc137ba1504",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-247ab927e3d1",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-5938db66d3a0",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f61e06e7cf31",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-5938db66d3a0",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": null,
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "validar_viaje",
+          "calcular_presupuesto"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "validar_viaje",
+            "argumentos": {
+              "origen": "Buenos Aires",
+              "destino": "Mendoza",
+              "fecha_ida": "2027-03-10",
+              "fecha_vuelta": "2027-03-13",
+              "personas": 2,
+              "presupuesto": 900000,
+              "moneda": "ARS",
+              "dias_pedidos": 4
+            },
+            "resultado": "VÁLIDO: Buenos Aires → Mendoza, del 2027-03-10 al 2027-03-13 (4 días, 3 noches), 2 personas, presupuesto $ 900.000.",
+            "timestamp": "2026-11-18T14:40:15.112-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "Supuesto A: pasaje ida y vuelta por persona, alojamiento por habitación, con extras",
+              "personas": 2,
+              "noches": 3,
+              "presupuesto": 900000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 143297,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión",
+                "fuente": "mem-bbc137ba1504"
+              },
+              "alojamiento": {
+                "monto": 76478,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "2 personas desde (supuesto: por habitación)",
+                "fuente": "mem-247ab927e3d1"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 50500,
+                "moneda": "ARS",
+                "fuente": "mem-5938db66d3a0"
+              },
+              "extras": [
+                {
+                  "descripcion": "Excursión Puente del Inca + Aconcagua",
+                  "monto": 86000,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "fuente": "mem-f61e06e7cf31"
+                },
+                {
+                  "descripcion": "Excursión bodegas (ESTIMACIÓN con menú de bodega como referencia)",
+                  "monto": 50500,
+                  "moneda": "ARS",
+                  "por_persona": true,
+                  "fuente": "mem-5938db66d3a0"
+                }
+              ]
+            },
+            "resultado": "PRESUPUESTO — opción 'Supuesto A: pasaje ida y vuelta por persona, alojamiento por habitación, con extras' (4 días, 3 noches, 2 personas):\n- Pasajes avión: $ 286.594  [$ 143.297 por persona (ida y vuelta) × 2 personas]\n- Alojamiento 2 personas desde (supuesto: por habitación): $ 229.434  [$ 76.478 por noche por habitación × 3 noches × 1 habitación (de 2 personas)]\n- Comida: $ 404.000  [$ 50.500 por persona por día × 4 días × 2 personas]\n- Excursión Puente del Inca + Aconcagua: $ 172.000  [$ 86.000 × 2 personas]\n- Excursión bodegas (ESTIMACIÓN con menú de bodega como referencia): $ 101.000  [$ ...",
+            "timestamp": "2026-11-18T14:40:15.112-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "Supuesto B (económica): pasaje ida y vuelta, alojamiento 54.496 por habitación, sin extras",
+              "personas": 2,
+              "noches": 3,
+              "presupuesto": 900000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 143297,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión",
+                "fuente": "mem-bbc137ba1504"
+              },
+              "alojamiento": {
+                "monto": 54496,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_habitacion",
+                "personas_por_habitacion": 2,
+                "tipo": "2 personas desde (alternativa, supuesto por habitación)",
+                "fuente": "mem-247ab927e3d1"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 50500,
+                "moneda": "ARS",
+                "fuente": "mem-5938db66d3a0"
+              }
+            },
+            "resultado": "PRESUPUESTO — opción 'Supuesto B (económica): pasaje ida y vuelta, alojamiento 54.496 por habitación, sin extras' (4 días, 3 noches, 2 personas):\n- Pasajes avión: $ 286.594  [$ 143.297 por persona (ida y vuelta) × 2 personas]\n- Alojamiento 2 personas desde (alternativa, supuesto por habitación): $ 163.488  [$ 54.496 por noche por habitación × 3 noches × 1 habitación (de 2 personas)]\n- Comida: $ 404.000  [$ 50.500 por persona por día × 4 días × 2 personas]\nTOTAL: $ 854.082 | PRESUPUESTO: $ 900.000\nRESULTADO: ENTRA en el presupuesto. Sobran $ 45.918.\nCosto por día: $ 213.520 | por persona por dí...",
+            "timestamp": "2026-11-18T14:40:15.112-03:00"
+          },
+          {
+            "herramienta": "calcular_presupuesto",
+            "argumentos": {
+              "opcion": "Supuesto C: pasaje ida y vuelta, alojamiento 76.478 por persona (peor caso), sin extras",
+              "personas": 2,
+              "noches": 3,
+              "presupuesto": 900000,
+              "moneda_presupuesto": "ARS",
+              "pasaje": {
+                "monto": 143297,
+                "moneda": "ARS",
+                "tramo": "ida_y_vuelta",
+                "medio": "avión",
+                "fuente": "mem-bbc137ba1504"
+              },
+              "alojamiento": {
+                "monto": 76478,
+                "moneda": "ARS",
+                "unidad": "por_noche_por_persona",
+                "tipo": "2 personas desde (peor caso: por persona)",
+                "fuente": "mem-247ab927e3d1"
+              },
+              "comida_por_persona_por_dia": {
+                "monto": 50500,
+                "moneda": "ARS",
+                "fuente": "mem-5938db66d3a0"
+              }
+            },
+            "resultado": "PRESUPUESTO — opción 'Supuesto C: pasaje ida y vuelta, alojamiento 76.478 por persona (peor caso), sin extras' (4 días, 3 noches, 2 personas):\n- Pasajes avión: $ 286.594  [$ 143.297 por persona (ida y vuelta) × 2 personas]\n- Alojamiento 2 personas desde (peor caso: por persona): $ 458.868  [$ 76.478 por persona por noche × 3 noches × 2 personas]\n- Comida: $ 404.000  [$ 50.500 por persona por día × 4 días × 2 personas]\nTOTAL: $ 1.149.462 | PRESUPUESTO: $ 900.000\nRESULTADO: NO ENTRA en el presupuesto. Faltan $ 249.462.\nCosto por día: $ 287.366 | por persona por día: $ 143.683\nConversiones de mon...",
+            "timestamp": "2026-11-18T14:40:15.112-03:00"
+          }
+        ],
+        "cobertura": [],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 9,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:40:18.203-03:00",
+      "detalle": {
+        "paso": 4,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes, pero la excursión a bodegas en ARS no tiene precio real (solo CLP y una estimación tomada del menú de bodega). R2 Fuentes: todos los aportes tienen mem-... o URL. R3 Precios: pasajes y alojamiento traen montos de referencia (unidad dudosa, pero alcanza para estimar). R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) y calcular_presupuesto, y dijo que entra solo en el supuesto B. R5 Observaciones: ninguna por código, pero el investigador reportó que falta un precio en ARS de excursión a bodegas y que la búsqueda con forzar=true fue rechazada; el dato sigue faltando. R6 Coherencia: los supuestos de unidad son dudosos pero el analista los aclaró; no hay contradicciones de noches o personas. Como ya hubo una ronda de corrección al investigador (ronda 2) y la búsqueda de bodegas en ARS sigue sin resultado, y el analista ya calculó con supuestos explícitos, conviene cerrar: la síntesis informará la falta del precio de la excursión a bodegas y la unidad dudosa del pasaje y alojamiento.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 10,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:40:30.668-03:00",
+      "detalle": {
+        "respuesta": "## Respuesta corta\n\nCon 900.000 ARS para 2 personas y 4 días (10 al 13 de marzo de 2027), **el viaje entra solo en un escenario económico**: pasajes aéreos por persona, alojamiento por habitación a ARS 54.496 por noche y sin excursiones. En ese caso sobran ARS 45.918. Si el alojamiento se cobra por persona, o si sumás las excursiones, **no alcanza**.\n\n## Itinerario\n\nLos datos encontrados sirven para estos días, pero el escenario que entra en el presupuesto no incluye excursiones.\n\n- **Día 1 (10/03):** llegada a Mendoza en avión. Alojamiento para 3 noches.\n- **Día 2 (11/03):** excursión de día completo a Puente del Inca y Aconcagua, con traslado y guía, a ARS 86.000 por persona (precio de referencia de enero de 2026) [https://www.quehacermendoza.site/ayuda/puente-del-inca] [mem-f61e06e7cf31]. Esta excursión solo entra en el escenario con extras.\n- **Día 3 (12/03):** visita a bodegas en Maipú o Luján de Cuyo. No tenemos precio real en ARS. El único dato es un menú de bodega de ARS 50.500 por persona [https://busvitivinicola.com/tarifas-en-bodegas] [mem-5938db66d3a0], que usamos como estimación.\n- **Día 4 (13/03):** regreso a Buenos Aires.\n\n**Clima:** no tenemos datos de clima para marzo de 2027 en los aportes.\n\n## Presupuesto\n\n| Concepto | Escenario B (económico) | Escenario A (con extras) |\n|---|---|---|\n| Pasajes avión (ARS 143.297 × 2) | $286.594 | $286.594 |\n| Alojamiento | $163.488 (54.496 × 3 noches × 1 hab.) | $229.434 (76.478 × 3 noches × 1 hab.) |\n| Comida (ARS 50.500 × 4 días × 2 pers.) | $404.000 | $404.000 |\n| Excursión Puente del Inca | — | $172.000 |\n| Excursión bodegas (estimación) | — | $101.000 |\n| **Total** | **$854.082** | **$1.193.028** |\n| Resultado | **Entra: sobran $45.918** | **No entra: faltan $293.028** |\n| Costo por día | $213.520 ($106.760 por persona) | $298.257 ($149.128 por persona) |\n\n- Pasajes: ARS 143.297 por persona, ida y vuelta [https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419] [mem-bbc137ba1504]. La fuente no aclara si el precio es por persona. Lo tomamos así.\n- Alojamiento: ARS 54.496 (escenario B) y ARS 76.478 (escenario A), ambos de Despegar [https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza] [mem-247ab927e3d1]. La unidad no está clara. Si es por persona, el escenario B ya no entra.\n- No hicimos conversión de moneda: todos los precios están en ARS. Por eso no usamos ningún tipo de cambio.\n\n## Alternativas\n\n- **Confirmar la unidad** del pasaje y del alojamiento antes de reservar. Es lo que más cambia el resultado.\n- **Si el alojamiento es por persona**, el viaje de 4 días no entra. Podés reducir a 3 días o buscar alojamiento más barato.\n- **Para incluir una excursión**, el presupuesto no alcanza para las dos. Elegí solo una: Puente del Inca (faltan $ 205.000 aprox. en el escenario B? No: entra con $45.918 de sobrante solo si el resto coincide; con la excursión de $172.000 faltan $126.082) o la bodega (con $101.000 faltan $55.082). Los números dependen de los supuestos de arriba.\n- **Pasajes terrestres (micro):** no tenemos datos, así que no podemos comparar.\n\n## Lo que no pudimos averiguar\n\n- Unidad real del pasaje y del alojamiento.\n- Precio en ARS de una excursión a bodegas en Maipú o Luján de Cuyo. El precio de ARS 50.500 es una estimación.\n- Precios de comida por día por persona: solo tenemos un menú de almuerzo en bodega.\n- Pasajes terrestres Buenos Aires – Mendoza.\n- Clima esperado para marzo de 2027.\n- Todos los precios son de referencia de 2026, no de marzo de 2027.\n\n## Fuentes\n- [memoria] mem-bbc137ba1504 → https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 → https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza — alojamiento, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 → https://www.quehacermendoza.site/ayuda/puente-del-inca — actividades, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 → https://busvitivinicola.com/tarifas-en-bodegas — comida, buscado el 2026-11-18\n- [memoria] mem-bbc137ba1504 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 — comida, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Respuesta corta\n\nCon 900.000 ARS para 2 personas y 4 días (10 al 13 de marzo de 2027), **el viaje entra solo en un escenario económico**: pasajes aéreos por persona, alojamiento por habitación a ARS 54.496 por noche y sin excursiones. En ese caso sobran ARS 45.918. Si el alojamiento se cobra por persona, o si sumás las excursiones, **no alcanza**.\n\n## Itinerario\n\nLos datos encontrados sirven para estos días, pero el escenario que entra en el presupuesto no incluye excursiones.\n\n- **Día 1 (10/03):** llegada a Mendoza en avión. Alojamiento para 3 noches.\n- **Día 2 (11/03):** excursión de día completo a Puente del Inca y Aconcagua, con traslado y guía, a ARS 86.000 por persona (precio de referencia de enero de 2026) [https://www.quehacermendoza.site/ayuda/puente-del-inca] [mem-f61e06e7cf31]. Esta excursión solo entra en el escenario con extras.\n- **Día 3 (12/03):** visita a bodegas en Maipú o Luján de Cuyo. No tenemos precio real en ARS. El único dato es un menú de bodega de ARS 50.500 por persona [https://busvitivinicola.com/tarifas-en-bodegas] [mem-5938db66d3a0], que usamos como estimación.\n- **Día 4 (13/03):** regreso a Buenos Aires.\n\n**Clima:** no tenemos datos de clima para marzo de 2027 en los aportes.\n\n## Presupuesto\n\n| Concepto | Escenario B (económico) | Escenario A (con extras) |\n|---|---|---|\n| Pasajes avión (ARS 143.297 × 2) | $286.594 | $286.594 |\n| Alojamiento | $163.488 (54.496 × 3 noches × 1 hab.) | $229.434 (76.478 × 3 noches × 1 hab.) |\n| Comida (ARS 50.500 × 4 días × 2 pers.) | $404.000 | $404.000 |\n| Excursión Puente del Inca | — | $172.000 |\n| Excursión bodegas (estimación) | — | $101.000 |\n| **Total** | **$854.082** | **$1.193.028** |\n| Resultado | **Entra: sobran $45.918** | **No entra: faltan $293.028** |\n| Costo por día | $213.520 ($106.760 por persona) | $298.257 ($149.128 por persona) |\n\n- Pasajes: ARS 143.297 por persona, ida y vuelta [https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419] [mem-bbc137ba1504]. La fuente no aclara si el precio es por persona. Lo tomamos así.\n- Alojamiento: ARS 54.496 (escenario B) y ARS 76.478 (escenario A), ambos de Despegar [https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza] [mem-247ab927e3d1]. La unidad no está clara. Si es por persona, el escenario B ya no entra.\n- No hicimos conversión de moneda: todos los precios están en ARS. Por eso no usamos ningún tipo de cambio.\n\n## Alternativas\n\n- **Confirmar la unidad** del pasaje y del alojamiento antes de reservar. Es lo que más cambia el resultado.\n- **Si el alojamiento es por persona**, el viaje de 4 días no entra. Podés reducir a 3 días o buscar alojamiento más barato.\n- **Para incluir una excursión**, el presupuesto no alcanza para las dos. Elegí solo una: Puente del Inca (faltan $ 205.000 aprox. en el escenario B? No: entra con $45.918 de sobrante solo si el resto coincide; con la excursión de $172.000 faltan $126.082) o la bodega (con $101.000 faltan $55.082). Los números dependen de los supuestos de arriba.\n- **Pasajes terrestres (micro):** no tenemos datos, así que no podemos comparar.\n\n## Lo que no pudimos averiguar\n\n- Unidad real del pasaje y del alojamiento.\n- Precio en ARS de una excursión a bodegas en Maipú o Luján de Cuyo. El precio de ARS 50.500 es una estimación.\n- Precios de comida por día por persona: solo tenemos un menú de almuerzo en bodega.\n- Pasajes terrestres Buenos Aires – Mendoza.\n- Clima esperado para marzo de 2027.\n- Todos los precios son de referencia de 2026, no de marzo de 2027.\n\n## Fuentes\n- [memoria] mem-bbc137ba1504 → https://www.google.com/travel/flights/flights-from-buenos-aires-to-mendoza.html?gl=AR&hl=es-419 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 → https://www.despegar.cl/hoteles/hl/4451/i1/hoteles-en-mendoza — alojamiento, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 → https://www.quehacermendoza.site/ayuda/puente-del-inca — actividades, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 → https://busvitivinicola.com/tarifas-en-bodegas — comida, buscado el 2026-11-18\n- [memoria] mem-bbc137ba1504 — pasajes, buscado el 2026-11-18\n- [memoria] mem-247ab927e3d1 — alojamiento, buscado el 2026-11-18\n- [memoria] mem-5938db66d3a0 — comida, buscado el 2026-11-18\n- [memoria] mem-f61e06e7cf31 — actividades, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+    "pasos_supervisor": 4,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 2,
+      "analista": 1
+    },
+    "refinamientos": 1,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 7,
+      "buscar_en_web": 3,
+      "validar_viaje": 1,
+      "calcular_presupuesto": 3
+    },
+    "busquedas_web": 0,
+    "fuentes_memoria": 15,
+    "fuentes_web": 0,
+    "observaciones": [],
+    "validacion": "aprobada",
+    "presupuesto_entra": true,
+    "alternativa_calculada": true
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "output_token_details": {
+        "reasoning": 4030
+      },
+      "output_tokens": 17513,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "total_tokens": 143798,
+      "input_tokens": 126285
+    }
+  },
+  "archivo": "traces\\api\\api_9c06a718_real_20261118-143900.json"
+}

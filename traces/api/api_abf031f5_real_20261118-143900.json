@@ -1,0 +1,652 @@
+{
+  "pregunta": "Queremos ir 5 días a Salta en abril, somos 3 personas, salimos desde Córdoba y tenemos 1.200.000 pesos. ¿Nos alcanza? Armanos un itinerario.",
+  "escenario": "api_abf031f5",
+  "modo": "real",
+  "modelo": "claude-haiku-5-5",
+  "max_pasos": 6,
+  "recursion_limit": 20,
+  "inicio": "2026-11-18T14:39:00.957-03:00",
+  "fin": "2026-11-18T14:40:26.633-03:00",
+  "duracion_s": 85.68,
+  "estado": "completo",
+  "ruta": [
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "aprobacion_web",
+    "investigador",
+    "supervisor",
+    "analista",
+    "supervisor",
+    "sintesis"
+  ],
+  "pedido": {
+    "origen": "Córdoba",
+    "destino": "Salta",
+    "fecha_ida": "2027-04-10",
+    "fecha_vuelta": "2027-04-14",
+    "dias": 5,
+    "personas": 3,
+    "presupuesto": 1200000.0,
+    "moneda": "ARS",
+    "supuestos": [
+      "Abril sin día exacto: la ida se asume el 10/04/2027 (abril de 2026 ya pasó), vuelta 14/04/2027 por 5 días"
+    ]
+  },
+  "eventos": [
+    {
+      "n": 1,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:07.513-03:00",
+      "detalle": {
+        "pedido_extraido": {
+          "origen": "Córdoba",
+          "destino": "Salta",
+          "fecha_ida": "2027-04-10",
+          "fecha_vuelta": "2027-04-14",
+          "dias": 5,
+          "personas": 3,
+          "presupuesto": 1200000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "Abril sin día exacto: la ida se asume el 10/04/2027 (abril de 2026 ya pasó), vuelta 14/04/2027 por 5 días"
+          ]
+        },
+        "paso": 1,
+        "siguiente": "investigador",
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-) para un viaje de Córdoba a Salta, ida 2027-04-10 y vuelta 2027-04-14 (5 días), 3 personas. Necesito precios de referencia (rangos, valores \"desde\" o promedios), no exactos: pasajes aéreos o terrestres Córdoba-Salta para 3 personas en ese período con monto por persona y total; alojamiento en Salta para 4 noches para 3 personas con precio por noche; comida promedio por persona por día en Salta; actividades y atractivos principales con precio de referencia; clima esperado en Salta en abril; y cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la unidad de cada precio (por persona, por noche, total) y la fuente de cada dato.",
+        "temas": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "evaluacion": "Pregunta con presupuesto (1.200.000 ARS, 3 personas, 5 días, Córdoba→Salta) y pide armar itinerario. Rúbrica: R1 cobertura no cumplida (no hay aportes: faltan pasajes, alojamiento, comida/actividades y cotización del dólar). R2 y R3 sin datos todavía. R4 no se puede calcular sin precios. R5 sin observaciones pendientes. R6 sin aportes para contrastar. Corresponde primero al investigador con todos los temas.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 2,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:39:08.016-03:00",
+      "detalle": {
+        "ronda": 1,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "pasajes",
+          "alojamiento",
+          "comida",
+          "actividades",
+          "clima",
+          "cambio"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 3,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:39:40.962-03:00",
+      "detalle": {
+        "ronda": 1,
+        "instruccion": "Buscá datos actuales con fuente (URL o mem-) para un viaje de Córdoba a Salta, ida 2027-04-10 y vuelta 2027-04-14 (5 días), 3 personas. Necesito precios de referencia (rangos, valores \"desde\" o promedios), no exactos: pasajes aéreos o terrestres Córdoba-Salta para 3 personas en ese período con monto por persona y total; alojamiento en Salta para 4 noches para 3 personas con precio por noche; comida promedio por persona por día en Salta; actividades y atractivos principales con precio de referencia; clima esperado en Salta en abril; y cotización del dólar oficial, tarjeta y MEP (no el blue). Indicá la unidad de cada precio (por persona, por noche, total) y la fuente de cada dato.",
+        "contenido": "## Hallazgos\n\n### Pasajes Córdoba–Salta\n- Desde $204.226 por persona (Despegar, vuelos desde Córdoba a Salta; no indica si es ida o ida y vuelta, ni la fecha) — [https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba] (memoria: mem-e1b795d70c7a)\n- Micro Córdoba–Salta desde ARS 57.750, precio promedio ARS 83.799 — unidad no especificada (si es por persona o por tramo) — [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta] (memoria: mem-a221684974f7)\n- CheapOair muestra rangos en USD (296–416) sin unidad clara ni fecha; no lo tomo como referencia en pesos — [https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla] (memoria: mem-3881821b4e49)\n- Total para 3 personas: no calculado (se puede multiplicar el monto por persona por 3 si la unidad es por tramo/persona, pero la fuente no lo confirma para el micro).\n\n### Alojamiento en Salta (4 noches, 3 personas)\n- KAYAK: promedio de $21 en marzo y $160 en abril, y $27 los domingos; la fuente no indica moneda ni unidad (unidad no especificada) — [https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp] (memoria: mem-90e8907fc98b). Mismos datos en [https://www.kayak.com.gt/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp] (memoria: mem-f9dca089068b).\n- Video de YouTube: tarifa diaria en temporada baja para habitación doble para dos personas \"alrededor de 120\" — moneda y año no especificados (unidad: por noche por habitación para 2 personas) — [https://www.youtube.com/watch?v=dS6B1vg8Cpw] (memoria: mem-58ec2a8c0a89)\n- Precio para 3 personas: no hay dato directo; podría requerir habitación triple o dos habitaciones.\n\n### Comida en Salta\n- Menús turísticos en Salta que rondan los $9.000 de promedio (unidad: probablemente por menú/persona, no especificada); empanadas $9.000–10.000 la docena en puestos alejados del centro; en el centro la docena promedia $16.000; humitas $5.500–7.000; tamales ~$4.500 — [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta] (memoria: mem-ec7dfae0cc77)\n- Precios de platos típicos de octubre 2024 (desactualizados): guiso de cabrito $9.500–10.500; empanada de carne o charqui $800–1.200 c/u; milanesa de llama con guarnición $8.000 — unidad: por plato — [https://www.tiktok.com/@bodegonero/video/7425755015647612165?lang=en] (memoria: mem-8ff50b68745b)\n- Guía de precios por restaurante (abril 2026, base Buenos Aires): Salta estaría 15–25% por debajo de BA, sin cifra absoluta para Salta; postre $20.000–80.000 por persona en restaurante medio (base BA), cubierto en restaurantes top $5.000–30.000 por persona (base BA) — [https://cuantomecuesta.com/ar/restaurante] (memoria: mem-e117e2137937)\n\n### Actividades y atractivos\n- Tren a las Nubes (Salta): tarifa \"Solo Tren\" de $149.500 para extranjero menor de 3 a 12 años, y promoción de $139.500 en efectivo/transferencia, válidas del 1/7 al 30/9/2026 (unidad no especificada; no es la tarifa adulta) — [https://trensaltatiamar.com] (memoria: mem-1c71a20db91e)\n- Tren a las Nubes: se describe como viaje combinado de ruta y ferrocarril hasta 4.220 msnm — sin precio — [https://visitsalta.ar/favoritos/tren-a-las-nubes] (memoria: mem-374d526cd18d)\n- Tren Solar de la Quebrada (Jujuy, no Salta): una reseña menciona \"50 dólares por persona\" para un trayecto — [https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360] (memoria: mem-809e4ad26711)\n\n### Clima en Salta (abril)\n- Temperatura máxima promedio 22 °C y mínima ~13 °C; el texto no aclara explícitamente el mes, y menciona que de enero a abril el clima es agradable con pocas lluvias — [https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92] (memoria: mem-47455a27250f)\n- Pronóstico para abril de 2027: mínima 13 °C y máxima hasta 24 °C (pronóstico a más de un año, poco confiable) — [https://www.tiempo3.com/south-america/argentina/salta?page=month&month=April] (memoria: mem-bf9a932ca270)\n- Hay datos oficiales de la provincia (precipitación y temperatura 1991–2020 para la ciudad de Salta), pero sin valores extraídos — [https://estadisticas.salta.gov.ar/web/level2/1/6/1] (memoria: mem-6bc262a0ed28)\n\n### Cotización del dólar (datos de memoria, 18/11/2026; cambian a diario)\n- Dólar oficial: venta $1.579,00 — [https://www.lanacion.com.ar/dolar-hoy] (memoria: mem-f84a5546c019). Cronista (BNA): venta $1.575,00 — [https://www.cronista.com/MercadosOnline/dolar.html] (memoria: mem-e8e67d3b3148)\n- Dólar tarjeta: venta $2.052,70 (La Nación) — [https://www.lanacion.com.ar/dolar-hoy] (memoria: mem-f84a5546c019); $2.047,50 (Cronista) — [https://www.cronista.com/MercadosOnline/dolar.html] (memoria: mem-e8e67d3b3148)\n- Dólar MEP: venta $1.572,90 (La Nación) — [https://www.lanacion.com.ar/dolar-hoy] (memoria: mem-f84a5546c019); $1.595,91 (Cronista) — [https://www.cronista.com/MercadosOnline/dolar.html] (memoria: mem-e8e67d3b3148)\n- Dolarito: los valores que figuran no son utilizables (se ven errores de carga) — [https://www.dolarito.ar] (memoria: mem-3e0299fe1529)\n\n## Datos que faltan\n- Pasajes: sin confirmar si el precio es por persona y por tramo o ida y vuelta, y sin precio para la fecha de 10/04/2027 (los datos son de referencia). No hay total para 3 personas en la fuente.\n- Alojamiento: no hay precio en pesos confirmado por noche para una habitación para 3 personas; la moneda de KAYAK es incierta.\n- Comida: no hay promedio por persona por día en Salta; solo precios sueltos y referencias de Buenos Aires ajustadas.\n- Actividades: faltan precios actuales de Cerro San Bernardo, Museo de Arqueología de Alta Montaña, Cafayate, Valles Calchaquíes y otros atractivos; el precio del Tren a las Nubes es de tarifa para menores extranjeros, no de adulto.\n- Clima: el pronóstico de abril 2027 es poco confiable a más de un año de distancia.\n- Cotización: datos del 18/11/2026; el resultado se debe actualizar antes de usarlo.\n- Nota: no se hizo búsqueda web nueva porque la memoria tenía datos vigentes para los temas; el sistema bloqueó forzar la búsqueda en alojamiento, comida y actividades.",
+        "fuentes": [
+          {
+            "ref": "mem-e1b795d70c7a",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-a221684974f7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-3881821b4e49",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-90e8907fc98b",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f9dca089068b",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.gt/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-58ec2a8c0a89",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.youtube.com/watch?v=dS6B1vg8Cpw",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-8ff50b68745b",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.tiktok.com/@bodegonero/video/7425755015647612165?lang=en",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-e117e2137937",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://cuantomecuesta.com/ar/restaurante",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-ec7dfae0cc77",
+            "origen": "memoria",
+            "tema": "comida",
+            "url": "https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-e0d5a08aa036",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.altiplanotravel.tur.ar/excursion/243/Tren-Solar-de-la-Quebrada.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-c246a4c3a13c",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://www.getyourguide.com/tren-a-las-nubes-l261931",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-1c71a20db91e",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://trensaltatiamar.com",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-47455a27250f",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-6bc262a0ed28",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://estadisticas.salta.gov.ar/web/level2/1/6/1",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-bf9a932ca270",
+            "origen": "memoria",
+            "tema": "clima",
+            "url": "https://www.tiempo3.com/south-america/argentina/salta?page=month&month=April",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f84a5546c019",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.lanacion.com.ar/dolar-hoy",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-e8e67d3b3148",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.cronista.com/MercadosOnline/dolar.html",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-3e0299fe1529",
+            "origen": "memoria",
+            "tema": "cambio",
+            "url": "https://www.dolarito.ar",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-809e4ad26711",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-374d526cd18d",
+            "origen": "memoria",
+            "tema": "actividades",
+            "url": "https://visitsalta.ar/favoritos/tren-a-las-nubes",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes aéreos o micro Córdoba a Salta abril 2027 precio por persona",
+              "destino": "Salta",
+              "tema": "pasajes"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'pasajes aéreos o micro Córdoba a Salta abril 2027 precio por persona':\n\n[mem-e1b795d70c7a] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba\nVuelos de Córdoba a Salta desde $ 204.226 con Despegar. Precio por persona desde $204.226 Siguiente. Córdoba tiene una duración mínima de 01 h 25 m y el de\n\n[mem-a221684974f7] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta\nEl precio del pasaj...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "alojamiento hotel Salta precio por noche habitación para 3 personas",
+              "destino": "Salta",
+              "tema": "alojamiento"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'alojamiento hotel Salta precio por noche habitación para 3 personas':\n\n[mem-90e8907fc98b] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp\nLos hoteles son más baratos en Ciudad de Salta en marzo, con un precio promedio de $21. En comparación, abril es el mes más caro, con tarifas de $160.\n\n### ¿Cuál es el día de la semana más barato para reservar un hotel en Ciudad de Salta?\n\nEl domingo conseguirás las tarifas más bajas en Ciudad de Salta, a un precio promedio de $27 ...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "comida restaurantes precio promedio por persona por día",
+              "destino": "Salta",
+              "tema": "comida"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'comida restaurantes precio promedio por persona por día':\n\n[mem-8ff50b68745b] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://www.tiktok.com/@bodegonero/video/7425755015647612165?lang=en\nSalta y Jujuy tiene paisajes hermosos. La gente es cálida. Aguante el norte argentino!\n\n💰PRECIOS💰 (Octubre 2024)\n\n➡️Guiso de cabrito $9.500 / $10.500\n\n➡️Empanadas de carne o charqui $800 / $1.200 c/u\n\n➡️Salame de llama $5.000 / $6.000\n\n➡️Tortilla rellena $2.000\n\n➡️Milanesa de llama con guarnición $8.000\n\n➡️Tamal $4.500\n\n➡️Empanada de cayote $1.00...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "actividades atractivos principales precio de entradas excursiones",
+              "destino": "Salta",
+              "tema": "actividades"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'actividades atractivos principales precio de entradas excursiones':\n\n[mem-e0d5a08aa036] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://www.altiplanotravel.tur.ar/excursion/243/Tren-Solar-de-la-Quebrada.html\n- Cielo en Movimiento (regresa nuevamente para la próxima temporada)  \n   \n Experiencia 360º  \n ¿En que consiste?  \n Es un viaje de 10 horas, con todo el confort: ventanas panorámicas, conectividad, cargadores, y energía 100% solar. Ideal para quienes quieren conocer a fondo la Quebrada de Humahuaca.  \n Recorré la Quebra...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "clima temperatura lluvia en abril",
+              "destino": "Salta",
+              "tema": "clima"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'clima temperatura lluvia en abril':\n\n[mem-47455a27250f] origen=memoria | tema=clima | buscado hace 0.0 días (2026-11-18) | url=https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92\nDurante estos meses la temperatura máxima promedia los 22°C y la mínima ronda los 13°C. Mientras que los meses de más lluvias son en pleno verano, de diciembre a febrero, donde se alcanzan 1000 milímetros de agua y la temperatura promedio es de 24°C y la mínima de 14°C. [...] Llevar una campera liviana para las noches de verano.\n Más cantidad de abrigo para las noches...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "cotización dólar oficial tarjeta MEP",
+              "destino": "Salta",
+              "tema": "cambio"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'cotización dólar oficial tarjeta MEP':\n\n[mem-f84a5546c019] origen=memoria | tema=cambio | buscado hace 0.0 días (2026-11-18) | url=https://www.lanacion.com.ar/dolar-hoy\n# Cotización del dólar hoy\n\n Banco Central\n Banco Nación\n Servicios Dólar\n Dólar blue\n Mercados\n Dólares\n Argentina\n Dólar Mep\n Inflación y precios\n Dólar CCL\n\n ## Dólar oficial\n\n  Compra$1515,00Venta$1579,00\n ## Dólar blue\n\n  Compra$1522,90Venta$1570,00\n ## Dólar tarjeta\n\n  Venta$2052,70\n ## Dólar CCL\n\n  Venta$1676,01\n ## Dólar MEP\n\n  Venta$1572,90\n ## Dólar mayorista\n\n  Venta$1543,50\n ## Euro\n...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio hotel Salta capital por noche habitación doble tarifa 2026 pesos",
+              "destino": "Salta",
+              "tema": "alojamiento",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'precio hotel Salta capital por noche habitación doble tarifa 2026 pesos':\n\n[mem-90e8907fc98b] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp\nLos hoteles son más baratos en Ciudad de Salta en marzo, con un precio promedio de $21. En comparación, abril es el mes más caro, con tarifas de $160.\n\n### ¿Cuál es el día de la semana más barato para reservar un...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "gasto promedio comida restaurante por persona Salta capital 2026 pesos",
+              "destino": "Salta",
+              "tema": "comida",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'gasto promedio comida restaurante por persona Salta capital 2026 pesos':\n\n[mem-e117e2137937] origen=memoria | tema=comida | buscado hace 0.0 días (2026-11-18) | url=https://cuantomecuesta.com/ar/restaurante\nFactor de ajuste por ciudad respecto a precio base BA. Mendoza tiene experiencia de vinos que puede elevar el ticket. Interior del país (Tucumán, Salta, Neuquén) generalmente -15-25% vs BA. Precios IVA 21% incluido · abril 2026.\n\n## Qué incluy...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio entrada Tren a las Nubes, Cerro San Bernardo teleférico, Museo de Arqueología de Alta Montaña Salta 2026",
+              "destino": "Salta",
+              "tema": "actividades",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la búsqueda web no fue autorizada (la memoria cubría los temas pedidos). Estos son los datos vigentes en memoria sobre Salta / actividades (pueden ser menos precisos):\n\nMEMORIA — 4 datos vigentes para 'precio entrada Tren a las Nubes, Cerro San Bernardo teleférico, Museo de Arqueología de Alta Montaña Salta 2026':\n\n[mem-809e4ad26711] origen=memoria | tema=actividades | buscado hace 0.0 días (2026-11-18) | url=https://dexotic.com/excursiones-argentina/tren-solar-experiencia-360\nUn día completo en el Tren Solar de la Quebrada, con guía a bordo y paradas en todas sus estaci...",
+            "timestamp": "2026-11-18T14:39:40.959-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "comida",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "actividades",
+            "fuentes": 5,
+            "memoria": 5,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "clima",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": false
+          },
+          {
+            "tema": "cambio",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 4,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:39:45.890-03:00",
+      "detalle": {
+        "paso": 2,
+        "siguiente": "investigador",
+        "instruccion": "Rehacé solo la búsqueda de ALOJAMIENTO y PASAJES para Córdoba–Salta, ida 2027-04-10 y vuelta 2027-04-14, 3 personas. Alojamiento: precio de referencia por noche por habitación en Salta (4 noches), indicando moneda (ARS), año y si es habitación doble o triple; los datos actuales de KAYAK ($160 sin moneda ni unidad) y del video de YouTube (~120 sin moneda ni año) no sirven sin aclararlos. Pasajes: precio de referencia por persona, indicando si es solo ida o ida y vuelta, y el total para 3 personas. Usá búsqueda en web (forzar=true si la memoria no trae precios claros). Incluí URL o mem- de cada dato y la unidad de cada precio.",
+        "temas": [
+          "alojamiento",
+          "pasajes"
+        ],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen datos, pero clima no trae precios (y no hace falta precio para clima, aunque sí los datos del clima en abril; el aporte tiene fuentes de memoria, así que se puede considerar cubierto). R2 Fuentes: todos los aportes tienen mem-/URL. R3 Precios: pasajes tienen montos (Despegar $204.226 por persona, micro $57.750 sin unidad clara); alojamiento tiene datos dudosos (KAYAK $160 sin moneda/unidad, video ~120 sin moneda/año). Para alojamiento para 3 personas y 4 noches no hay precio confiable, y los precios de pasajes no están claros en unidad (ida o ida y vuelta). R4: no hay cálculo del analista todavía, hay presupuesto, así que hace falta. R5: sin observaciones por código. R6: las unidades de pasajes y alojamiento son ambiguas; el analista debe aclararlas. Como las unidades de alojamiento y pasajes son dudosas, conviene una ronda de corrección al investigador para aclarar precio por noche por habitación y pasaje ida/ida y vuelta por persona, con fuentes web actuales. Esto cumple R3, pero el investigador ya tiene fuentes para la mayoría de temas; se pide solo alojamiento y pasajes.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 5,
+      "nodo": "aprobacion_web",
+      "timestamp": "2026-11-18T14:39:46.389-03:00",
+      "detalle": {
+        "ronda": 2,
+        "temas_sin_memoria": [],
+        "temas_en_memoria": [
+          "alojamiento",
+          "pasajes"
+        ],
+        "pausa": false,
+        "resultado": "sin_pedir",
+        "origen": "memoria",
+        "comentario": ""
+      }
+    },
+    {
+      "n": 6,
+      "nodo": "investigador",
+      "timestamp": "2026-11-18T14:39:59.386-03:00",
+      "detalle": {
+        "ronda": 2,
+        "instruccion": "Rehacé solo la búsqueda de ALOJAMIENTO y PASAJES para Córdoba–Salta, ida 2027-04-10 y vuelta 2027-04-14, 3 personas. Alojamiento: precio de referencia por noche por habitación en Salta (4 noches), indicando moneda (ARS), año y si es habitación doble o triple; los datos actuales de KAYAK ($160 sin moneda ni unidad) y del video de YouTube (~120 sin moneda ni año) no sirven sin aclararlos. Pasajes: precio de referencia por persona, indicando si es solo ida o ida y vuelta, y el total para 3 personas. Usá búsqueda en web (forzar=true si la memoria no trae precios claros). Incluí URL o mem- de cada dato y la unidad de cada precio.",
+        "contenido": "## Hallazgos\n### Alojamiento (Salta, 4 noches)\n- No encontré precio de referencia en ARS por noche por habitación doble o triple para Salta en abril de 2027. La herramienta web no se ejecutó porque la memoria ya tenía resultados para esta consulta; no tengo forma de forzar una búsqueda nueva.\n- Dato de YouTube: \"tarifa diaria en temporada baja para la habitación doble [...] para dos personas está alrededor de 120\". Sin moneda, sin año y sin unidad confirmada (podría ser por habitación o por persona). No sirve como referencia sin aclarar. — [https://www.youtube.com/watch?v=dS6B1vg8Cpw] (memoria, [mem-58ec2a8c0a89])\n- Dato de KAYAK: \"abril es el mes más caro, con tarifas de $160\". Sin moneda ni unidad, y el texto no indica tipo de habitación. No sirve como referencia. — [https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp] (memoria, [mem-90e8907fc98b]); la misma cifra aparece en [https://www.kayak.com.gt/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp] (memoria, [mem-f9dca089068b])\n\n### Pasajes (Córdoba–Salta)\n- Avión, Despegar: \"Vuelos de Córdoba a Salta desde $ 204.226 … Precio por persona desde $204.226\". Moneda: pesos (el signo $ y el sitio .com.ar); tramo no especificado, por lo que no se sabe si es solo ida o ida y vuelta. Total para 3 personas, solo como multiplicación del valor \"desde\": $612.678 (3 × $204.226), sin confirmar si es ida o ida y vuelta. — [https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba] (memoria, [mem-e1b795d70c7a])\n- Avión, CheapOair: \"Los precios suelen variar entre 296 - 416\" y \"Vuelos por menos de $199\". Sin moneda ni unidad clara; no sirve como referencia. — [https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla] (memoria, [mem-3881821b4e49])\n- Micro, Plataforma10: \"arranca en ARS 57.750, llegando a un precio promedio de ARS 83.799\". Moneda ARS; la unidad (por persona o por tramo, ida o ida y vuelta) no está especificada. — [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta] (memoria, [mem-a221684974f7])\n\n## Datos que faltan\n- Alojamiento: precio en ARS por noche por habitación doble o triple en Salta para 2027 (no hay dato confiable; los de KAYAK y YouTube no se pueden usar sin aclarar moneda, unidad y año).\n- Pasajes: confirmar si los precios de Despegar (avión) y Plataforma10 (micro) son solo ida o ida y vuelta, y su unidad exacta (por persona o por tramo).\n- Búsqueda web: no se ejecutó por la regla de la herramienta (ya había datos en memoria con precios). Si el supervisor necesita precios de 2027 o confirmar tramos, habría que habilitar una búsqueda nueva.",
+        "fuentes": [
+          {
+            "ref": "mem-58ec2a8c0a89",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.youtube.com/watch?v=dS6B1vg8Cpw",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-90e8907fc98b",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.co.cr/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-f9dca089068b",
+            "origen": "memoria",
+            "tema": "alojamiento",
+            "url": "https://www.kayak.com.gt/Hoteles-en-Ciudad-de-Salta.17040.hotel.ksp",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-e1b795d70c7a",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-3881821b4e49",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla",
+            "fecha_busqueda": "2026-11-18"
+          },
+          {
+            "ref": "mem-a221684974f7",
+            "origen": "memoria",
+            "tema": "pasajes",
+            "url": "https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta",
+            "fecha_busqueda": "2026-11-18"
+          }
+        ],
+        "herramientas": [
+          "buscar_en_memoria",
+          "buscar_en_web"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "precio por noche habitación doble o triple hotel Salta abril 2027 ARS",
+              "destino": "Salta",
+              "tema": "alojamiento"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'precio por noche habitación doble o triple hotel Salta abril 2027 ARS':\n\n[mem-58ec2a8c0a89] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.youtube.com/watch?v=dS6B1vg8Cpw\n[3:51] y buena relación, calidad precio. La tarifa diaria en temporada baja para la habitación doble [música] para dos personas está alrededor de 120. Un\n[4:00] consejo importante es reservar con anticipación, especialmente si viajas entre diciembre y marzo, que es la temporada alta en la región. En esa\n[4:09] época los precios suben y los hoteles se l...",
+            "timestamp": "2026-11-18T14:39:59.383-03:00"
+          },
+          {
+            "herramienta": "buscar_en_memoria",
+            "argumentos": {
+              "consulta": "pasajes avión o micro Córdoba a Salta ida y vuelta precio por persona",
+              "destino": "Salta",
+              "tema": "pasajes"
+            },
+            "resultado": "MEMORIA — 3 datos vigentes para 'pasajes avión o micro Córdoba a Salta ida y vuelta precio por persona':\n\n[mem-e1b795d70c7a] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba\nVuelos de Córdoba a Salta desde $ 204.226 con Despegar. Precio por persona desde $204.226 Siguiente. Córdoba tiene una duración mínima de 01 h 25 m y el de\n\n[mem-3881821b4e49] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.cheapoair.com/es-us/vuelos/vuelos-baratos-de-cordoba-a-salta-cor-sla\n...",
+            "timestamp": "2026-11-18T14:39:59.383-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "precio por noche hotel Salta habitación doble triple ARS 2027 abril",
+              "destino": "Salta",
+              "tema": "alojamiento",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'precio por noche hotel Salta habitación doble triple ARS 2027 abril':\n\n[mem-58ec2a8c0a89] origen=memoria | tema=alojamiento | buscado hace 0.0 días (2026-11-18) | url=https://www.youtube.com/watch?v=dS6B1vg8Cpw\n[3:51] y buena relación, calidad precio. La tarifa diaria en temporada baja para la habitación doble [música] para dos personas está alrededor de 120. Un\n[4:00] consejo importante es reservar con anticipación, especialmente si viajas entre...",
+            "timestamp": "2026-11-18T14:39:59.383-03:00"
+          },
+          {
+            "herramienta": "buscar_en_web",
+            "argumentos": {
+              "consulta": "pasaje avión Córdoba Salta ida y vuelta precio por persona ARS",
+              "destino": "Salta",
+              "tema": "pasajes",
+              "forzar": true
+            },
+            "resultado": "NO SE BUSCÓ EN LA WEB: la memoria ya tiene datos vigentes CON PRECIOS sobre esto: forzar=true no aplica, usá estos.\n\nMEMORIA — 3 datos vigentes para 'pasaje avión Córdoba Salta ida y vuelta precio por persona ARS':\n\n[mem-e1b795d70c7a] origen=memoria | tema=pasajes | buscado hace 0.0 días (2026-11-18) | url=https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba\nVuelos de Córdoba a Salta desde $ 204.226 con Despegar. Precio por persona desde $204.226 Siguiente. Córdoba tiene una duración mínima de 01 h 25 m y el de\n\n[mem-3881821b4e49] origen=memoria | tema=pasajes | buscado hace...",
+            "timestamp": "2026-11-18T14:39:59.383-03:00"
+          }
+        ],
+        "cobertura": [
+          {
+            "tema": "alojamiento",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          },
+          {
+            "tema": "pasajes",
+            "fuentes": 3,
+            "memoria": 3,
+            "web": 0,
+            "con_precios": true
+          }
+        ],
+        "observaciones": []
+      }
+    },
+    {
+      "n": 7,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:40:03.551-03:00",
+      "detalle": {
+        "paso": 3,
+        "siguiente": "analista",
+        "instruccion": "Validá el viaje con los DATOS DEL PEDIDO y calculá el presupuesto con los precios de referencia de los hallazgos (opción económica; si no alcanza, una alternativa). Si un precio es un rango o un valor 'desde', usá un valor representativo y aclaralo.",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes; clima aparece sin precios (no es precio, es dato climático, aceptable como fuente de memoria pero sin datos concretos). R2 Fuentes: todos los aportes tienen URL o mem-. R3 Precios: pasajes tienen precio referencial (Despegar $204.226 por persona, tramo no confirmado; Plataforma10 micro ARS 83.799 unidad no clara). Alojamiento NO tiene precio válido en ARS por noche: los datos de KAYAK y YouTube no tienen moneda ni unidad, y la búsqueda web de la ronda 2 no se ejecutó. R4: el analista todavía no validó ni calculó. R5: sin observaciones por código. R6: hay ambigüedad de unidades en pasajes, pero el analista puede aclararla. Falta precio de alojamiento confiable; intentar una ronda más al investigador, con búsqueda web forzada, es razonable antes de calcular. [regla dura: el investigador ya trabajó 2 veces; se sigue con lo que hay → analista]",
+        "forzada": false
+      }
+    },
+    {
+      "n": 8,
+      "nodo": "analista",
+      "timestamp": "2026-11-18T14:40:15.093-03:00",
+      "detalle": {
+        "ronda": 3,
+        "instruccion": "Validá el viaje con los DATOS DEL PEDIDO y calculá el presupuesto con los precios de referencia de los hallazgos (opción económica; si no alcanza, una alternativa). Si un precio es un rango o un valor 'desde', usá un valor representativo y aclaralo.",
+        "contenido": "## Validación\nVÁLIDO: Córdoba → Salta, del 2027-04-10 al 2027-04-14 (5 días, 4 noches), 3 personas, presupuesto $1.200.000 ARS.\n\n## Presupuesto\nNo calculé el presupuesto. Falta un precio imprescindible para armar el total: **alojamiento**. Ninguno de los hallazgos sirve como referencia en ARS por noche para 3 personas:\n- KAYAK ($21, $27, $160): sin moneda ni unidad, y el propio investigador lo descarta.\n- YouTube (\"alrededor de 120\"): sin moneda, año ni unidad confirmada.\n\nUsar cualquiera de esos valores daría un total sin respaldo, así que no lo puse en la herramienta.\n\nLos pasajes y la comida tienen datos parciales, pero no alcanzan para una opción confiable:\n- **Pasajes:** el micro de Plataforma10 arranca en $57.750 (promedio $83.799), pero no se sabe si es por persona, por tramo o ida y vuelta. El Despegar ($204.226 \"desde\") tampoco aclara el tramo.\n- **Comida:** no hay un promedio por persona por día para Salta. Hay precios sueltos (menú turístico de ~$9.000, empanadas, humitas) de unidad no especificada.\n\n## Conclusión\nNo se puede decir si el viaje entra en $1.200.000: falta el precio de alojamiento y las unidades de pasajes y comida. Para completar el cálculo hace falta una búsqueda nueva de alojamiento en ARS (por noche, por habitación triple o doble, para abril de 2027), confirmar si el micro es por persona por tramo, y un costo diario de comida por persona. Con esos datos recalculo la opción económica.\n\n## Datos que faltan\n- **Alojamiento (imprescindible):** precio en ARS por noche por habitación para 3 personas en Salta. Los hallazgos no sirven: KAYAK y YouTube sin moneda ni unidad.\n- **Pasajes:** confirmar si el precio del micro ($57.750) y el de Despegar son por persona, por tramo o ida y vuelta. No hay precio vigente para la fecha de 10/04/2027.\n- **Comida:** costo diario por persona en Salta (hoy solo hay precios sueltos de unidad no especificada).\n- **Actividades:** no hay precios actuales de atractivos (el Tren a las Nubes que se encontró es tarifa de menor extranjero, no de adulto). Se pueden dejar fuera de la opción económica.\n- **Cotización:** los datos son del 18/11/2026 y deben actualizarse. Dólar oficial, tarjeta y MEP están disponibles, pero no se usan porque no hay precios en USD.\n- **Clima:** el pronóstico de abril de 2027 no es confiable a más de un año.",
+        "fuentes": [],
+        "herramientas": [
+          "validar_viaje"
+        ],
+        "llamadas": [
+          {
+            "herramienta": "validar_viaje",
+            "argumentos": {
+              "origen": "Córdoba",
+              "destino": "Salta",
+              "fecha_ida": "2027-04-10",
+              "fecha_vuelta": "2027-04-14",
+              "personas": 3,
+              "presupuesto": 1200000,
+              "moneda": "ARS",
+              "dias_pedidos": 5
+            },
+            "resultado": "VÁLIDO: Córdoba → Salta, del 2027-04-10 al 2027-04-14 (5 días, 4 noches), 3 personas, presupuesto $ 1.200.000.",
+            "timestamp": "2026-11-18T14:40:15.090-03:00"
+          }
+        ],
+        "cobertura": [],
+        "observaciones": [
+          "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+        ]
+      }
+    },
+    {
+      "n": 9,
+      "nodo": "supervisor",
+      "timestamp": "2026-11-18T14:40:18.179-03:00",
+      "detalle": {
+        "paso": 4,
+        "siguiente": "FINALIZAR",
+        "instruccion": "",
+        "temas": [],
+        "evaluacion": "R1 Cobertura: pasajes, alojamiento, comida, actividades y cambio tienen fuentes, pero alojamiento no tiene precio en ARS utilizable y el clima no trae precios (no se necesita precio para clima). R2 Fuentes: todos los aportes tienen URL o mem-. R3 Precios: pasajes tienen montos (Despegar $204.226 desde, micro $57.750) con unidad dudosa; alojamiento NO tiene ningún monto utilizable en ARS por noche. R4 Cálculo: el analista ejecutó validar_viaje (VÁLIDO) pero NO calculó el presupuesto. R5 Observaciones: el chequeo marca que no se calculó el presupuesto con éxito, sin resolver. R6 Coherencia: sin contradicciones de noches/personas, pero los precios de pasajes y micro no tienen unidad confirmada. El investigador ya rehízo alojamiento en la ronda 2 y no encontró precio; no se puede volver a pedir (máximo una corrección por especialista). Se llegó a la decisión 4 de 6. Con los datos disponibles el presupuesto no puede calcularse de forma confiable; corresponde finalizar y que la síntesis avise qué faltó.",
+        "forzada": false
+      }
+    },
+    {
+      "n": 10,
+      "nodo": "sintesis",
+      "timestamp": "2026-11-18T14:40:24.010-03:00",
+      "detalle": {
+        "respuesta": "## Respuesta corta\n\nNo podemos confirmar si los $1.200.000 alcanzan. El viaje es válido (Córdoba → Salta, 10 al 14 de abril de 2027, 3 personas), pero no tenemos precios confiables para armar el presupuesto. Te explicamos qué falta.\n\n## Itinerario\n\nComo no hay presupuesto calculado, no armamos un itinerario día por día. Cuando tengamos precios, lo preparamos.\n\nLo que sí sabemos del clima: en abril la temperatura máxima ronda los 22 °C y la mínima los 13 °C, con pocas lluvias [https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92]. Es un dato promedio, no un pronóstico para tus fechas.\n\n## Lo que sí encontramos\n\n- **Pasajes en micro:** desde ARS 57.750, con promedio de ARS 83.799 [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta]. No se sabe si es por persona, por tramo o ida y vuelta.\n- **Pasajes en avión:** desde $204.226 por persona, según Despegar [https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba]. No aclara el tramo.\n- **Comida:** menú turístico de unos $9.000 y empanadas de $9.000 a $16.000 la docena según la zona [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta]. Los precios son sueltos y de unidad no especificada.\n\n## Lo que no pudimos averiguar\n\n- **Alojamiento (el dato clave):** no hay precio en pesos por noche para 3 personas. Los valores de KAYAK y YouTube no tienen moneda ni unidad, así que no los usamos.\n- **Costo diario de comida por persona** en Salta.\n- **Actividades:** no hay precios actuales de atractivos como el Cerro San Bernardo, Cafayate o los Valles Calchaquíes. El precio del Tren a las Nubes que encontramos es de menor extranjero, no de adulto.\n- **Cotización:** los datos son del 18/11/2026 y hay que actualizarlos. Ejemplo: dólar oficial venta $1.579 [https://www.lanacion.com.ar/dolar-hoy].\n- **Clima exacto:** el pronóstico para abril de 2027 no es confiable a más de un año de distancia.\n\n## Próximos pasos\n\n1. Buscar precios de alojamiento en ARS por noche, para habitación triple o dos habitaciones, en abril de 2027.\n2. Confirmar si el micro se cobra por persona y por tramo.\n3. Conseguir un costo diario de comida por persona en Salta.\n\nCon esos datos calculamos el presupuesto y, si no alcanza, te proponemos alternativas: menos días, micro en lugar de avión, alojamiento compartido o cocinar parte de las comidas.\n\n## Fuentes\n- [memoria] mem-e1b795d70c7a → https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba — pasajes, buscado el 2026-11-18\n- [memoria] mem-a221684974f7 → https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta — pasajes, buscado el 2026-11-18\n- [memoria] mem-ec7dfae0cc77 → https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta — comida, buscado el 2026-11-18\n- [memoria] mem-47455a27250f → https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92 — clima, buscado el 2026-11-18\n- [memoria] mem-f84a5546c019 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._"
+      }
+    }
+  ],
+  "respuesta_final": "## Respuesta corta\n\nNo podemos confirmar si los $1.200.000 alcanzan. El viaje es válido (Córdoba → Salta, 10 al 14 de abril de 2027, 3 personas), pero no tenemos precios confiables para armar el presupuesto. Te explicamos qué falta.\n\n## Itinerario\n\nComo no hay presupuesto calculado, no armamos un itinerario día por día. Cuando tengamos precios, lo preparamos.\n\nLo que sí sabemos del clima: en abril la temperatura máxima ronda los 22 °C y la mínima los 13 °C, con pocas lluvias [https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92]. Es un dato promedio, no un pronóstico para tus fechas.\n\n## Lo que sí encontramos\n\n- **Pasajes en micro:** desde ARS 57.750, con promedio de ARS 83.799 [https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta]. No se sabe si es por persona, por tramo o ida y vuelta.\n- **Pasajes en avión:** desde $204.226 por persona, según Despegar [https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba]. No aclara el tramo.\n- **Comida:** menú turístico de unos $9.000 y empanadas de $9.000 a $16.000 la docena según la zona [https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta]. Los precios son sueltos y de unidad no especificada.\n\n## Lo que no pudimos averiguar\n\n- **Alojamiento (el dato clave):** no hay precio en pesos por noche para 3 personas. Los valores de KAYAK y YouTube no tienen moneda ni unidad, así que no los usamos.\n- **Costo diario de comida por persona** en Salta.\n- **Actividades:** no hay precios actuales de atractivos como el Cerro San Bernardo, Cafayate o los Valles Calchaquíes. El precio del Tren a las Nubes que encontramos es de menor extranjero, no de adulto.\n- **Cotización:** los datos son del 18/11/2026 y hay que actualizarlos. Ejemplo: dólar oficial venta $1.579 [https://www.lanacion.com.ar/dolar-hoy].\n- **Clima exacto:** el pronóstico para abril de 2027 no es confiable a más de un año de distancia.\n\n## Próximos pasos\n\n1. Buscar precios de alojamiento en ARS por noche, para habitación triple o dos habitaciones, en abril de 2027.\n2. Confirmar si el micro se cobra por persona y por tramo.\n3. Conseguir un costo diario de comida por persona en Salta.\n\nCon esos datos calculamos el presupuesto y, si no alcanza, te proponemos alternativas: menos días, micro en lugar de avión, alojamiento compartido o cocinar parte de las comidas.\n\n## Fuentes\n- [memoria] mem-e1b795d70c7a → https://www.despegar.com.ar/vuelos/cor/sla/vuelos-a-salta-desde-cordoba — pasajes, buscado el 2026-11-18\n- [memoria] mem-a221684974f7 → https://www.plataforma10.com.ar/pasajes-en-micro/cordoba/salta — pasajes, buscado el 2026-11-18\n- [memoria] mem-ec7dfae0cc77 → https://www.eltribuno.com/salta/2026-1-16-15-14-0-polemica-en-las-redes-por-la-brecha-de-precios-de-la-comida-regional-en-salta — comida, buscado el 2026-11-18\n- [memoria] mem-47455a27250f → https://www.tangol.com/blog/es/clima-de-salta-a-lo-largo-del-ano/n-92 — clima, buscado el 2026-11-18\n- [memoria] mem-f84a5546c019 → https://www.lanacion.com.ar/dolar-hoy — cambio, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+  "metricas": {
+    "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+    "pasos_supervisor": 4,
+    "decision_forzada_por_freno": false,
+    "delegaciones": {
+      "investigador": 2,
+      "analista": 1
+    },
+    "refinamientos": 1,
+    "llamadas_por_herramienta": {
+      "buscar_en_memoria": 8,
+      "buscar_en_web": 5,
+      "validar_viaje": 1
+    },
+    "busquedas_web": 0,
+    "fuentes_memoria": 20,
+    "fuentes_web": 0,
+    "observaciones": [
+      "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+    ],
+    "validacion": "aprobada",
+    "presupuesto_entra": null,
+    "alternativa_calculada": false
+  },
+  "tokens": {
+    "claude-haiku-5-5": {
+      "output_token_details": {
+        "reasoning": 3453
+      },
+      "output_tokens": 14946,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "total_tokens": 105389,
+      "input_tokens": 90443
+    }
+  },
+  "archivo": "traces\\api\\api_abf031f5_real_20261118-143900.json"
+}

@@ -1,0 +1,632 @@
+{
+  "url": "http://localhost:8078",
+  "n": 5,
+  "aprobar": "script",
+  "health": {
+    "status": "ok",
+    "modo": "mock",
+    "modelo": "claude-haiku-5-5",
+    "redis": {
+      "ok": true,
+      "tipo": "redis"
+    },
+    "checkpointer": "AsyncRedisSaver",
+    "langsmith": {
+      "tracing": false,
+      "proyecto": "pre-entrega-7",
+      "clave": true
+    },
+    "jobs_activos": 0,
+    "max_concurrentes": 5
+  },
+  "tiempo_total_s": 33.21,
+  "latencia_p50_s": 31.7,
+  "latencia_p95_s": 32.16,
+  "costo_estimado_total_usd": 0.0,
+  "langsmith": {},
+  "jobs": [
+    {
+      "job_id": "34b2d251050a4438b1257f31d80bc2f1",
+      "estado": "DONE",
+      "pregunta": "Quiero ir 7 días a Bariloche en enero, somos 2 personas, salimos desde Mendoza y tenemos 800.000 pesos. ¿Me armás el viaje y me decís si nos alcanza?",
+      "auto_aprobar": false,
+      "modo": "mock",
+      "thread_id": "34b2d251050a4438b1257f31d80bc2f1",
+      "creado": "2026-11-18T14:38:00.545-03:00",
+      "iniciado": "2026-11-18T14:38:00.874-03:00",
+      "actualizado": "2026-11-18T14:38:24.791-03:00",
+      "terminado": "2026-11-18T14:38:24.791-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "pasajes",
+            "alojamiento",
+            "clima",
+            "actividades",
+            "cambio"
+          ],
+          "timestamp": "2026-11-18T14:38:06.764-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Itinerario\n- Día 1 (10/01): viaje desde Mendoza y llegada a Bariloche\n- Día 2 (11/01): Circuito Chico en bici\n- Día 3 (12/01): trekking al Refugio Frey\n- Día 4 (13/01): playas del lago Gutiérrez\n- Día 5 (14/01): excursión a Isla Victoria y Bosque de Arrayanes\n- Día 6 (15/01): día libre: descanso y paseo por el centro\n- Día 7 (16/01): regreso a Mendoza\n\nClima esperado: Enero es pleno verano en Bariloche: máximas promedio de 22 °C y mínimas de 7 °C, con días largos (anochece cerca de las 21:30). Llueve poco (unos 4 días al mes), pero hay viento y las noches son frescas: conviene llevar abrigo liviano y protector solar.\n\n## Presupuesto\nPRESUPUESTO — opción 'económica' (7 días, 6 noches, 2 personas):\n- Pasajes micro semicama: $ 280.000  [$ 140.000 por persona (ida y vuelta) × 2 personas]\n- Alojamiento hostel habitación doble: $ 210.000  [$ 35.000 por noche por habitación × 6 noches × 1 habitación (de 2 personas)]\n- Comida: $ 126.000  [$ 9.000 por persona por día × 7 días × 2 personas]\n- Actividades: $ 56.000  [$ 4.000 por persona por día × 7 días × 2 personas]\n- excursión Isla Victoria: $ 113.100  [$ 56.550 × 2 personas]\nTOTAL: $ 785.100 | PRESUPUESTO: $ 800.000\nRESULTADO: ENTRA en el presupuesto. Sobran $ 14.900.\nCosto por día: $ 112.157 | por persona por día: $ 56.079\nConversiones de moneda:\n- excursión Isla Victoria: US$ 30,00 → $ 56.550 con dólar tarjeta $1.885 (pago con tarjeta; fuente: https://cotizaciones.mock-viajes.example/dolar-hoy)\n\n**Con la opción económica el viaje ENTRA en el presupuesto.**\n\n## Fuentes\n- [web] https://cotizaciones.mock-viajes.example/dolar-hoy — cambio, buscado el 2026-11-18\n- [web] https://micros.mock-viajes.example/mendoza-bariloche — pasajes, buscado el 2026-11-18\n- [web] https://alojamiento.mock-viajes.example/bariloche-enero-precios — alojamiento, buscado el 2026-11-18\n- [web] https://actividades.mock-viajes.example/bariloche-verano — comida, buscado el 2026-11-18\n\n_Los precios son aproximados: salen de búsquedas web (o de la memoria local de búsquedas de los últimos días) y pueden cambiar. Confirmalos antes de reservar._",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "pasajes",
+              "alojamiento",
+              "clima",
+              "actividades",
+              "cambio"
+            ],
+            "temas_en_memoria": [],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:38:09.223-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 3,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 1,
+            "analista": 1
+          },
+          "refinamientos": 0,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 5,
+            "buscar_en_web": 5,
+            "validar_viaje": 1,
+            "calcular_presupuesto": 1
+          },
+          "busquedas_web": 5,
+          "fuentes_memoria": 0,
+          "fuentes_web": 6,
+          "observaciones": [],
+          "validacion": "aprobada",
+          "presupuesto_entra": true,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Mendoza",
+          "destino": "Bariloche",
+          "fecha_ida": "2027-01-10",
+          "fecha_vuelta": "2027-01-16",
+          "dias": 7,
+          "personas": 2,
+          "presupuesto": 800000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "enero sin día exacto: se asume del 10/01/2027 al 16/01/2027"
+          ]
+        },
+        "traza": null
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 24.25,
+      "tiempo_ejecucion_s": 19.23,
+      "total_tokens": 0,
+      "costo_usd": 0.0,
+      "tokens": {},
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 24.98
+    },
+    {
+      "job_id": "6ced69a767dc4b57a6a065181821b72b",
+      "estado": "DONE",
+      "pregunta": "Queremos ir 5 días a Salta en abril, somos 3 personas, salimos desde Córdoba y tenemos 1.200.000 pesos. ¿Nos alcanza? Armanos un itinerario.",
+      "auto_aprobar": false,
+      "modo": "mock",
+      "thread_id": "6ced69a767dc4b57a6a065181821b72b",
+      "creado": "2026-11-18T14:38:00.819-03:00",
+      "iniciado": "2026-11-18T14:38:01.887-03:00",
+      "actualizado": "2026-11-18T14:38:32.858-03:00",
+      "terminado": "2026-11-18T14:38:32.858-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "pasajes",
+            "alojamiento",
+            "clima",
+            "actividades",
+            "cambio"
+          ],
+          "timestamp": "2026-11-18T14:38:08.760-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Lo que encontramos\n- No encontramos datos.\n\n## Lo que no pudimos averiguar\n- pasajes: sin resultados\n- alojamiento: sin resultados\n- clima: sin resultados\n- actividades: sin resultados\n- cambio: sin resultados\n- precios de: pasaje, alojamiento, comida\n\n## Fuentes\n- No se usaron fuentes externas.",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "pasajes",
+              "alojamiento",
+              "clima",
+              "actividades",
+              "cambio"
+            ],
+            "temas_en_memoria": [],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:38:11.365-03:00"
+          },
+          {
+            "ronda": 2,
+            "temas_sin_memoria": [
+              "pasajes"
+            ],
+            "temas_en_memoria": [],
+            "pausa": false,
+            "resultado": "aprobada",
+            "origen": "decision_previa",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:38:18.049-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 5,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 2,
+            "analista": 2
+          },
+          "refinamientos": 2,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 5,
+            "buscar_en_web": 6,
+            "validar_viaje": 2
+          },
+          "busquedas_web": 6,
+          "fuentes_memoria": 0,
+          "fuentes_web": 0,
+          "observaciones": [
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "Se pidieron precios de alojamiento pero los resultados encontrados no traen ningún precio.",
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+          ],
+          "validacion": "aprobada",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Córdoba",
+          "destino": "Salta",
+          "fecha_ida": "2027-04-10",
+          "fecha_vuelta": "2027-04-14",
+          "dias": 5,
+          "personas": 3,
+          "presupuesto": 1200000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "abril sin día exacto: se asume del 10/04/2027 al 14/04/2027"
+          ]
+        },
+        "traza": null
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 32.04,
+      "tiempo_ejecucion_s": 26.26,
+      "total_tokens": 0,
+      "costo_usd": 0.0,
+      "tokens": {},
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 33.08
+    },
+    {
+      "job_id": "a26f7b917035477699d1d2a0173f3714",
+      "estado": "DONE",
+      "pregunta": "Somos 2 y queremos ir 4 días a Mendoza en marzo desde Buenos Aires con 900.000 pesos. ¿Nos alcanza para bodegas y alta montaña?",
+      "auto_aprobar": false,
+      "modo": "mock",
+      "thread_id": "a26f7b917035477699d1d2a0173f3714",
+      "creado": "2026-11-18T14:38:00.821-03:00",
+      "iniciado": "2026-11-18T14:38:01.887-03:00",
+      "actualizado": "2026-11-18T14:38:33.007-03:00",
+      "terminado": "2026-11-18T14:38:33.006-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "pasajes",
+            "alojamiento",
+            "clima",
+            "actividades",
+            "cambio"
+          ],
+          "timestamp": "2026-11-18T14:38:08.259-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Lo que encontramos\n- No encontramos datos.\n\n## Lo que no pudimos averiguar\n- pasajes: sin resultados\n- alojamiento: sin resultados\n- clima: sin resultados\n- actividades: sin resultados\n- cambio: sin resultados\n- precios de: pasaje, alojamiento, comida\n\n## Fuentes\n- No se usaron fuentes externas.",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "pasajes",
+              "alojamiento",
+              "clima",
+              "actividades",
+              "cambio"
+            ],
+            "temas_en_memoria": [],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:38:10.887-03:00"
+          },
+          {
+            "ronda": 2,
+            "temas_sin_memoria": [
+              "pasajes"
+            ],
+            "temas_en_memoria": [],
+            "pausa": false,
+            "resultado": "aprobada",
+            "origen": "decision_previa",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:38:18.099-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 5,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 2,
+            "analista": 2
+          },
+          "refinamientos": 2,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 5,
+            "buscar_en_web": 6,
+            "validar_viaje": 2
+          },
+          "busquedas_web": 6,
+          "fuentes_memoria": 0,
+          "fuentes_web": 0,
+          "observaciones": [
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "Se pidieron precios de alojamiento pero los resultados encontrados no traen ningún precio.",
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+          ],
+          "validacion": "aprobada",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Buenos",
+          "destino": "Mendoza",
+          "fecha_ida": "2027-03-10",
+          "fecha_vuelta": "2027-03-13",
+          "dias": 4,
+          "personas": 2,
+          "presupuesto": 900000.0,
+          "moneda": "ARS",
+          "supuestos": [
+            "marzo sin día exacto: se asume del 10/03/2027 al 13/03/2027"
+          ]
+        },
+        "traza": null
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 32.19,
+      "tiempo_ejecucion_s": 26.22,
+      "total_tokens": 0,
+      "costo_usd": 0.0,
+      "tokens": {},
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 33.21
+    },
+    {
+      "job_id": "3cedf77bc5fc444689ae91e6a3b8bba3",
+      "estado": "DONE",
+      "pregunta": "¿Qué clima hace en Ushuaia en agosto y qué actividades de nieve hay?",
+      "auto_aprobar": false,
+      "modo": "mock",
+      "thread_id": "3cedf77bc5fc444689ae91e6a3b8bba3",
+      "creado": "2026-11-18T14:38:00.825-03:00",
+      "iniciado": "2026-11-18T14:38:01.888-03:00",
+      "actualizado": "2026-11-18T14:38:21.529-03:00",
+      "terminado": "2026-11-18T14:38:21.529-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "clima",
+            "actividades"
+          ],
+          "timestamp": "2026-11-18T14:38:08.415-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Lo que encontramos\n- No encontramos datos.\n\n## Lo que no pudimos averiguar\n- clima: sin resultados\n- actividades: sin resultados\n\n## Fuentes\n- No se usaron fuentes externas.",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "clima",
+              "actividades"
+            ],
+            "temas_en_memoria": [],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:38:11.373-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → sintesis",
+          "pasos_supervisor": 2,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 1
+          },
+          "refinamientos": 0,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 2,
+            "buscar_en_web": 2
+          },
+          "busquedas_web": 2,
+          "fuentes_memoria": 0,
+          "fuentes_web": 0,
+          "observaciones": [
+            "Las búsquedas no devolvieron ninguna fuente utilizable."
+          ],
+          "validacion": "no se validó",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": null,
+          "destino": "Ushuaia",
+          "fecha_ida": "2027-08-10",
+          "fecha_vuelta": null,
+          "dias": null,
+          "personas": null,
+          "presupuesto": null,
+          "moneda": null,
+          "supuestos": [
+            "agosto sin día exacto: se asume del 10/08/2027"
+          ]
+        },
+        "traza": null
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 20.7,
+      "tiempo_ejecucion_s": 15.45,
+      "total_tokens": 0,
+      "costo_usd": 0.0,
+      "tokens": {},
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 21.36
+    },
+    {
+      "job_id": "f618a7e0df5445fbbb74ad7e8434327a",
+      "estado": "DONE",
+      "pregunta": "Quiero ir 6 días a Puerto Madryn en octubre, somos 2 personas, salimos desde Buenos Aires y tenemos 1.500 dólares. ¿Me armás el viaje y me decís si alcanza?",
+      "auto_aprobar": false,
+      "modo": "mock",
+      "thread_id": "f618a7e0df5445fbbb74ad7e8434327a",
+      "creado": "2026-11-18T14:38:00.823-03:00",
+      "iniciado": "2026-11-18T14:38:01.885-03:00",
+      "actualizado": "2026-11-18T14:38:32.528-03:00",
+      "terminado": "2026-11-18T14:38:32.528-03:00",
+      "nodo_actual": null,
+      "ruta": [
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "aprobacion_web",
+        "investigador",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "analista",
+        "supervisor",
+        "sintesis"
+      ],
+      "aprobacion_pendiente": null,
+      "aprobaciones": [
+        {
+          "ronda": 1,
+          "aprobado": true,
+          "comentario": "prueba de carga",
+          "temas": [
+            "pasajes",
+            "alojamiento",
+            "clima",
+            "actividades",
+            "cambio"
+          ],
+          "timestamp": "2026-11-18T14:38:07.738-03:00"
+        }
+      ],
+      "resultado": {
+        "respuesta_final": "## Lo que encontramos\n- No encontramos datos.\n\n## Lo que no pudimos averiguar\n- pasajes: sin resultados\n- alojamiento: sin resultados\n- clima: sin resultados\n- actividades: sin resultados\n- cambio: sin resultados\n- precios de: pasaje, alojamiento, comida\n\n## Fuentes\n- No se usaron fuentes externas.",
+        "estado_grafo": "completo",
+        "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+        "permiso_web": "aprobada",
+        "aprobaciones_hitl": [
+          {
+            "ronda": 1,
+            "temas_sin_memoria": [
+              "pasajes",
+              "alojamiento",
+              "clima",
+              "actividades",
+              "cambio"
+            ],
+            "temas_en_memoria": [],
+            "pausa": true,
+            "resultado": "aprobada",
+            "origen": "persona",
+            "comentario": "prueba de carga",
+            "timestamp": "2026-11-18T14:38:10.208-03:00"
+          },
+          {
+            "ronda": 2,
+            "temas_sin_memoria": [
+              "pasajes"
+            ],
+            "temas_en_memoria": [],
+            "pausa": false,
+            "resultado": "aprobada",
+            "origen": "decision_previa",
+            "comentario": "",
+            "timestamp": "2026-11-18T14:38:17.752-03:00"
+          }
+        ],
+        "metricas": {
+          "ruta": "supervisor → aprobacion_web → investigador → supervisor → aprobacion_web → investigador → supervisor → analista → supervisor → analista → supervisor → sintesis",
+          "pasos_supervisor": 5,
+          "decision_forzada_por_freno": false,
+          "delegaciones": {
+            "investigador": 2,
+            "analista": 2
+          },
+          "refinamientos": 2,
+          "llamadas_por_herramienta": {
+            "buscar_en_memoria": 5,
+            "buscar_en_web": 6,
+            "validar_viaje": 2
+          },
+          "busquedas_web": 6,
+          "fuentes_memoria": 0,
+          "fuentes_web": 0,
+          "observaciones": [
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "Se pidieron precios de alojamiento pero los resultados encontrados no traen ningún precio.",
+            "Las búsquedas no devolvieron ninguna fuente utilizable.",
+            "Se pidieron precios de pasajes pero los resultados encontrados no traen ningún precio.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito.",
+            "El viaje es válido y hay presupuesto, pero no se calculó el presupuesto con éxito."
+          ],
+          "validacion": "aprobada",
+          "presupuesto_entra": null,
+          "alternativa_calculada": false
+        },
+        "pedido": {
+          "origen": "Buenos",
+          "destino": "Puerto",
+          "fecha_ida": "2027-10-10",
+          "fecha_vuelta": "2027-10-15",
+          "dias": 6,
+          "personas": 2,
+          "presupuesto": 1500.0,
+          "moneda": "USD",
+          "supuestos": [
+            "octubre sin día exacto: se asume del 10/10/2027 al 15/10/2027"
+          ]
+        },
+        "traza": null
+      },
+      "error": null,
+      "tramos": 2,
+      "duracion_s": 31.7,
+      "tiempo_ejecucion_s": 26.26,
+      "total_tokens": 0,
+      "costo_usd": 0.0,
+      "tokens": {},
+      "_aprobadas_por_script": 1,
+      "_latencia_cliente_s": 32.82
+    }
+  ]
+}
